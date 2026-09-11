@@ -24,7 +24,7 @@ const ROUTES = {
   '/partners': {
     title: 'AI Specialised Partners · Shift AI Tech',
     description:
-      'Shift partners with specialist AI technology providers. Including RAMDVG, a tokenisation asset exchange platform with cryptographically linked data cores.',
+      'Shift partners with specialist AI technology providers including RAMDVG, and builds on Amazon Web Services as an AWS Activate startup.',
   },
   '/team': {
     title: 'Team · Shift AI Tech',

@@ -113,6 +113,39 @@ export default function PartnersPage() {
         </Container>
       </section>
 
+      <section className="section partners-platform-section" aria-labelledby="partners-platform-heading">
+        <Container>
+          <Reveal>
+            <p className="partners-platform-kicker">Infrastructure</p>
+            <h2 id="partners-platform-heading" className="partners-platform-heading">
+              Building on Amazon Web Services.
+            </h2>
+          </Reveal>
+          <Reveal className="partners-platform-row" delay={0.08}>
+            <div className="partners-platform-mark" aria-hidden="true">
+              <img src="/partners/aws.svg" alt="" width="120" height="72" />
+            </div>
+            <div className="partners-platform-copy">
+              <p className="partners-platform-label">AWS Activate</p>
+              <p className="partners-platform-text">
+                Selected for AWS Activate. Production AI workloads on Amazon Web
+                Services across Europe, with credits backing the next stage of
+                build.
+              </p>
+              <a
+                href="https://aws.amazon.com/startups/credits"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="partners-showcase-link"
+                data-cursor="VIEW"
+              >
+                AWS for Startups <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       <section className="section partners-cta-section">
         <Container>
           <Reveal className="partners-cta">
