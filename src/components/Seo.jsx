@@ -22,9 +22,9 @@ const ROUTES = {
       'How Shift AI Tech funded Bitcoin prediction models, then cut the same rebuild by 82% with AI tooling. UK AI product studio.',
   },
   '/partners': {
-    title: 'AI Specialised Partners · Shift AI Tech',
+    title: 'Specialist & Infrastructure Partners · Shift AI Tech',
     description:
-      'Shift partners with specialist AI technology providers including RAMDVG, and builds on Amazon Web Services as an AWS Activate startup.',
+      'Shift works with specialist AI partners including RAMDVG, and infrastructure partners including Amazon Web Services (AWS Activate).',
   },
   '/team': {
     title: 'Team · Shift AI Tech',

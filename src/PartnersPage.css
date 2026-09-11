@@ -78,14 +78,41 @@
   color: var(--text-secondary);
 }
 
-.partners-intro-lead {
-  color: var(--text-primary) !important;
+.partners-section-head {
+  max-width: 36rem;
+  margin-bottom: 3rem;
+}
+
+.partners-section-kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+}
+
+.partners-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.partners-section-sub {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 32rem;
 }
 
 /* Showcase layout mirrors homepage case studies, slightly lighter */
 .partners-work {
-  padding-top: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
 }
 
 .partners-showcase {
@@ -253,49 +280,34 @@
   }
 }
 
-/* Quiet AWS / platform credibility — not a peer showcase card */
-.partners-platform-section {
-  padding-top: 0.5rem;
-  padding-bottom: 2rem;
+/* Infrastructure partners — quieter mark + copy, not media showcase */
+.partners-infra-section {
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
   border-top: 1px solid var(--border);
-  margin-top: 1rem;
 }
 
-.partners-platform-kicker {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  margin-bottom: 0.65rem;
+.partners-infra-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 42rem;
 }
 
-.partners-platform-heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.8vw, 2rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-  max-width: 28rem;
-}
-
-.partners-platform-row {
+.partners-infra-item {
   display: grid;
-  grid-template-columns: minmax(7rem, 9rem) 1fr;
+  grid-template-columns: minmax(7.5rem, 10rem) 1fr;
   gap: 2rem;
   align-items: center;
-  max-width: 40rem;
 }
 
-.partners-platform-mark {
+.partners-infra-mark {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.partners-platform-mark img {
+.partners-infra-mark img {
   width: 100%;
   max-width: 9.5rem;
   height: auto;
@@ -303,16 +315,26 @@
   opacity: 0.95;
 }
 
-.partners-platform-label {
+.partners-infra-label {
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--purple-light);
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.4rem;
 }
 
-.partners-platform-text {
+.partners-infra-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.65rem;
+}
+
+.partners-infra-text {
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -321,13 +343,13 @@
 }
 
 @media (max-width: 640px) {
-  .partners-platform-row {
+  .partners-infra-item {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
-  .partners-platform-mark img {
-    max-width: 6.25rem;
+  .partners-infra-mark img {
+    max-width: 6.5rem;
   }
 }
 

@@ -4,7 +4,7 @@ import { Reveal, MediaReveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import './PartnersPage.css'
 
-const partners = [
+const specialistPartners = [
   {
     id: 'ramdvg',
     name: 'RAMDVG',
@@ -22,6 +22,19 @@ const partners = [
   },
 ]
 
+const infrastructurePartners = [
+  {
+    id: 'aws',
+    name: 'Amazon Web Services',
+    label: 'AWS Activate',
+    logo: '/partners/aws.svg',
+    short:
+      'Selected for AWS Activate. Production AI workloads on Amazon Web Services across Europe, with credits backing the next stage of build.',
+    href: 'https://aws.amazon.com/startups/credits',
+    hrefLabel: 'AWS for Startups',
+  },
+]
+
 export default function PartnersPage() {
   return (
     <div className="page partners-page">
@@ -34,13 +47,12 @@ export default function PartnersPage() {
             <Reveal>
               <p className="hero-kicker">Partners</p>
               <h1 className="partners-hero-title">
-                AI specialised partners.
+                Specialists and infrastructure.
               </h1>
               <p className="partners-hero-sub">
-                Today, AI extends across all business sectors and industries.
-                From large to small, every business is looking for a competitive
-                edge. AI executed correctly can offer some amazing commercial
-                benefits.
+                AI that ships commercially needs both. Sector specialists who
+                know the domain, and cloud infrastructure strong enough to run
+                production workloads.
               </p>
             </Reveal>
           </div>
@@ -55,22 +67,35 @@ export default function PartnersPage() {
               revenues and save costs.
             </p>
             <p>
-              Which is why we partner with key specialist AI technology
-              providers. Firms that have proven experience, credibility and
-              above all a passion to provide world class business services.
-            </p>
-            <p className="partners-intro-lead">
-              Enclosed are a sample of our specialist AI partners and the
-              sectors that they are experts in.
+              We work with specialist AI technology providers who bring proven
+              domain experience, and we build on infrastructure partners that
+              scale serious production systems.
             </p>
           </Reveal>
         </Container>
       </section>
 
-      <section className="section partners-work">
+      <section
+        className="section partners-work"
+        aria-labelledby="specialist-partners-heading"
+      >
         <Container>
+          <Reveal className="partners-section-head">
+            <p className="partners-section-kicker">01</p>
+            <h2
+              id="specialist-partners-heading"
+              className="partners-section-title"
+            >
+              Specialist partners
+            </h2>
+            <p className="partners-section-sub">
+              Sector experts we work alongside to take commercial AI into
+              production.
+            </p>
+          </Reveal>
+
           <div className="partners-showcase">
-            {partners.map((p, i) => (
+            {specialistPartners.map((p, i) => (
               <div
                 key={p.id}
                 className={`partners-showcase-item${i % 2 === 1 ? ' partners-showcase-item--flip' : ''}`}
@@ -95,7 +120,7 @@ export default function PartnersPage() {
                 <Reveal className="partners-showcase-content" delay={0.1}>
                   <span className="partners-showcase-sector">{p.sector}</span>
                   <p className="partners-showcase-role">{p.role}</p>
-                  <h2 className="partners-showcase-name">{p.name}</h2>
+                  <h3 className="partners-showcase-name">{p.name}</h3>
                   <p className="partners-showcase-short">{p.short}</p>
                   <a
                     href={p.href}
@@ -113,36 +138,47 @@ export default function PartnersPage() {
         </Container>
       </section>
 
-      <section className="section partners-platform-section" aria-labelledby="partners-platform-heading">
+      <section
+        className="section partners-infra-section"
+        aria-labelledby="infrastructure-partners-heading"
+      >
         <Container>
-          <Reveal>
-            <p className="partners-platform-kicker">Infrastructure</p>
-            <h2 id="partners-platform-heading" className="partners-platform-heading">
-              Building on Amazon Web Services.
+          <Reveal className="partners-section-head">
+            <p className="partners-section-kicker">02</p>
+            <h2
+              id="infrastructure-partners-heading"
+              className="partners-section-title"
+            >
+              Infrastructure partners
             </h2>
+            <p className="partners-section-sub">
+              Cloud platforms we build production AI on.
+            </p>
           </Reveal>
-          <Reveal className="partners-platform-row" delay={0.08}>
-            <div className="partners-platform-mark" aria-hidden="true">
-              <img src="/partners/aws.svg" alt="" width="120" height="72" />
-            </div>
-            <div className="partners-platform-copy">
-              <p className="partners-platform-label">AWS Activate</p>
-              <p className="partners-platform-text">
-                Selected for AWS Activate. Production AI workloads on Amazon Web
-                Services across Europe, with credits backing the next stage of
-                build.
-              </p>
-              <a
-                href="https://aws.amazon.com/startups/credits"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="partners-showcase-link"
-                data-cursor="VIEW"
-              >
-                AWS for Startups <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </Reveal>
+
+          <div className="partners-infra-list">
+            {infrastructurePartners.map((p) => (
+              <Reveal key={p.id} className="partners-infra-item" delay={0.08}>
+                <div className="partners-infra-mark" aria-hidden="true">
+                  <img src={p.logo} alt="" width="152" height="91" />
+                </div>
+                <div className="partners-infra-copy">
+                  <p className="partners-infra-label">{p.label}</p>
+                  <h3 className="partners-infra-name">{p.name}</h3>
+                  <p className="partners-infra-text">{p.short}</p>
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="partners-showcase-link"
+                    data-cursor="VIEW"
+                  >
+                    {p.hrefLabel} <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 
@@ -151,8 +187,8 @@ export default function PartnersPage() {
           <Reveal className="partners-cta">
             <h2 className="partners-cta-title">Want to partner with Shift?</h2>
             <p className="partners-cta-sub">
-              Specialist AI technology providers who want to take serious
-              commercial AI into production with us.
+              Specialist providers and infrastructure teams who want to take
+              serious commercial AI into production with us.
             </p>
             <Button href="mailto:partnerships@shiftaitech.com">
               Talk partnerships
