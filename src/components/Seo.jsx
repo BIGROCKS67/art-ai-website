@@ -4,11 +4,11 @@ import { useLocation } from 'react-router-dom'
 const SITE = 'https://shiftaitech.com'
 const BRAND = 'Shift AI Tech'
 const DEFAULT_DESC =
-  'Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and websites that get found and convert.'
+  'Shift AI Tech is a UK AI product company. We build, own, and operate AI products including BioSense, Braid, and Deep Space Learning, with NVIDIA-backed model training.'
 
 const ROUTES = {
   '/': {
-    title: 'Shift AI Tech · We Build AI That Works',
+    title: 'Shift AI Tech · AI Products We Own & Ship',
     description: DEFAULT_DESC,
   },
   '/websites': {
@@ -19,7 +19,7 @@ const ROUTES = {
   '/our-story': {
     title: 'Our Story · Shift AI Tech',
     description:
-      'How Shift AI Tech funded Bitcoin prediction models, then cut the same rebuild by 82% with AI tooling. UK AI product studio.',
+      'How Shift AI Tech funded Bitcoin prediction models, then cut the same rebuild by 82% with AI tooling. Now a UK AI product company.',
   },
   '/partners': {
     title: 'Specialist & Infrastructure Partners · Shift AI Tech',
@@ -28,15 +28,15 @@ const ROUTES = {
   },
   '/team': {
     title: 'Team · Shift AI Tech',
-    description: 'Meet the founder-led team behind Shift AI Tech, the UK AI product studio.',
+    description: 'Meet the founder-led team behind Shift AI Tech, the UK AI product company.',
   },
   '/blog': {
     title: 'Insights · Shift AI Tech',
-    description: 'AI product insights from Shift AI Tech: custom models, automation, and shipping AI that works.',
+    description: 'AI product insights from Shift AI Tech: models, training, and shipping products that work.',
   },
   '/onboarding': {
-    title: 'Start a Project · Shift AI Tech',
-    description: 'Onboard with Shift AI Tech to scope and ship custom AI, automation, or a new website.',
+    title: 'Partner with Shift AI Tech',
+    description: 'Talk products, partnerships, and how Shift AI Tech ships AI in market.',
   },
 }
 
@@ -51,7 +51,7 @@ const ORGANIZATION = {
   logo: `${SITE}/shift-logo-new.png`,
   email: 'partnerships@shiftaitech.com',
   description:
-    'Shift AI Tech (Shift AI Technology Ltd, company 17159725) is a UK AI studio that builds custom AI models, agents, RAG pipelines, automation, full product builds, and websites for British businesses. Not Shift Technology (insurance AI), not Shift AI at shiftai.co.uk (automotive), and not other unrelated Shift AI brands.',
+    'Shift AI Tech (Shift AI Technology Ltd, company 17159725) is a UK AI product company that builds, owns, and operates AI products including BioSense, Braid, and Deep Space Learning. Not Shift Technology (insurance AI), not Shift AI at shiftai.co.uk (automotive), and not other unrelated Shift AI brands.',
   foundingDate: '2024',
   identifier: {
     '@type': 'PropertyValue',
@@ -85,17 +85,18 @@ const ORGANIZATION = {
   ],
   knowsAbout: [
     'Artificial intelligence',
-    'Custom AI models',
-    'AI agents',
+    'AI product development',
+    'Model training',
+    'NVIDIA GPUs',
+    'Health intelligence',
+    'AML compliance AI',
+    'AI learning platforms',
     'RAG pipelines',
-    'Business automation',
-    'Product development',
-    'Website design and SEO',
-    'UK SME AI adoption',
+    'AI agents',
   ],
-  slogan: 'UK custom AI products: models, RAG and agents for British businesses.',
+  slogan: 'AI products we own, train, and ship.',
   disambiguatingDescription:
-    'Independent UK AI product studio at shiftaitech.com. Distinct from Shift Technology, shiftai.co.uk, and other Shift AI brands.',
+    'Independent UK AI product company at shiftaitech.com. Distinct from Shift Technology, shiftai.co.uk, and other Shift AI brands.',
 }
 
 const WEBSITE = {
@@ -109,56 +110,48 @@ const WEBSITE = {
   inLanguage: 'en-GB',
 }
 
-const PROFESSIONAL_SERVICE = {
+const PRODUCT_CATALOG = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': `${SITE}/#service`,
-  name: BRAND,
-  url: SITE,
-  image: `${SITE}/shift-logo-new.png`,
-  description: DEFAULT_DESC,
-  priceRange: '££',
-  areaServed: 'GB',
-  provider: { '@id': `${SITE}/#organization` },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Shift AI Tech services',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Custom AI',
-          description: 'Models, agents, and RAG pipelines trained on your data.',
-        },
+  '@type': 'ItemList',
+  '@id': `${SITE}/#products`,
+  name: 'Shift AI Tech products',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'BioSense',
+        url: 'https://bio-sense.ai/',
+        applicationCategory: 'HealthApplication',
+        description: 'Personal health intelligence from blood panels and wearables.',
+        provider: { '@id': `${SITE}/#organization` },
       },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Product builds',
-          description: 'Full-stack AI products from concept to live deployment.',
-        },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'Braid',
+        url: 'https://usebraid.ai/',
+        applicationCategory: 'BusinessApplication',
+        description: 'AI AML and risk assessment product for regulated firms.',
+        provider: { '@id': `${SITE}/#organization` },
       },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Automation',
-          description: 'Workflows that replace slow, manual work.',
-        },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'Deep Space Learning',
+        applicationCategory: 'EducationalApplication',
+        description: 'AI-avatar course platform for professional training.',
+        provider: { '@id': `${SITE}/#organization` },
       },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Website design and build',
-          description: 'Bespoke websites with SEO foundations, hosting included.',
-          url: `${SITE}/websites`,
-        },
-      },
-    ],
-  },
+    },
+  ],
 }
 
 const FAQ = {
@@ -171,7 +164,7 @@ const FAQ = {
       name: 'What does Shift AI Tech do?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and websites for businesses that need a commercial edge.',
+        text: 'Shift AI Tech is a UK AI product company. We build, own, and operate AI products including BioSense, Braid, and Deep Space Learning.',
       },
     },
     {
@@ -179,23 +172,23 @@ const FAQ = {
       name: 'Is Shift AI Tech the same as Shift Technology or other Shift AI companies?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. Shift AI Tech is an independent UK studio at shiftaitech.com. It is not Shift Technology (insurance AI) or Shift AI at shiftai.co.uk (automotive tools).',
+        text: 'No. Shift AI Tech is an independent UK product company at shiftaitech.com. It is not Shift Technology (insurance AI) or Shift AI at shiftai.co.uk (automotive tools).',
       },
     },
     {
       '@type': 'Question',
-      name: 'How fast can Shift AI Tech ship a prototype?',
+      name: 'What products does Shift AI Tech ship?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Typical engagements move from brief to a working prototype in weeks, with useful output from day one.',
+        text: 'BioSense for personal health intelligence, Braid for AML and risk assessments, and Deep Space Learning for AI-delivered professional training.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Does Shift AI Tech build websites as well as AI products?',
+      name: 'Does Shift AI Tech train its own models?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Shift AI Tech designs, builds, and hosts bespoke websites with SEO foundations. See https://shiftaitech.com/websites for the fixed-price package.',
+        text: 'Yes. Shift trains and runs models on NVIDIA DGX and cloud GPUs as part of shipping and scaling its product stack.',
       },
     },
     {
@@ -203,12 +196,12 @@ const FAQ = {
       name: 'Where is Shift AI Tech based?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Shift AI Tech is based in the United Kingdom and works with clients directly as a founder-led studio.',
+        text: 'Shift AI Tech is a founder-led AI product company based in the United Kingdom.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How do I start a project with Shift AI Tech?',
+      name: 'How do I partner with Shift AI Tech?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Email partnerships@shiftaitech.com or jack@shiftaitech.com, or start at https://shiftaitech.com/onboarding.',
@@ -255,7 +248,7 @@ export default function Seo() {
   useEffect(() => {
     const path = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname
     const page = ROUTES[path] || {
-      title: `${BRAND} · AI Studio UK`,
+      title: `${BRAND} · AI Product Company UK`,
       description: DEFAULT_DESC,
     }
     const url = `${SITE}${path === '/' ? '/' : path}`
@@ -291,7 +284,7 @@ export default function Seo() {
 
     upsertJsonLd('ld-organization', ORGANIZATION)
     upsertJsonLd('ld-website', WEBSITE)
-    upsertJsonLd('ld-service', PROFESSIONAL_SERVICE)
+    upsertJsonLd('ld-service', PRODUCT_CATALOG)
     upsertJsonLd('ld-faq', FAQ)
     upsertJsonLd('ld-webpage', webpage)
   }, [pathname])

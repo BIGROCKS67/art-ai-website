@@ -1,8 +1,8 @@
 export const keyMessages = [
-  'We build AI products and solutions for all businesses.',
-  'Manufacturing, accounting, risk, health & leisure, and learning & development are just some of the sectors in our portfolio of partners.',
-  'Using AI tools makes us faster, leaner, and more responsive than 80% of other technology firms.',
-  'Work with Shift AI Technology to save time, save money, and make more money.',
+  'Shift AI Tech builds, owns, and operates AI products.',
+  'Live products in health, compliance, and learning: BioSense, Braid, Deep Space Learning.',
+  'We train models on NVIDIA DGX and cloud GPUs to power our product stack.',
+  'A UK AI product company. Founder-led. Shipping in market.',
 ]
 
 export const caseStudyCategories = [
@@ -20,26 +20,27 @@ export const portfolio = [
     iconKey: 'Shield',
     sector: 'Compliance & Finance',
     category: 'CRM / AI generated KYC & AML Reporting',
-    partner: 'AML Intelligence Suite',
+    partner: 'Braid',
     short: 'AML reporting that cuts compliance from days to hours.',
     description:
-      'Automated Anti-Money Laundering reporting platform for accountancy firms. Monitors transaction data, flags suspicious patterns with ML, and generates regulator-ready KYC & AML reports, reducing compliance workload from days to hours.',
+      'Owned Anti-Money Laundering and risk assessment product for regulated firms. Monitors entities and transactions, flags risk with AI, and generates regulator-ready reports.',
     tags: ['AML Reporting', 'KYC Automation', 'Financial Crime Detection'],
     quote:
       'What used to take our compliance team three days now takes under two hours. The accuracy and audit trail are exceptional.',
     reference: 'Compliance Director, Mid-Sized Accountancy Practice',
     images: ['/case-studies/braid-aml.jpg'],
     featured: true,
+    link: { href: 'https://usebraid.ai/', label: 'usebraid.ai' },
   },
   {
     id: 'lnd',
     iconKey: 'GraduationCap',
     sector: 'Learning & Development',
     category: 'AI Learning & Development Training Videos',
-    partner: 'AI Course Delivery Platform',
+    partner: 'Deep Space Learning',
     short: 'Training courses scripted, narrated, and delivered by AI.',
     description:
-      'End-to-end AI-powered content delivery for professional training providers. Courses scripted, narrated, and delivered by AI avatar instructors, scaling L&D without studio costs or scheduling constraints.',
+      'Owned AI course platform for professional training. Lessons scripted, narrated, and delivered by AI avatar instructors at product scale.',
     tags: ['AI Avatars', 'Course Delivery', 'Training Video Automation'],
     quote:
       'We went from concept to a fully accredited, AI-delivered course catalogue in eight weeks. The cost saving versus traditional production is significant.',
@@ -59,11 +60,11 @@ export const portfolio = [
     partner: 'BioSense',
     short: 'Personal health intelligence from blood panels and wearables.',
     description:
-      'Full-stack personalised health intelligence platform built by Shift AI Tech. Users upload blood results, connect wearables (Oura, Whoop, Garmin, Apple Health), and complete daily check-ins. Claude AI analyses biomarkers, detects patterns, and delivers tiered health insights with weekly reports.',
+      'Owned personalised health intelligence product. Users upload blood results, connect wearables, and get AI biomarker analysis with weekly reports.',
     tags: ['Claude AI', 'Wearable Integration', 'Biomarker Analysis', 'Next.js'],
     quote:
       'From interactive POC to production. Auth, blood-panel analysis, billing, and wearable sync in one continuous health intelligence product.',
-    reference: 'Shift AI Tech · Product build',
+    reference: 'Shift AI Tech · Live product',
     link: { href: 'https://bio-sense.ai/', label: 'bio-sense.ai' },
     images: ['/case-studies/biosense.jpg'],
     featured: true,
@@ -75,7 +76,7 @@ export const portfolio = [
     category: 'AI Supplier & Customer Screener',
     partner: 'Supplier & Customer Intelligence Engine',
     description:
-      'AI screening platform for onboarding suppliers and high-value customers. Ingests company filings, sanctions lists, adverse media, and transaction history, scoring risk in real time and flagging entities that need manual review before contracts are signed.',
+      'AI screening product for onboarding suppliers and high-value customers. Ingests filings, sanctions, adverse media, and transaction history for real-time risk scores.',
     tags: ['Supplier Screening', 'Customer Due Diligence', 'Risk Scoring'],
     quote:
       'Onboarding reviews that took analysts half a day now complete in minutes, with a full audit trail for every decision.',
@@ -88,7 +89,7 @@ export const portfolio = [
     category: 'Predictive Customer Success & Retention',
     partner: 'Churn Prediction & Retention Engine',
     description:
-      'Predictive ML platform that identifies at-risk subscribers up to 60 days before churn, triggers personalised retention workflows, and surfaces the usage signals correlated with cancellation.',
+      'Predictive ML product that identifies at-risk subscribers up to 60 days before churn and triggers retention workflows.',
     tags: ['Churn Prediction', 'Retention Automation', 'Predictive ML'],
     quote:
       'Churn rate dropped 23% in the first quarter after deployment. The early-warning signals have completely changed how our CS team prioritises.',
@@ -101,7 +102,7 @@ export const portfolio = [
     category: 'AI Nutrition & Lifestyle Planning',
     partner: 'Smart Kitchen & Nutrition Planner',
     description:
-      'AI-powered kitchen inventory tracker and meal planning system. Tracks pantry stock, designs macro-balanced meal plans aligned to fitness goals, and generates budget-optimised shopping lists.',
+      'AI kitchen inventory and meal planning product. Tracks pantry stock, designs macro-balanced plans, and generates shopping lists.',
     tags: ['Nutrition AI', 'Meal Planning', 'Fitness Optimisation'],
     quote:
       'Users report saving an average of £60 per month on groceries while hitting their nutrition targets more consistently than before.',
