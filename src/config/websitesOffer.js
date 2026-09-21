@@ -12,6 +12,15 @@ export const HOURLY_RATE = {
   usd: { amount: 65, label: '$65/hr', currency: 'USD' },
 }
 
+/** Fixed package = brochure / get-started sites */
+export const PACKAGE_LABEL = 'Brochure website + hosting'
+
+export const PACKAGE_NOTE =
+  'Fixed package pricing is for brochure websites that get a business up and running online. eCommerce and AI business modules are also an area of expertise and are available subject to a free consultation.'
+
+export const CONSULTATION_NOTE =
+  'eCommerce builds and AI business modules: free consultation. Scoped and priced after we understand the brief.'
+
 export const INCLUDED = [
   {
     title: 'Bespoke Design',
@@ -41,17 +50,18 @@ export const INCLUDED = [
 
 export const EXTRAS = [
   {
+    title: 'eCommerce & AI modules',
+    desc: 'Stores, CRM/API links, and AI business modules. Free consultation first, then scoped pricing.',
+    badge: 'Free consult',
+  },
+  {
     title: 'Extra development',
     desc: 'Changes, new pages, and custom features billed hourly.',
     priceKey: 'hourly',
   },
-  {
-    title: 'E-Commerce CRM & API links',
-    desc: 'Connect your store to CRM, payments, and stock systems.',
-    badge: 'Extra',
-  },
 ]
 
+/** Featured six — keep these as the primary showcase */
 export const CASE_STUDIES = [
   {
     name: 'The Red Cow',
@@ -71,7 +81,7 @@ export const CASE_STUDIES = [
   {
     name: 'Shift AI Tech',
     url: 'https://shiftaitech.com',
-    sector: 'AI Studio',
+    sector: 'AI Products',
   },
   {
     name: 'Ready4Refurb',
@@ -83,6 +93,39 @@ export const CASE_STUDIES = [
     url: 'https://www.mixarestaurant.com',
     sector: 'Hospitality',
   },
+]
+
+/**
+ * Full completed / shipped list for sales confidence.
+ * Featured six appear again here so the bottom list reads as a full portfolio.
+ */
+export const COMPLETED_SITES = [
+  { name: 'The Red Cow', url: 'https://theredcowchesterton.co.uk', sector: 'Hospitality' },
+  { name: 'Mixa Restaurant', url: 'https://www.mixarestaurant.com', sector: 'Hospitality' },
+  { name: 'The Greyhound Inn', url: 'https://www.thegreyhoundinnbrackley.co.uk', sector: 'Hospitality' },
+  { name: 'Wilf’s Kitchen', url: 'https://wilfs-kitchen.vercel.app', sector: 'Food & drink' },
+  { name: 'Ready4Refurb', url: 'https://ready4refurb.com', sector: 'Property' },
+  { name: 'A&D Roofing & Construction', url: 'https://aanddroofingsolutions.com', sector: 'Trades' },
+  { name: 'LJ Brown UK', url: 'https://ljbrownukltd.co.uk', sector: 'Groundworks' },
+  { name: 'LJ Plumbing & Heating', url: 'https://lj-plumbing-pi.vercel.app', sector: 'Trades' },
+  { name: 'SMH Gas', url: 'https://smh-gas.vercel.app', sector: 'Trades' },
+  { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
+  { name: 'AP Creative', url: 'https://ap-creative.vercel.app', sector: 'Creative' },
+  { name: 'Eagle AI Labs', url: 'https://www.eagleailabs.com', sector: 'Technology' },
+  { name: 'Scalpx Capital', url: 'https://www.scalpxcapital.com', sector: 'Finance' },
+  { name: 'SCALR', url: 'https://www.scalr.solutions', sector: 'Technology' },
+  { name: 'NexDesk', url: 'https://nexdesk.app', sector: 'Technology' },
+  { name: 'Shift AI Tech', url: 'https://shiftaitech.com', sector: 'AI Products' },
+  { name: 'BioSense', url: 'https://bio-sense.ai', sector: 'Health' },
+  { name: 'Braid', url: 'https://usebraid.ai', sector: 'Compliance' },
+  { name: 'FibreCRM CRA', url: 'https://cra.fibrecrm.ai', sector: 'Compliance' },
+  { name: 'AML Intelligence', url: 'https://aml.shiftaitech.com', sector: 'Compliance' },
+  { name: 'Pitch Predict', url: 'https://pitchpredict.ai', sector: 'Sports AI' },
+  { name: 'Zeus AI', url: 'https://zeusai.co.uk', sector: 'AI Products' },
+  { name: 'HyperFlowX', url: 'https://hyperflowx.com', sector: 'Trading' },
+  { name: 'FlowX Trade', url: 'https://flowx.trade', sector: 'Trading' },
+  { name: 'AlgoX', url: 'https://algox.ai', sector: 'Trading' },
+  { name: 'Ground Six', url: 'https://groundsix.vercel.app', sector: 'Technology' },
 ]
 
 /** Sales partners and their referral codes. Add new partners here. */

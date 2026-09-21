@@ -12,10 +12,14 @@ import { Reveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import {
   CASE_STUDIES,
+  COMPLETED_SITES,
+  CONSULTATION_NOTE,
   CONTACT_EMAIL,
   EXTRAS,
   HOURLY_RATE,
   INCLUDED,
+  PACKAGE_LABEL,
+  PACKAGE_NOTE,
   PACKAGE_PRICE,
   SITE_URL,
 } from './config/websitesOffer'
@@ -73,7 +77,7 @@ export default function WebsitesPage() {
             </Reveal>
 
             <Reveal className="websites-price-panel" delay={0.08}>
-              <p className="websites-price-label">Website + hosting</p>
+              <p className="websites-price-label">{PACKAGE_LABEL}</p>
               <p className="websites-price-figures">
                 <span>{PACKAGE_PRICE.gbp.label}</span>
                 <span className="websites-price-sep">·</span>
@@ -82,7 +86,7 @@ export default function WebsitesPage() {
                 <span>{PACKAGE_PRICE.usd.label}</span>
               </p>
               <p className="websites-price-note">
-                Fixed package. Extra work at {HOURLY_RATE.gbp.label}.
+                Brochure sites to get a business live. Extra work at {HOURLY_RATE.gbp.label}.
               </p>
             </Reveal>
           </div>
@@ -113,12 +117,13 @@ export default function WebsitesPage() {
         <Container>
           <Reveal>
             <SectionLabel>Pricing</SectionLabel>
-            <h2 className="ui-section-heading">One package. Three currencies.</h2>
+            <h2 className="ui-section-heading">Brochure package. Three currencies.</h2>
+            <p className="section-intro">{PACKAGE_NOTE}</p>
           </Reveal>
           <div className="websites-price-rows">
             <Reveal className="websites-price-row">
               <div>
-                <strong>Website build + hosting</strong>
+                <strong>{PACKAGE_LABEL}</strong>
                 <span>Design, build, launch, and host</span>
               </div>
               <div className="websites-price-cells">
@@ -139,11 +144,18 @@ export default function WebsitesPage() {
               </div>
             </Reveal>
           </div>
+          <Reveal className="websites-consult-note">
+            <strong>Beyond brochure</strong>
+            <p>{CONSULTATION_NOTE}</p>
+          </Reveal>
           {EXTRAS.length > 0 && (
             <div className="websites-extras-list">
               {EXTRAS.map((item) => (
                 <Reveal key={item.title} className="websites-extra-line">
-                  <strong>{item.title}</strong>
+                  <strong>
+                    {item.title}
+                    {item.badge ? ` · ${item.badge}` : ''}
+                  </strong>
                   <span>{item.desc}</span>
                 </Reveal>
               ))}
@@ -156,7 +168,10 @@ export default function WebsitesPage() {
         <Container>
           <Reveal>
             <SectionLabel>Work</SectionLabel>
-            <h2 className="ui-section-heading">Sites we&apos;ve shipped.</h2>
+            <h2 className="ui-section-heading">Featured sites.</h2>
+            <p className="section-intro">
+              A sample of recent launches. Full completed list below.
+            </p>
           </Reveal>
           <div className="websites-cases">
             {CASE_STUDIES.map((site, i) => (
@@ -177,6 +192,36 @@ export default function WebsitesPage() {
                   <ExternalLink size={16} />
                 </a>
               </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section section--surface">
+        <Container>
+          <Reveal>
+            <SectionLabel>Portfolio</SectionLabel>
+            <h2 className="ui-section-heading">All sites completed.</h2>
+            <p className="section-intro">
+              {COMPLETED_SITES.length} shipped builds across hospitality, trades,
+              property, finance, charity, compliance, and AI products.
+            </p>
+          </Reveal>
+          <div className="websites-completed">
+            {COMPLETED_SITES.map((site) => (
+              <a
+                key={`${site.name}-${site.url}`}
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="websites-completed-item"
+              >
+                <span className="websites-completed-sector">{site.sector}</span>
+                <span className="websites-completed-name">{site.name}</span>
+                <span className="websites-completed-url">
+                  {site.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                </span>
+              </a>
             ))}
           </div>
         </Container>
@@ -233,7 +278,8 @@ export default function WebsitesPage() {
           <Reveal>
             <h2 className="ui-section-heading">Ready for your site?</h2>
             <p className="section-intro">
-              Fixed package from {PACKAGE_PRICE.gbp.label}. We usually reply within a day.
+              Brochure package from {PACKAGE_PRICE.gbp.label}. eCommerce and AI
+              modules via free consultation. We usually reply within a day.
             </p>
           </Reveal>
           <div className="contact-grid">
