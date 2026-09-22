@@ -33,6 +33,16 @@ const infrastructurePartners = [
     href: 'https://aws.amazon.com/startups/credits',
     hrefLabel: 'AWS for Startups',
   },
+  {
+    id: 'nvidia',
+    name: 'NVIDIA',
+    label: 'NVIDIA Inception',
+    logo: '/partners/nvidia.svg',
+    short:
+      'Accepted into the NVIDIA Inception program. Access to NVIDIA tooling, training, and preferential rates as we train and ship AI products on GPU infrastructure.',
+    href: 'https://www.nvidia.com/en-us/startups/',
+    hrefLabel: 'NVIDIA Inception',
+  },
 ]
 
 export default function PartnersPage() {
@@ -152,7 +162,7 @@ export default function PartnersPage() {
               Infrastructure partners
             </h2>
             <p className="partners-section-sub">
-              Cloud platforms we build production AI on.
+              Cloud and compute programmes we build production AI on.
             </p>
           </Reveal>
 

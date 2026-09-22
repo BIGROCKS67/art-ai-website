@@ -45,10 +45,13 @@ Tone: facts only.
 
 ## 5. Accelerators / incubators / VC–angel affiliations
 
-- **AWS Activate** (startup credits / AWS for Startups). No equity accelerator or VC affiliation.
+- **AWS Activate** (startup credits / AWS for Startups).
+- **NVIDIA Inception** (accepted 21 Sep 2026). Startup programme benefits — **not** NVIDIA Partner Network / reseller partner status.
+- No equity accelerator or VC affiliation.
 
 ## 6. NVIDIA / GPU
 
+- **Accepted into NVIDIA Inception** (email confirmation 21 Sep 2026 to Jack for Shift AI Technology LTD).
 - **Own NVIDIA DGX Spark** already (GB10 Grace Blackwell class, documented locally as `spark-*`).
 - Intended use: **training AI models**; looking to expand NVIDIA usage.
 - Documented DGX workloads today (local ops folder): PyTorch / transformers; FLUX.1 image + LoRA; ChromaDB + sentence-transformers RAG for trading/quant tooling; bot/trading stacks. Deep Space video path is **not** DGX-dependent (HeyGen SaaS + Remotion CPU).
