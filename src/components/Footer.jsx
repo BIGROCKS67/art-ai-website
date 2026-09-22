@@ -15,7 +15,7 @@ export default function Footer() {
               />
             </Link>
             <p className="footer-tagline">
-              Shift AI Tech. AI products we own, train, and ship.
+              Shift AI Tech. AI products that ship, for businesses that need an edge.
             </p>
           </div>
 
@@ -28,17 +28,17 @@ export default function Footer() {
           </div>
 
           <div className="footer-nav-group">
-            <p className="footer-nav-label">Products</p>
-            <a href="/#projects" className="footer-nav-link">BioSense</a>
-            <a href="/#projects" className="footer-nav-link">Braid</a>
-            <a href="/#projects" className="footer-nav-link">Deep Space Learning</a>
-            <a href="/#solutions" className="footer-nav-link">Platform</a>
+            <p className="footer-nav-label">Services</p>
+            <a href="/#solutions" className="footer-nav-link">Custom AI</a>
+            <a href="/#solutions" className="footer-nav-link">Product builds</a>
+            <a href="/#solutions" className="footer-nav-link">Automation</a>
+            <a href="/#solutions" className="footer-nav-link">Strategy</a>
           </div>
 
           <div className="footer-nav-group">
             <p className="footer-nav-label">Get Started</p>
             <a href="/#contact" className="footer-nav-link footer-nav-link--cta">
-              Partner with us <ArrowRight size={14} />
+              Start a Partnership <ArrowRight size={14} />
             </a>
             <a href="mailto:partnerships@shiftaitech.com" className="footer-nav-link">
               partnerships@shiftaitech.com

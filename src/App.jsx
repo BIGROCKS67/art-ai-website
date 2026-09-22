@@ -17,73 +17,73 @@ const featuredProjects = portfolioData.filter((p) => p.featured)
 const pillars = [
   {
     number: '01',
-    title: 'Own the product',
-    desc: 'We ship AI products we own, not slide decks for hire.',
+    title: 'Clear decisions',
+    desc: 'We help you pick the right AI, not a pile of tools.',
   },
   {
     number: '02',
-    title: 'Train and run',
-    desc: 'Models, agents, and infrastructure built for production load.',
+    title: 'Sharp products',
+    desc: 'Systems that look considered and actually ship.',
   },
   {
     number: '03',
-    title: 'Commercial proof',
-    desc: 'Live products in health, compliance, and learning.',
+    title: 'Commercial pace',
+    desc: 'Built to grow. Paid for, not just launched.',
   },
 ]
 
-const stack = [
+const services = [
   {
     number: '01',
-    title: 'Health intelligence',
-    description: 'BioSense. Blood, wearables, and AI reports in one product.',
+    title: 'Custom AI',
+    description: 'Models, agents, and RAG pipelines trained on your data.',
   },
   {
     number: '02',
-    title: 'Compliance AI',
-    description: 'Braid. AML and risk assessments for regulated firms.',
+    title: 'Product builds',
+    description: 'Full-stack products from concept to live deployment.',
   },
   {
     number: '03',
-    title: 'Learning platforms',
-    description: 'Deep Space. AI-avatar courses that scale without a studio.',
+    title: 'Automation',
+    description: 'Workflows that replace slow, manual work.',
   },
   {
     number: '04',
-    title: 'Model training',
-    description: 'On NVIDIA DGX and cloud GPUs. Training our product stack.',
+    title: 'Strategy',
+    description: 'Where AI pays off. Scoped, priced, and clear before you commit.',
   },
 ]
 
 const processSteps = [
-  { n: '01', title: 'Problem', desc: 'A real commercial gap worth a product.' },
-  { n: '02', title: 'Architecture', desc: 'Models, data, and infra designed to scale.' },
-  { n: '03', title: 'Build', desc: 'Ship the product. No bloat, no theatre.' },
-  { n: '04', title: 'Operate', desc: 'Live users, live models, continuous training.' },
+  { n: '01', title: 'Brief', desc: 'Goals, constraints, and where AI actually fits.' },
+  { n: '02', title: 'Design', desc: 'Architecture, scope, and cost, agreed upfront.' },
+  { n: '03', title: 'Build', desc: 'Fast delivery. No bloat, no waste.' },
+  { n: '04', title: 'Ship', desc: 'Live, monitored, and ready to iterate.' },
 ]
 
 const stats = [
-  { value: '3+', label: 'Live AI products in market.' },
-  { value: 'DGX', label: 'On-prem NVIDIA for model training.' },
-  { value: 'UK', label: 'Founder-led product company.' },
+  { value: 'Weeks', label: 'Brief to working prototype.' },
+  { value: 'Day 1', label: 'Useful output from the start.' },
+  { value: 'UK', label: 'Founder-led. Direct access.' },
 ]
 
 const faqs = [
   {
     q: 'What does Shift AI Tech do?',
-    a: 'Shift AI Tech is a UK AI product company. We build, own, and operate AI products including BioSense, Braid, and Deep Space Learning.',
+    a: 'Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and websites for businesses that need a commercial edge.',
   },
   {
     q: 'Are you the same as Shift Technology or other Shift AI brands?',
-    a: 'No. We are Shift AI Tech at shiftaitech.com, an independent UK product company. Not Shift Technology (insurance AI) and not Shift AI at shiftai.co.uk.',
+    a: 'No. We are Shift AI Tech at shiftaitech.com, an independent UK studio. Not Shift Technology (insurance AI) and not Shift AI at shiftai.co.uk.',
   },
   {
-    q: 'What products do you ship?',
-    a: 'BioSense for personal health intelligence, Braid for AML and risk assessments, and Deep Space Learning for AI-delivered professional training.',
+    q: 'How fast can you ship?',
+    a: 'From brief to a working prototype in weeks, with useful output from day one.',
   },
   {
-    q: 'Do you train your own models?',
-    a: 'Yes. We train and run models on NVIDIA DGX and cloud GPUs as part of shipping and scaling our product stack.',
+    q: 'Do you build websites as well as AI?',
+    a: 'Yes. Bespoke design, build, host, and SEO foundations. Fixed-price packages on our Websites page.',
   },
 ]
 
@@ -97,18 +97,18 @@ function App() {
         </div>
         <Container>
           <div className="hero-inner">
-            <p className="hero-kicker">Shift AI Tech · AI products · United Kingdom</p>
+            <p className="hero-kicker">Shift AI Tech · AI studio · United Kingdom</p>
             <h1 className="hero-title">
-              AI products we own, train, and ship.
+              We build AI products that give businesses their edge.
             </h1>
             <Reveal className="hero-sub" delay={0.12}>
-              BioSense, Braid, and Deep Space Learning. Live products on real
-              infrastructure, including NVIDIA for model training.
+              Shift AI Tech builds custom models, automation, and full product builds.
+              From brief to live in weeks.
             </Reveal>
             <Reveal className="hero-actions" delay={0.2}>
-              <Button href="#projects">See our products</Button>
-              <a href="#contact" className="hero-story-link" data-cursor="WORK">
-                Partner with us <ArrowRight size={15} />
+              <Button href="#contact">Start a project</Button>
+              <a href="#projects" className="hero-story-link" data-cursor="WORK">
+                See the work <ArrowRight size={15} />
               </a>
             </Reveal>
           </div>
@@ -122,7 +122,7 @@ function App() {
         <Container>
           <Reveal>
             <p className="approach-statement">
-              A product company. We build AI that users run every day.
+              Shaping how businesses use AI. Seen, trusted, and paid for.
             </p>
           </Reveal>
           <div className="approach-grid">
@@ -140,11 +140,11 @@ function App() {
       <section id="solutions" className="section section--capability">
         <Container>
           <Reveal className="capability-header-copy">
-            <DisplayTitle>Platform</DisplayTitle>
-            <SectionHeading>What we ship.</SectionHeading>
+            <DisplayTitle>Capability</DisplayTitle>
+            <SectionHeading>What we build.</SectionHeading>
           </Reveal>
           <div className="service-rows">
-            {stack.map((s, i) => (
+            {services.map((s, i) => (
               <Reveal key={s.title} className="service-row" delay={i * 0.05} data-cursor="BUILD">
                 <span className="service-row-num">{s.number}</span>
                 <div className="service-row-body">
@@ -160,10 +160,10 @@ function App() {
       <section id="projects" className="section section--dark">
         <Container>
           <Reveal>
-            <DisplayTitle>Products</DisplayTitle>
-            <SectionHeading>In market now.</SectionHeading>
+            <DisplayTitle>Work</DisplayTitle>
+            <SectionHeading>Selected projects.</SectionHeading>
             <p className="section-intro">
-              Owned AI products across health, compliance, and learning.
+              Real products across compliance, health, training, and finance.
             </p>
           </Reveal>
 
@@ -220,7 +220,7 @@ function App() {
         <Container>
           <Reveal>
             <DisplayTitle>Method</DisplayTitle>
-            <SectionHeading>From problem to product.</SectionHeading>
+            <SectionHeading>From idea to live.</SectionHeading>
           </Reveal>
           <div className="process-grid">
             {processSteps.map((p, i) => (
@@ -240,7 +240,7 @@ function App() {
             <DisplayTitle>FAQ</DisplayTitle>
             <SectionHeading>Straight answers.</SectionHeading>
             <p className="section-intro">
-              Clear answers about who we are and what we ship.
+              Clear answers about who we are and what we build.
             </p>
           </Reveal>
           <div className="faq-list">
@@ -265,7 +265,7 @@ function App() {
         </div>
         <Container>
           <Reveal>
-            <SectionHeading>Talk products and partnerships.</SectionHeading>
+            <SectionHeading>Tell us what you need.</SectionHeading>
             <p className="section-intro">We usually reply within a day.</p>
           </Reveal>
           <div className="contact-grid">

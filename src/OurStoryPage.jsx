@@ -23,8 +23,8 @@ const beats = [
   },
   {
     n: '04',
-    title: 'The company',
-    body: 'That is the shift. A product company that owns, trains, and ships serious AI. BioSense, Braid, Deep Space Learning, and more in market.',
+    title: 'The studio',
+    body: 'That is the shift. Serious AI products, built faster and leaner. We lived it before the industry wrote the white papers. Now we build that way for clients.',
   },
 ]
 
@@ -141,9 +141,9 @@ export default function OurStoryPage() {
           <Reveal className="story-close">
             <h2 className="story-close-title">We didn&apos;t read this shift. We lived it.</h2>
             <p>
-              Real capital. Real model training. Real products in market.
+              Real capital. Real deployment. That experience is how we build for clients now.
             </p>
-            <Button href="/#projects">See our products</Button>
+            <Button href="/#contact">Start a project</Button>
           </Reveal>
         </Container>
       </section>

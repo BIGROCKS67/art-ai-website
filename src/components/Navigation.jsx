@@ -25,9 +25,10 @@ export default function Navigation() {
   }, [location])
 
   const navLinks = [
-    { label: 'Products', href: '/#projects', type: 'hash' },
-    { label: 'Platform', href: '/#solutions', type: 'hash' },
-    { label: 'Method', href: '/#work-with-us', type: 'hash' },
+    { label: 'Work', href: '/#projects', type: 'hash' },
+    { label: 'Services', href: '/#solutions', type: 'hash' },
+    { label: 'Process', href: '/#work-with-us', type: 'hash' },
+    { label: 'Websites', href: '/websites', type: 'route' },
     { label: 'Partners', href: '/partners', type: 'route' },
     { label: 'Story', href: '/our-story', type: 'route' },
   ]
@@ -84,7 +85,7 @@ export default function Navigation() {
         <div className="nav-right">
           <Magnetic>
             <a href={isHome ? '#contact' : '/#contact'} className="nav-cta" data-cursor="GO">
-              <span>Partner with us</span>
+              <span>Get in Touch</span>
               <ArrowRight size={15} />
             </a>
           </Magnetic>
@@ -102,7 +103,7 @@ export default function Navigation() {
         <div className="nav-mobile">
           {navLinks.map(renderLink)}
           <a href={isHome ? '#contact' : '/#contact'} className="nav-mobile-cta">
-            Partner with us <ArrowRight size={15} />
+            Get in Touch <ArrowRight size={15} />
           </a>
         </div>
       )}
