@@ -221,14 +221,29 @@
     border-radius: 8px;
     padding: 2.4mm 2.8mm;
     background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+  }
+  .infra-item .logo {
+    height: 9mm;
+    display: flex;
+    align-items: center;
+  }
+  .infra-item .logo img {
+    height: 8mm;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
   }
   .infra-item .label {
     font-size: 7.5px; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--purple); margin-bottom: 0.8mm;
+    text-transform: uppercase; color: var(--purple); margin-bottom: 0;
   }
   .infra-item .name {
     font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: 12px; margin-bottom: 0.8mm;
+    font-size: 12px; margin-bottom: 0;
   }
   .infra-item .text {
     font-size: 9px; line-height: 1.4; color: var(--muted);
@@ -471,11 +486,13 @@
       <div class="sec">Infrastructure programmes</div>
       <div class="infra">
         <div class="infra-item">
+          <div class="logo"><img src="aws-print.png" alt="Amazon Web Services" /></div>
           <div class="label">AWS Activate</div>
           <div class="name">Amazon Web Services</div>
           <div class="text">Selected for AWS Activate. Production AI workloads on AWS across Europe.</div>
         </div>
         <div class="infra-item">
+          <div class="logo"><img src="nvidia-print.png" alt="NVIDIA" /></div>
           <div class="label">NVIDIA Inception</div>
           <div class="name">NVIDIA</div>
           <div class="text">Accepted into NVIDIA Inception. GPU tooling and preferential rates for model training.</div>
