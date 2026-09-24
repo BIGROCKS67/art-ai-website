@@ -30,6 +30,7 @@ export default function Navigation() {
     { label: 'Process', href: '/#work-with-us', type: 'hash' },
     { label: 'Websites', href: '/websites', type: 'route' },
     { label: 'Partners', href: '/partners', type: 'route' },
+    { label: 'Team', href: '/team', type: 'route' },
     { label: 'Story', href: '/our-story', type: 'route' },
   ]
 
