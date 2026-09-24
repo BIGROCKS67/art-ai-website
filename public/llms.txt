@@ -11,7 +11,7 @@ Disambiguation: not Shift Technology (insurance AI at shift-technology.com), not
 - [Home](https://shiftaitech.com/): Overview of Shift AI Tech: custom AI, product builds, automation, strategy
 - [Websites](https://shiftaitech.com/websites/): Fixed-price website design, build, host, and SEO foundations
 - [Our Story](https://shiftaitech.com/our-story/): How we funded neural models for Bitcoin prediction and cut rebuild cost 82% with AI tooling
-- [Partners](https://shiftaitech.com/partners/): Specialist partners (RAMDVG) and infrastructure programmes (AWS Activate, NVIDIA Inception)
+- [Partners](https://shiftaitech.com/partners/): Specialist partners (RAMDVG, AP Creative Co) and infrastructure programmes (AWS Activate, NVIDIA Inception)
 - [Team](https://shiftaitech.com/team/): People behind Shift AI Tech
 - [Insights](https://shiftaitech.com/blog/): Articles and research notes
 - [Onboarding](https://shiftaitech.com/onboarding/): Start a project with Shift AI Tech

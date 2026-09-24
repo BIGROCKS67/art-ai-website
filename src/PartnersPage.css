@@ -164,6 +164,11 @@
   transition: transform 600ms var(--ease-out);
 }
 
+.partners-showcase-main--portrait img {
+  aspect-ratio: 4 / 5;
+  object-position: center top;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .partners-showcase-main:hover img {
     transform: scale(1.02);
@@ -224,6 +229,22 @@
   line-height: 1.55;
   color: var(--text-primary);
   max-width: 30rem;
+}
+
+.partners-showcase-body {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 34rem;
+  margin: 0;
+}
+
+.partners-showcase-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  margin-top: 0.35rem;
 }
 
 .partners-showcase-desc {

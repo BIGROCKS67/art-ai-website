@@ -110,7 +110,7 @@ export const COMPLETED_SITES = [
   { name: 'LJ Plumbing & Heating', url: 'https://lj-plumbing-pi.vercel.app', sector: 'Trades' },
   { name: 'SMH Gas', url: 'https://smh-gas.vercel.app', sector: 'Trades' },
   { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
-  { name: 'AP Creative', url: 'https://ap-creative.vercel.app', sector: 'Creative' },
+  { name: 'AP Creative Co', url: 'https://apcreativeco.co.uk', sector: 'Creative' },
   { name: 'Eagle AI Labs', url: 'https://www.eagleailabs.com', sector: 'Technology' },
   { name: 'Scalpx Capital', url: 'https://www.scalpxcapital.com', sector: 'Finance' },
   { name: 'SCALR', url: 'https://www.scalr.solutions', sector: 'Technology' },

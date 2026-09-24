@@ -20,6 +20,26 @@ const specialistPartners = [
     href: 'https://ramdvg.com/',
     hrefLabel: 'Visit ramdvg.com',
   },
+  {
+    id: 'ap-creative',
+    name: 'Anthony Parry',
+    studio: 'AP Creative Co',
+    role: 'Specialist partner — social, content, design, print, web, events',
+    sector: 'Creative',
+    short: 'Founder-led creative. You talk to Anthony.',
+    body: [
+      'AP Creative Co wasn’t created to add more marketing noise. I built it to give businesses practical, creative support that genuinely helps them get seen, from managing their social media and producing original content to websites, print, merchandise and events.',
+      'I’m still and always will be directly involved in the work: developing ideas, shooting content, shaping campaigns and working closely with the people behind every business.',
+      'You’re not sold the dream by one person and quietly handed over to somebody you’ve never met five minutes later.',
+    ],
+    images: ['/partners/ap-founder.jpg'],
+    imageAlt: 'Anthony Parry, founder of AP Creative Co',
+    portrait: true,
+    href: 'https://apcreativeco.co.uk',
+    hrefLabel: 'Visit AP Creative Co',
+    hrefSecondary: 'https://apcreativeco.co.uk/contact/',
+    hrefSecondaryLabel: 'Start a project',
+  },
 ]
 
 const infrastructurePartners = [
@@ -111,10 +131,12 @@ export default function PartnersPage() {
                 className={`partners-showcase-item${i % 2 === 1 ? ' partners-showcase-item--flip' : ''}`}
               >
                 <MediaReveal className="partners-showcase-media" data-cursor="VIEW">
-                  <div className="partners-showcase-main">
+                  <div
+                    className={`partners-showcase-main${p.portrait ? ' partners-showcase-main--portrait' : ''}`}
+                  >
                     <img
                       src={p.images[0]}
-                      alt={`${p.name} platform`}
+                      alt={p.imageAlt || `${p.name} platform`}
                       loading="lazy"
                     />
                   </div>
@@ -128,19 +150,39 @@ export default function PartnersPage() {
                 </MediaReveal>
 
                 <Reveal className="partners-showcase-content" delay={0.1}>
-                  <span className="partners-showcase-sector">{p.sector}</span>
+                  <span className="partners-showcase-sector">
+                    {p.studio || p.sector}
+                  </span>
                   <p className="partners-showcase-role">{p.role}</p>
                   <h3 className="partners-showcase-name">{p.name}</h3>
                   <p className="partners-showcase-short">{p.short}</p>
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="partners-showcase-link"
-                    data-cursor="VIEW"
-                  >
-                    {p.hrefLabel} <ArrowUpRight size={14} />
-                  </a>
+                  {p.body?.map((para) => (
+                    <p key={para.slice(0, 48)} className="partners-showcase-body">
+                      {para}
+                    </p>
+                  ))}
+                  <div className="partners-showcase-links">
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="partners-showcase-link"
+                      data-cursor="VIEW"
+                    >
+                      {p.hrefLabel} <ArrowUpRight size={14} />
+                    </a>
+                    {p.hrefSecondary && (
+                      <a
+                        href={p.hrefSecondary}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="partners-showcase-link"
+                        data-cursor="VIEW"
+                      >
+                        {p.hrefSecondaryLabel} <ArrowUpRight size={14} />
+                      </a>
+                    )}
+                  </div>
                 </Reveal>
               </div>
             ))}

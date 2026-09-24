@@ -24,7 +24,7 @@ const ROUTES = {
   '/partners': {
     title: 'Specialist & Infrastructure Partners · Shift AI Tech',
     description:
-      'Shift works with specialist AI partners including RAMDVG, and infrastructure programmes including AWS Activate and NVIDIA Inception.',
+      'Shift works with specialist partners including RAMDVG and AP Creative Co, and infrastructure programmes including AWS Activate and NVIDIA Inception.',
   },
   '/team': {
     title: 'Team · Shift AI Tech',
