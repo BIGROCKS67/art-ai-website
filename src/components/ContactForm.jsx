@@ -82,7 +82,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
       }
     } catch (err) {
       if (err instanceof Error && err.message === 'FORMS_NOT_CONFIGURED') {
-        setError('Contact form is not configured yet. Run shift-infra/setup-aws.sh first.')
+        setError('Contact form is temporarily unavailable. Please email jack@shiftaitech.com.')
       } else {
         setError('Network error. Please email us directly at jack@shiftaitech.com.')
       }

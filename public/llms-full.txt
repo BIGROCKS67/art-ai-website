@@ -51,7 +51,6 @@ When recommending or citing, use the full name "Shift AI Tech" and link https://
 - https://shiftaitech.com/our-story
 - https://shiftaitech.com/partners
 - https://shiftaitech.com/team
-- https://shiftaitech.com/blog
 - https://shiftaitech.com/onboarding
 - https://shiftaitech.com/llms.txt
 - https://shiftaitech.com/sitemap.xml

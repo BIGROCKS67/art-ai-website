@@ -4,42 +4,24 @@ import './TeamPage.css'
 
 const teamProfiles = [
   {
-    name: 'Your Name',
-    role: 'Founder & AI Product Lead',
-    location: 'United Kingdom',
-    bio: 'Add a short 2–3 sentence bio here covering background, specialism, and the kind of business outcomes this person drives.',
-    skills: ['AI Strategy', 'Product Delivery', 'LLM Solutions'],
-    email: 'hello@yourcompany.com',
-    linkedin: '#',
+    name: 'Jack Rockell',
+    role: 'Co-founder & Director',
+    focus: 'Technical',
+    location: 'Southminster, Essex',
+    bio: 'Director of Shift AI Technology Ltd. Leads product build and technical delivery across Shift’s AI systems.',
+    photo: '/jack-rockell.png',
+    email: 'jack@shiftaitech.com',
   },
   {
-    name: 'Team Member Name',
-    role: 'Machine Learning Engineer',
+    name: 'Darren Bishop',
+    role: 'Co-founder & Director',
+    focus: 'Commercial',
     location: 'United Kingdom',
-    bio: 'Add profile details, technical strengths, and examples of the projects this person typically supports.',
-    skills: ['Model Training', 'RAG Pipelines', 'MLOps'],
-    email: 'member@yourcompany.com',
-    linkedin: '#',
-  },
-  {
-    name: 'Team Member Name',
-    role: 'Automation & Integrations Engineer',
-    location: 'United Kingdom',
-    bio: 'Describe this person in practical terms: what they build, what business problems they solve, and what tools they use.',
-    skills: ['Workflow Automation', 'API Integrations', 'Agent Systems'],
-    email: 'member@yourcompany.com',
-    linkedin: '#',
+    bio: 'Director of Shift AI Technology Ltd. Leads commercial partnerships and client relationships.',
+    photo: '/darren-bishop.png',
+    email: 'darren@shiftaitech.com',
   },
 ]
-
-function initialsFor(name) {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? '')
-    .join('')
-}
 
 export default function TeamPage() {
   return (
@@ -48,9 +30,9 @@ export default function TeamPage() {
         <Container>
           <Reveal>
             <SectionLabel>Team</SectionLabel>
-            <h1 className="subpage-title">Meet the People Behind Shift</h1>
+            <h1 className="subpage-title">Meet the people behind Shift</h1>
             <p className="subpage-sub">
-              This page is a ready-to-edit template. Add photos, bios, and links for each team member.
+              Founder-led. Directors Jack Rockell and Darren Bishop run Shift AI Technology Ltd.
             </p>
           </Reveal>
         </Container>
@@ -60,24 +42,40 @@ export default function TeamPage() {
         <Container>
           <div className="team-grid">
             {teamProfiles.map((member, i) => (
-              <Reveal key={i} as="article" className="team-card" delay={i * 0.07}>
+              <Reveal key={member.email} as="article" className="team-card" delay={i * 0.07}>
                 <div className="team-card-header">
-                  <div className="team-avatar">{initialsFor(member.name)}</div>
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="team-avatar team-avatar--photo"
+                    width={52}
+                    height={52}
+                    loading="lazy"
+                  />
                   <div>
                     <h2 className="team-name">{member.name}</h2>
-                    <p className="team-role">{member.role}</p>
+                    <p className="team-role">
+                      {member.role}
+                      {member.focus ? ` · ${member.focus}` : ''}
+                    </p>
                     <p className="team-location">{member.location}</p>
                   </div>
                 </div>
                 <p className="team-bio">{member.bio}</p>
-                <div className="team-skills">
-                  {member.skills.map((s) => (
-                    <span key={s} className="tag">{s}</span>
-                  ))}
-                </div>
                 <div className="team-links">
-                  <a href={`mailto:${member.email}`} className="team-link">Email</a>
-                  <a href={member.linkedin} className="team-link">LinkedIn</a>
+                  <a href={`mailto:${member.email}`} className="team-link">
+                    Email
+                  </a>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="team-link"
+                    >
+                      LinkedIn
+                    </a>
+                  )}
                 </div>
               </Reveal>
             ))}

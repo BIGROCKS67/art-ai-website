@@ -24,7 +24,6 @@ export default function Footer() {
             <Link to="/our-story" className="footer-nav-link">Our Story</Link>
             <Link to="/partners" className="footer-nav-link">Partners</Link>
             <Link to="/team" className="footer-nav-link">Team</Link>
-            <Link to="/blog" className="footer-nav-link">Insights</Link>
           </div>
 
           <div className="footer-nav-group">

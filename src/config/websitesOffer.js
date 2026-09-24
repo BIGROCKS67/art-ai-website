@@ -103,11 +103,11 @@ export const COMPLETED_SITES = [
   { name: 'The Red Cow', url: 'https://theredcowchesterton.co.uk', sector: 'Hospitality' },
   { name: 'Mixa Restaurant', url: 'https://www.mixarestaurant.com', sector: 'Hospitality' },
   { name: 'The Greyhound Inn', url: 'https://www.thegreyhoundinnbrackley.co.uk', sector: 'Hospitality' },
-  { name: 'Wilf’s Kitchen', url: 'https://wilfs-kitchen.vercel.app', sector: 'Food & drink' },
+  { name: 'Wilf’s Kitchen', url: 'https://wilfskitchen.co.uk', sector: 'Food & drink' },
   { name: 'Ready4Refurb', url: 'https://ready4refurb.com', sector: 'Property' },
   { name: 'A&D Roofing & Construction', url: 'https://aanddroofingsolutions.com', sector: 'Trades' },
   { name: 'LJ Brown UK', url: 'https://ljbrownukltd.co.uk', sector: 'Groundworks' },
-  { name: 'LJ Plumbing & Heating', url: 'https://lj-plumbing-pi.vercel.app', sector: 'Trades' },
+  { name: 'LJ Plumbing & Heating', url: 'https://ljplumbing.co.uk', sector: 'Trades' },
   { name: 'SMH Gas', url: 'https://smh-gas.vercel.app', sector: 'Trades' },
   { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
   { name: 'AP Creative Co', url: 'https://apcreativeco.co.uk', sector: 'Creative' },
@@ -125,7 +125,7 @@ export const COMPLETED_SITES = [
   { name: 'HyperFlowX', url: 'https://hyperflowx.com', sector: 'Trading' },
   { name: 'FlowX Trade', url: 'https://flowx.trade', sector: 'Trading' },
   { name: 'AlgoX', url: 'https://algox.ai', sector: 'Trading' },
-  { name: 'Ground Six', url: 'https://groundsix.vercel.app', sector: 'Technology' },
+  { name: 'Ground Six', url: 'https://groundsix.co.uk', sector: 'Building & landscaping' },
 ]
 
 /** Sales partners and their referral codes. Add new partners here. */

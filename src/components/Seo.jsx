@@ -28,11 +28,13 @@ const ROUTES = {
   },
   '/team': {
     title: 'Team · Shift AI Tech',
-    description: 'Meet the founder-led team behind Shift AI Tech, the UK AI product studio.',
+    description:
+      'Meet the founders of Shift AI Tech: Jack Rockell and Darren Bishop, directors of Shift AI Technology Ltd.',
   },
   '/blog': {
-    title: 'Insights · Shift AI Tech',
-    description: 'AI product insights from Shift AI Tech: custom models, automation, and shipping AI that works.',
+    title: 'Our Story · Shift AI Tech',
+    description:
+      'How Shift AI Tech funded Bitcoin prediction models, then cut the same rebuild by 82% with AI tooling. UK AI product studio.',
   },
   '/onboarding': {
     title: 'Start a Project · Shift AI Tech',
