@@ -6,20 +6,22 @@ const teamProfiles = [
   {
     name: 'Jack Rockell',
     role: 'Co-founder & Director',
-    focus: 'Technical',
+    focus: 'Technology',
     location: 'Southminster, Essex',
-    bio: 'Director of Shift AI Technology Ltd. Leads product build and technical delivery across Shift’s AI systems.',
+    bio: 'Co-founder of Shift AI Technology Ltd. Developer responsible for Shift’s technology — products, systems, and technical delivery.',
     photo: '/jack-rockell.png',
     email: 'jack@shiftaitech.com',
+    linkedin: 'https://www.linkedin.com/in/jack-rockell-841482267/',
   },
   {
     name: 'Darren Bishop',
     role: 'Co-founder & Director',
-    focus: 'Commercial',
+    focus: 'Business & partnerships',
     location: 'United Kingdom',
-    bio: 'Director of Shift AI Technology Ltd. Leads commercial partnerships and client relationships.',
+    bio: 'Co-founder of Shift AI Technology Ltd. Leads business, commercial relationships, and partnerships.',
     photo: '/darren-bishop.png',
     email: 'darren@shiftaitech.com',
+    linkedin: 'https://www.linkedin.com/in/dwbishop/',
   },
 ]
 
@@ -32,7 +34,7 @@ export default function TeamPage() {
             <SectionLabel>Team</SectionLabel>
             <h1 className="subpage-title">Meet the people behind Shift</h1>
             <p className="subpage-sub">
-              Founder-led. Directors Jack Rockell and Darren Bishop run Shift AI Technology Ltd.
+              Co-founders Jack Rockell and Darren Bishop. Jack leads technology; Darren leads business and partnerships.
             </p>
           </Reveal>
         </Container>
