@@ -47,13 +47,29 @@ export default function SmoothScroll() {
   }, [])
 
   useEffect(() => {
-    if (hash) return
-
-    const lenis = lenisRef.current
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true })
+    let cancelled = false
+    const jump = () => {
+      if (cancelled) return
+      const lenis = lenisRef.current
+      if (!hash) {
+        if (lenis) lenis.scrollTo(0, { immediate: true })
+        window.scrollTo(0, 0)
+        return
+      }
+      const el = document.querySelector(hash)
+      if (!el) return
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -72, immediate: true })
+        return
+      }
+      const y = el.getBoundingClientRect().top + window.scrollY - 72
+      window.scrollTo(0, Math.max(0, y))
     }
-    window.scrollTo(0, 0)
+    const id = requestAnimationFrame(() => requestAnimationFrame(jump))
+    return () => {
+      cancelled = true
+      cancelAnimationFrame(id)
+    }
   }, [pathname, hash])
 
   return null

@@ -12,7 +12,7 @@ export function Reveal({ children, delay = 0, className, as = 'div', ...rest }) 
       style={{ overflow: 'visible' }}
       initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
       whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, margin: '0px' }}
       transition={{ duration: 0.85, ease: EASE, delay: Math.min(delay, 0.28) }}
       {...rest}
     >
@@ -23,17 +23,68 @@ export function Reveal({ children, delay = 0, className, as = 'div', ...rest }) 
 
 export function MediaReveal({ children, className, ...rest }) {
   const reduce = useReducedMotion()
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '0px 0px -8% 0px' })
+  if (reduce) {
+    return (
+      <div className={className} {...rest}>
+        {children}
+      </div>
+    )
+  }
   return (
-    <motion.div
-      className={className}
-      {...rest}
-      initial={reduce ? { opacity: 0 } : { clipPath: 'inset(100% 0 0 0)', opacity: 1 }}
-      whileInView={reduce ? { opacity: 1 } : { clipPath: 'inset(0% 0 0 0)' }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 1.05, ease: EASE }}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className={className} {...rest}>
+      <motion.div
+        style={{ height: '100%' }}
+        initial={{ clipPath: 'inset(100% 0 0 0)' }}
+        animate={{ clipPath: inView ? 'inset(0% 0 0 0)' : 'inset(100% 0 0 0)' }}
+        transition={{ duration: 1.05, ease: EASE }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+
+export function LineReveal({ lines, className = '', as = 'h1', when = 'mount' }) {
+  const reduce = useReducedMotion()
+  const Static = as === 'h2' ? 'h2' : as === 'p' ? 'p' : 'h1'
+  const Tag = reduce ? Static : motion[as] || motion.h1
+
+  return (
+    <Tag className={className}>
+      {lines.map((line, i) => {
+        const cls = `hero-line${line.mark ? ' hero-line--mark' : ''}`
+        if (reduce) {
+          return (
+            <span key={`${line.text}-${i}`} className={cls}>
+              {line.text}
+            </span>
+          )
+        }
+        const motionProps = when === 'view'
+          ? {
+              initial: { y: '112%' },
+              whileInView: { y: '0%' },
+              viewport: { once: true, margin: '-8% 0px' },
+            }
+          : {
+              initial: { y: '112%' },
+              animate: { y: '0%' },
+            }
+        return (
+          <span key={`${line.text}-${i}`} className="hero-line-mask">
+            <motion.span
+              className={cls}
+              {...motionProps}
+              transition={{ duration: 0.95, ease: EASE, delay: 0.05 + i * 0.09 }}
+            >
+              {line.text}
+            </motion.span>
+          </span>
+        )
+      })}
+    </Tag>
   )
 }
 

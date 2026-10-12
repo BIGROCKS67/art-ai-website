@@ -8,7 +8,7 @@
 
   --text-primary: #f0f0f3;
   --text-secondary: #94949e;
-  --text-tertiary: #636370;
+  --text-tertiary: #7c7c8a;
 
   --purple: #a855f7;
   --purple-light: #c084fc;
@@ -16,8 +16,9 @@
   --purple-muted: rgba(168, 85, 247, 0.07);
   --purple-border: rgba(168, 85, 247, 0.18);
 
-  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --max-width: 1360px;
   --nav-height: 80px;
@@ -90,8 +91,74 @@ body {
   min-height: 100vh;
 }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 5000;
+  transform: translateY(-120%);
+  background: var(--purple-dark);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.65rem 0.9rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0.75rem);
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 3px;
+}
+
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .hero-art::before,
+  .story-hero-art::before,
+  .partners-hero-art::before,
+  .websites-hero-art::before,
+  .research-hero-art::before,
+  .team-hero-art::before,
+  .onboarding-hero-art::before,
+  .not-found-hero-art::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 78%;
+    height: 86%;
+    right: -22%;
+    top: -8%;
+    pointer-events: none;
+    background: radial-gradient(
+      circle at 42% 42%,
+      rgba(192, 132, 252, 0.72),
+      rgba(109, 40, 217, 0.22) 46%,
+      transparent 70%
+    );
+    filter: blur(10px);
+    animation: fieldDrift 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fieldDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-14%, 10%, 0) scale(1.14); }
+}
+
+#static-facts {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+#static-facts[hidden] {
+  display: none !important;
+}
+
 ::selection {
-  background: var(--purple);
+  background: var(--purple-dark);
   color: #fff;
 }
 
@@ -113,8 +180,8 @@ button {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--text-primary);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
   font-weight: 400;
   text-wrap: balance;
 }
@@ -125,6 +192,56 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Reduced motion: gentle cross-fades instead of movement, no vestibular motion */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4000;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #6d28d9, #c4b5fd);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    animation: scrollProgress linear both;
+    animation-timeline: scroll(root);
+    pointer-events: none;
+  }
+
+  @keyframes scrollProgress {
+    to { transform: scaleX(1); }
+  }
+}
+
+@keyframes figureWake {
+  0%,
+  100% {
+    color: color-mix(in srgb, var(--text-primary) 42%, transparent);
+  }
+
+  38%,
+  62% {
+    color: var(--text-primary);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-fade {
+    animation: pageFade 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+}
+
 .site-grain {
   position: fixed;
   inset: 0;
@@ -143,6 +260,17 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   transition: transform 420ms cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
+}
+
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.08em 0.18em 0;
+  margin: 0 -0.08em -0.18em 0;
+}
+
+.hero-line-mask > .hero-line {
+  display: block;
 }
 
 .split-title {
@@ -165,6 +293,37 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
+@keyframes stillDrift {
+  from { transform: scale(1.06) translate3d(0, 2.2%, 0); }
+  to { transform: scale(1.06) translate3d(0, -2.2%, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .showcase-item:not(.showcase-item--panel) .showcase-media-main img,
+    .websites-case-frame img,
+    .partners-showcase-main:not(.partners-showcase-main--portrait) img {
+      animation: stillDrift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  @supports (animation-timeline: view()) {
+    .showcase-item:not(.showcase-item--panel) .showcase-media-main:hover img,
+    .showcase-item:not(.showcase-item--panel) .showcase-media-main:focus-visible img,
+    .websites-case:hover .websites-case-frame img,
+    .websites-case:focus-visible .websites-case-frame img,
+    .partners-showcase-main:not(.partners-showcase-main--portrait):hover img,
+    .partners-showcase-main:not(.partners-showcase-main--portrait):focus-visible img {
+      animation-play-state: paused;
+      transform: scale(1.1);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -173,5 +332,46 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.15s !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .story-hero.story-hero,
+  .team-hero.team-hero,
+  .websites-hero.websites-hero,
+  .partners-hero.partners-hero,
+  .research-hero.research-hero,
+  .onboarding-hero.onboarding-hero,
+  .not-found-hero.not-found-hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + 0.85rem);
+    padding-bottom: 1.5rem;
+  }
+
+  .story-hero .story-hero-title,
+  .team-hero .team-hero-title,
+  .websites-hero .websites-hero-title,
+  .partners-hero .partners-hero-title,
+  .research-hero .research-hero-title,
+  .onboarding-hero .onboarding-title,
+  .not-found-hero .not-found-title {
+    font-size: clamp(1.85rem, 4.6vw, 2.7rem);
+    margin-bottom: 0.65rem;
+  }
+
+  .story-hero .story-hero-sub,
+  .team-hero .team-hero-sub,
+  .websites-hero .websites-hero-sub,
+  .partners-hero .partners-hero-sub,
+  .research-hero .research-hero-sub,
+  .not-found-hero .not-found-sub {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .websites-hero .websites-price-figures {
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
   }
 }

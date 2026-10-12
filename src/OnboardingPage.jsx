@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { onboardingSections } from './config/onboarding'
 import { FORMS_ENDPOINT } from './config/site'
+import { LineReveal } from './components/motion'
+import BreathingField from './components/BreathingField'
 import './OnboardingPage.css'
 
 const STORAGE_KEY = 'shift_onboarding_v1'
@@ -28,6 +30,7 @@ export default function OnboardingPage() {
   const [answers, setAnswers] = useState({})
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const stepMounted = useRef(false)
 
   useEffect(() => {
     let initial = {}
@@ -51,10 +54,21 @@ export default function OnboardingPage() {
     } catch { /* ignore */ }
   }, [answers])
 
+  useEffect(() => {
+    if (!stepMounted.current) {
+      stepMounted.current = true
+      return
+    }
+    const el = document.querySelector('.onboarding-form')
+    if (!el) return
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+  }, [step])
+
   const sections = onboardingSections
   const section = sections[step]
   const total = sections.length
-  const progress = Math.round(((step + (status === 'done' ? 1 : 0)) / total) * 100)
+  const progress = Math.round(((step + 1) / total) * 100)
 
   function setField(id, value) {
     setAnswers((a) => ({ ...a, [id]: value }))
@@ -102,7 +116,6 @@ export default function OnboardingPage() {
   function next() {
     if (step < total - 1) {
       setStep((s) => s + 1)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       submit()
     }
@@ -117,44 +130,60 @@ export default function OnboardingPage() {
     [section, answers],
   )
 
-  if (status === 'done') {
-    return (
-      <div className="onboarding-page">
-        <header className="onboarding-header">
-          <Link to="/"><img src="/shift-logo-new.png" alt="Shift AI Tech" className="onboarding-logo" /></Link>
-        </header>
-        <main className="onboarding-main">
-          <div className="onboarding-card onboarding-success">
-            <h1>Thank you</h1>
-            <p>We&apos;ve received your onboarding information and will use it to prepare your personalised AI strategy session.</p>
-          </div>
-        </main>
-      </div>
-    )
-  }
-
   return (
     <div className="onboarding-page">
-      <header className="onboarding-header">
-        <Link to="/"><img src="/shift-logo-new.png" alt="Shift AI Tech" className="onboarding-logo" /></Link>
-        <span className="onboarding-badge">Client onboarding · ~5 min</span>
-      </header>
-      <main className="onboarding-main">
-        <h1 className="onboarding-title">Let&apos;s build your demonstration.</h1>
-        <p className="onboarding-sub">Help us understand how your business operates so we can prepare a personalised audit and AI roadmap.</p>
+      <section className="onboarding-hero">
+        <div className="onboarding-hero-art" aria-hidden="true">
+          <BreathingField />
+        </div>
+        <div className="onboarding-main">
+          {status === 'done' ? (
+            <div className="onboarding-success">
+              <p className="onboarding-kicker">Onboarding</p>
+              <h1>Thank you.</h1>
+              <p>We&apos;ve received your onboarding information and will use it to prepare your personalised AI strategy session.</p>
+              <Link to="/" className="onboarding-home">Back to Shift</Link>
+            </div>
+          ) : (
+            <>
+              <p className="onboarding-kicker">Client onboarding · about 5 minutes</p>
+              <LineReveal
+                className="onboarding-title"
+                lines={[
+                  { text: "Let's build your" },
+                  { text: 'demonstration.', mark: true },
+                ]}
+              />
+              <p className="onboarding-sub">Help us understand how your business operates so we can prepare a personalised audit and AI roadmap.</p>
+            </>
+          )}
+        </div>
+      </section>
 
+      {status !== 'done' && (
+      <div className="onboarding-main onboarding-form">
         <div className="onboarding-card">
           <div className="onboarding-progress">
-            <span>Step {step + 1} of {total} · {section.title}</span>
-            <span>{progress}%</span>
+            <p className="onboarding-progress-figure">{progress}%</p>
+            <p className="onboarding-progress-meta">Step {step + 1} of {total}</p>
           </div>
-          <div className="onboarding-progress-bar"><div style={{ width: `${progress}%` }} /></div>
+          <div
+            className="onboarding-progress-bar"
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`Step ${step + 1} of ${total}`}
+          >
+            <div style={{ width: `${progress}%` }} />
+          </div>
+          <h2 className="onboarding-step-title">{section.title}</h2>
 
           {section.subtitle && <p className="onboarding-section-sub">{section.subtitle}</p>}
 
           <div className="onboarding-fields">
             {visibleFields.map((field) => (
-              <div key={field.id} className="onboarding-field">
+              <div key={field.id} className={`onboarding-field${field.type === 'text' ? '' : ' onboarding-field--wide'}`}>
                 <label>{field.label}</label>
                 {field.type === 'text' && (
                   <input
@@ -218,7 +247,8 @@ export default function OnboardingPage() {
             </button>
           </div>
         </div>
-      </main>
+      </div>
+      )}
     </div>
   )
 }

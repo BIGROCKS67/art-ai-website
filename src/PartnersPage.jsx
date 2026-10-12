@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Container, Button } from './components/ui'
-import { Reveal, MediaReveal } from './components/motion'
+import { Reveal, MediaReveal, LineReveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import './PartnersPage.css'
 
@@ -74,11 +74,15 @@ export default function PartnersPage() {
         </div>
         <Container>
           <div className="partners-hero-inner">
+            <p className="hero-kicker">Partners</p>
+            <LineReveal
+              className="partners-hero-title"
+              lines={[
+                { text: 'Specialists and' },
+                { text: 'infrastructure.', mark: true },
+              ]}
+            />
             <Reveal>
-              <p className="hero-kicker">Partners</p>
-              <h1 className="partners-hero-title">
-                Specialists and infrastructure.
-              </h1>
               <p className="partners-hero-sub">
                 AI that ships commercially needs both. Sector specialists who
                 know the domain, and cloud infrastructure strong enough to run
@@ -92,7 +96,7 @@ export default function PartnersPage() {
       <section className="section partners-intro-section">
         <Container>
           <Reveal className="partners-intro">
-            <p>
+            <p className="partners-intro-lead">
               At Shift we put business needs first, applying AI to accelerate
               revenues and save costs.
             </p>
@@ -131,15 +135,19 @@ export default function PartnersPage() {
                 className={`partners-showcase-item${i % 2 === 1 ? ' partners-showcase-item--flip' : ''}`}
               >
                 <MediaReveal className="partners-showcase-media" data-cursor="VIEW">
-                  <div
+                  <a
                     className={`partners-showcase-main${p.portrait ? ' partners-showcase-main--portrait' : ''}`}
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="VIEW"
                   >
                     <img
                       src={p.images[0]}
                       alt={p.imageAlt || `${p.name} platform`}
                       loading="lazy"
                     />
-                  </div>
+                  </a>
                   {p.images.length > 1 && (
                     <div className="partners-showcase-thumbs">
                       {p.images.slice(1, 3).map((src) => (

@@ -9,12 +9,12 @@ Disambiguation: not Shift Technology (insurance AI at shift-technology.com), not
 ## Primary pages
 
 - [Home](https://shiftaitech.com/): Overview of Shift AI Tech: custom AI, product builds, automation, strategy
-- [Websites](https://shiftaitech.com/websites/): Fixed-price website design, build, host, and SEO foundations
-- [Our Story](https://shiftaitech.com/our-story/): How we funded neural models for Bitcoin prediction and cut rebuild cost 82% with AI tooling
-- [Partners](https://shiftaitech.com/partners/): Specialist partners (RAMDVG, AP Creative Co) and infrastructure programmes (AWS Activate, NVIDIA Inception)
-- [Team](https://shiftaitech.com/team/): Founders Jack Rockell and Darren Bishop
-- [Insights](https://shiftaitech.com/blog/): Articles and research notes
-- [Onboarding](https://shiftaitech.com/onboarding/): Start a project with Shift AI Tech
+- [Websites](https://shiftaitech.com/websites): Brochure websites from £500, AED 2,500, or $650. Design, build, host, and SEO foundations. Extra development from £50/hr, AED 250/hr, or $65/hr. eCommerce and AI modules start with a free consultation, then scoped pricing. Start at partnerships@shiftaitech.com.
+- [Our Story](https://shiftaitech.com/our-story): How we funded neural models for Bitcoin prediction and cut rebuild cost 82% with AI tooling
+- [Partners](https://shiftaitech.com/partners): Specialist partners (RAMDVG, AP Creative Co) and infrastructure programmes (AWS Activate, NVIDIA Inception)
+- [Team](https://shiftaitech.com/team): Jack Rockell (technology) and Darren Bishop (business and partnerships)
+- [Onboarding](https://shiftaitech.com/onboarding): Start a project with Shift AI Tech
+- [The AI Value Shift](https://shiftaitech.com/research/research-paper-3): Research note on measurable AI business impact, drawn from BCG, McKinsey, Deloitte, and PwC
 
 ## Services
 
@@ -24,10 +24,17 @@ Disambiguation: not Shift Technology (insurance AI at shift-technology.com), not
 - Strategy: scoped, priced AI opportunities before you commit
 - Websites: bespoke design/build/host with SEO foundations
 
+## Shipped products
+
+- BioSense: https://bio-sense.ai
+- Braid: https://usebraid.ai
+- AML Intelligence Suite: https://aml.shiftaitech.com
+- Deep Space: AI course platform. No public marketing URL.
+
 ## Contact
 
 - Website: https://shiftaitech.com
-- Email: partnerships@shiftaitech.com / jack@shiftaitech.com
+- Email: jack@shiftaitech.com / darren@shiftaitech.com / partnerships@shiftaitech.com
 - Registered office: Unit 14, The Maltings Industrial Estate, Hall Road, Southminster, Essex CM0 7EQ, United Kingdom
 - Companies House: https://find-and-update.company-information.service.gov.uk/company/17159725
 

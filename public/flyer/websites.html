@@ -4,9 +4,7 @@
 <meta charset="utf-8" />
 <title>Shift AI Tech · Website Build &amp; Host Flyer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/fonts/fonts.css" />
 <style>
   :root {
     --bg: #ffffff;
@@ -16,8 +14,9 @@
     --purple: #7c3aed;
     --purple-soft: #f3e8ff;
     --purple-deep: #5b21b6;
-    --display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --display: 'Instrument Serif', 'Iowan Old Style', Palatino, serif;
     --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   @page { size: A4; margin: 0; }
@@ -43,7 +42,7 @@
     font: inherit; font-size: 13px; font-weight: 700;
     padding: 10px 14px; border-radius: 8px;
   }
-  .toolbar .primary { background: #a855f7; color: #fff; }
+  .toolbar .primary { background: #6d28d9; color: #fff; }
   .toolbar .ghost { background: transparent; color: #f0f0f3; border: 1px solid #3a3a45; }
 
   /* One sheet = one A4 page. Never spill. */
@@ -85,16 +84,16 @@
 
   header { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
   .brand {
-    font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--ink);
-    letter-spacing: -0.04em;
+    font-family: var(--display); font-weight: 400; font-style: italic; font-size: 28px; color: var(--ink);
+    letter-spacing: -0.04em; line-height: 1;
   }
   .brand span { color: var(--purple); }
   .url { font-family: var(--display); font-weight: 600; font-size: 10px; color: var(--purple); }
 
   .hero { margin-top: 7mm; flex-shrink: 0; }
   .hero h1 {
-    font-family: var(--display); font-weight: 800; color: var(--ink);
-    font-size: 30px; line-height: 1.05; letter-spacing: -0.035em;
+    font-family: var(--display); font-weight: 400; font-style: italic; color: var(--ink);
+    font-size: 34px; line-height: 0.95; letter-spacing: -0.03em;
   }
   .hero .lede {
     margin-top: 2.5mm; font-size: 11px; line-height: 1.5; max-width: 155mm;
@@ -139,7 +138,7 @@
   .rule { height: 1px; background: var(--line); margin: 4mm 0 3.5mm; flex-shrink: 0; }
 
   .sec {
-    font-family: var(--display); font-size: 8.5px; font-weight: 700;
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, monospace); font-size: 8px; font-weight: 500;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple);
     margin-bottom: 2mm;
   }
@@ -169,9 +168,9 @@
   }
   .matrix th {
     background: #f7f5ff; color: var(--purple-deep);
-    font-family: var(--display); font-size: 7.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 7.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
   }
-  .matrix td { color: var(--ink); font-weight: 700; font-family: var(--display); font-size: 10.5px; }
+  .matrix td { color: var(--ink); font-weight: 400; font-family: var(--display); font-style: italic; font-size: 13px; }
   .matrix td:first-child { font-family: var(--body); font-weight: 500; color: var(--muted); font-size: 9px; }
   .matrix tr:last-child td { border-bottom: 0; }
 
@@ -205,8 +204,8 @@
     text-transform: uppercase; color: var(--purple); margin-bottom: 0.8mm;
   }
   .case .name {
-    font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: 10.5px; margin-bottom: 0.4mm;
+    font-family: var(--display); font-weight: 400; font-style: italic; color: var(--ink);
+    font-size: 13px; margin-bottom: 0.4mm;
   }
   .case .link { font-size: 8px; color: var(--muted); word-break: break-all; }
 
@@ -242,8 +241,8 @@
     text-transform: uppercase; color: var(--purple); margin-bottom: 0;
   }
   .infra-item .name {
-    font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: 12px; margin-bottom: 0;
+    font-family: var(--display); font-weight: 400; font-style: italic; color: var(--ink);
+    font-size: 16px; margin-bottom: 0;
   }
   .infra-item .text {
     font-size: 9px; line-height: 1.4; color: var(--muted);
@@ -260,8 +259,8 @@
     font-family: var(--display); font-weight: 800; color: var(--purple); font-size: 10px;
   }
   .step .t {
-    font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: 10px; margin-top: 0.8mm;
+    font-family: var(--display); font-weight: 400; font-style: italic; color: var(--ink);
+    font-size: 14px; margin-top: 0.8mm;
   }
   .step .d { font-size: 8.5px; line-height: 1.35; margin-top: 0.6mm; }
 
@@ -282,8 +281,8 @@
     text-transform: uppercase; color: var(--purple); margin-bottom: 0.3mm;
   }
   .completed-item .name {
-    font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: 9.5px;
+    font-family: var(--display); font-weight: 400; font-style: italic; color: var(--ink);
+    font-size: 11px;
   }
   .completed-item .link {
     font-size: 7px; color: var(--muted); word-break: break-all;
@@ -296,8 +295,8 @@
     border-radius: 10px; padding: 3.5mm 4.5mm;
   }
   .cta h2 {
-    font-family: var(--display); font-weight: 800; font-size: 14px; color: #fff;
-    letter-spacing: -0.02em;
+    font-family: var(--display); font-weight: 400; font-style: italic; font-size: 22px; color: #fff;
+    letter-spacing: -0.03em; line-height: 0.95;
   }
   .cta h2 span { color: #c084fc; }
   .cta p { font-size: 9px; color: #b7b7c2; margin-top: 1mm; line-height: 1.4; }
@@ -353,15 +352,15 @@
       </header>
 
       <div class="hero">
-        <h1>Websites That<br />Drive Revenue.</h1>
+        <h1>Websites that get found<br />and convert.</h1>
         <p class="lede">
           Brochure websites that get a business found on Google and turn visitors into customers.
           Fixed package pricing worldwide. Build and hosting included.
         </p>
         <div class="price-row">
-          <span class="price-chip">GBP £500</span>
+          <span class="price-chip">£500</span>
           <span class="price-chip soft">AED 2,500</span>
-          <span class="price-chip soft">USD $650</span>
+          <span class="price-chip soft">$650</span>
         </div>
         <div class="note-box">
           <strong>Brochure package.</strong>
@@ -377,12 +376,12 @@
         <div>
           <div class="sec">What&rsquo;s included</div>
           <ul class="include">
-            <li><strong>Bespoke Design</strong>Built around your brand. No templates.</li>
-            <li><strong>Mobile-First</strong>Designed for phones first.</li>
-            <li><strong>Copywriting</strong>Clear content that converts.</li>
-            <li><strong>SEO Foundations</strong>Google Business Profile, meta, indexing.</li>
-            <li><strong>Hosting Included</strong>SSL, security, go-live hosting.</li>
-            <li><strong>Launch Support</strong>Help when you need it.</li>
+            <li><strong>Bespoke design</strong>Built from scratch around your brand. No templates.</li>
+            <li><strong>Mobile first</strong>Designed for phones first, where most of your traffic lands.</li>
+            <li><strong>Copywriting</strong>Clear, persuasive content that speaks to your customers.</li>
+            <li><strong>SEO foundations</strong>Google Business Profile, meta tags, and fast indexing.</li>
+            <li><strong>Hosting included</strong>Live hosting, SSL, and security updates in the package price.</li>
+            <li><strong>Launch support</strong>We get you live and stay available when you need help.</li>
           </ul>
         </div>
         <div>
@@ -452,8 +451,8 @@
       <footer>
         <div class="cta">
           <div>
-            <h2>Let&rsquo;s <span>Work Together</span></h2>
-            <p>Brochure package pricing. Free consult for eCommerce &amp; AI. Backed by AWS Activate &amp; NVIDIA Inception.</p>
+            <h2>Ready for <span>your site.</span></h2>
+            <p>Brochure package from £500. eCommerce and AI modules via free consultation.</p>
             <div class="meta">partnerships@shiftaitech.com · shiftaitech.com/websites</div>
             <div class="meta" id="ctaRef" style="display:none"></div>
           </div>
@@ -489,13 +488,13 @@
           <div class="logo"><img src="aws-print.png" alt="Amazon Web Services" /></div>
           <div class="label">AWS Activate</div>
           <div class="name">Amazon Web Services</div>
-          <div class="text">Selected for AWS Activate. Production AI workloads on AWS across Europe.</div>
+          <div class="text">Selected for AWS Activate. Production AI workloads on Amazon Web Services across Europe, with credits backing the next stage of build.</div>
         </div>
         <div class="infra-item">
           <div class="logo"><img src="nvidia-print.png" alt="NVIDIA" /></div>
           <div class="label">NVIDIA Inception</div>
           <div class="name">NVIDIA</div>
-          <div class="text">Accepted into NVIDIA Inception. GPU tooling and preferential rates for model training.</div>
+          <div class="text">Accepted into the NVIDIA Inception program. Access to NVIDIA tooling, training, and preferential rates as we train and ship AI products on GPU infrastructure.</div>
         </div>
       </div>
 
@@ -503,10 +502,10 @@
 
       <div class="sec">How it works</div>
       <div class="process">
-        <div class="step"><div class="n">01</div><div class="t">Brief</div><div class="d">Tell us about your business</div></div>
-        <div class="step"><div class="n">02</div><div class="t">Design</div><div class="d">We mock up before we build</div></div>
-        <div class="step"><div class="n">03</div><div class="t">Build</div><div class="d">Clean code, fast loading</div></div>
-        <div class="step"><div class="n">04</div><div class="t">Launch</div><div class="d">Go live with full support</div></div>
+        <div class="step"><div class="n">01</div><div class="t">Brief</div><div class="d">Tell us about the business and the goal.</div></div>
+        <div class="step"><div class="n">02</div><div class="t">Design</div><div class="d">We mock up before we build.</div></div>
+        <div class="step"><div class="n">03</div><div class="t">Build</div><div class="d">Clean, fast, mobile-first.</div></div>
+        <div class="step"><div class="n">04</div><div class="t">Launch</div><div class="d">Live with hosting and support included.</div></div>
       </div>
 
       <div class="rule"></div>
@@ -544,7 +543,7 @@
       <footer>
         <div class="cta">
           <div>
-            <h2>More proof for <span>sales</span></h2>
+            <h2>All sites <span>completed.</span></h2>
             <p>Share the full list with prospects. Brochure from £500. AWS Activate &amp; NVIDIA Inception.</p>
             <div class="meta">partnerships@shiftaitech.com · shiftaitech.com/websites</div>
           </div>

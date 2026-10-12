@@ -3,17 +3,14 @@ import {
   ArrowRight,
   Download,
   ExternalLink,
-  Link2,
-  Mail,
 } from 'lucide-react'
-import { Container, SectionLabel, Button } from './components/ui'
+import { Container, SectionLabel, SectionHeading, DisplayTitle, Button } from './components/ui'
 import ContactForm from './components/ContactForm'
-import { Reveal } from './components/motion'
+import { Reveal, LineReveal, MediaReveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import {
   CASE_STUDIES,
   COMPLETED_SITES,
-  CONSULTATION_NOTE,
   CONTACT_EMAIL,
   EXTRAS,
   HOURLY_RATE,
@@ -22,6 +19,7 @@ import {
   PACKAGE_NOTE,
   PACKAGE_PRICE,
   SITE_URL,
+  WEBSITE_FAQS,
 } from './config/websitesOffer'
 import { flyerUrlForReferral, getActiveReferral } from './lib/referral'
 import './WebsitesPage.css'
@@ -51,14 +49,21 @@ export default function WebsitesPage() {
         </div>
         <Container>
           <div className="websites-hero-grid">
-            <Reveal className="websites-hero-copy">
+            <div className="websites-hero-copy">
               <p className="hero-kicker">Build &amp; host</p>
-              <h1 className="websites-hero-title">
-                Websites that get found and convert.
-              </h1>
-              <p className="websites-hero-sub">
-                Design, build, and launch. Fixed price. Fast delivery.
-              </p>
+              <LineReveal
+                className="websites-hero-title"
+                lines={[
+                  { text: 'Websites that' },
+                  { text: 'get found' },
+                  { text: 'and convert.', mark: true },
+                ]}
+              />
+              <Reveal>
+                <p className="websites-hero-sub">
+                  Design, build, and launch. Fixed price. Fast delivery.
+                </p>
+              </Reveal>
               <div className="websites-hero-actions">
                 <Button href="#get-started">Get started</Button>
                 <button type="button" className="hero-story-link" onClick={openFlyerPdf}>
@@ -66,23 +71,18 @@ export default function WebsitesPage() {
                 </button>
               </div>
               {referral && (
-                <div className="websites-ref-banner" role="status">
-                  <Link2 size={16} />
-                  <div>
-                    <strong>Referral {referral.code}</strong>
-                    <span>Introduced by {referral.name}.</span>
-                  </div>
-                </div>
+                <p className="websites-ref-banner" role="status">
+                  <span>Referral {referral.code}</span>
+                  Introduced by {referral.name}.
+                </p>
               )}
-            </Reveal>
+            </div>
 
             <Reveal className="websites-price-panel" delay={0.08}>
               <p className="websites-price-label">{PACKAGE_LABEL}</p>
               <p className="websites-price-figures">
                 <span>{PACKAGE_PRICE.gbp.label}</span>
-                <span className="websites-price-sep">·</span>
                 <span>{PACKAGE_PRICE.aed.label}</span>
-                <span className="websites-price-sep">·</span>
                 <span>{PACKAGE_PRICE.usd.label}</span>
               </p>
               <p className="websites-price-note">
@@ -103,10 +103,8 @@ export default function WebsitesPage() {
             {INCLUDED.map((item, i) => (
               <Reveal key={item.title} className="websites-row" delay={i * 0.04}>
                 <span className="websites-row-num">{String(i + 1).padStart(2, '0')}</span>
-                <div className="websites-row-body">
-                  <h3 className="websites-row-title">{item.title}</h3>
-                  <p className="websites-row-desc">{item.desc}</p>
-                </div>
+                <h3 className="websites-row-title">{item.title}</h3>
+                <p className="websites-row-desc">{item.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -144,54 +142,66 @@ export default function WebsitesPage() {
               </div>
             </Reveal>
           </div>
-          <Reveal className="websites-consult-note">
-            <strong>Beyond brochure</strong>
-            <p>{CONSULTATION_NOTE}</p>
-          </Reveal>
-          {EXTRAS.length > 0 && (
-            <div className="websites-extras-list">
-              {EXTRAS.map((item) => (
-                <Reveal key={item.title} className="websites-extra-line">
-                  <strong>
-                    {item.title}
-                    {item.badge ? ` · ${item.badge}` : ''}
-                  </strong>
-                  <span>{item.desc}</span>
-                </Reveal>
-              ))}
-            </div>
-          )}
+          {EXTRAS.filter((item) => item.priceKey !== 'hourly').map((item) => (
+            <Reveal key={item.title} className="websites-price-row" delay={0.08}>
+              <div>
+                <strong>{item.title}</strong>
+                <span>{item.desc}</span>
+              </div>
+              <div className="websites-price-cells websites-price-cells--single">
+                <span>{item.badge || 'Scoped'}</span>
+              </div>
+            </Reveal>
+          ))}
         </Container>
       </section>
 
       <section className="section section--dark">
         <Container>
           <Reveal>
-            <SectionLabel>Work</SectionLabel>
-            <h2 className="ui-section-heading">Featured sites.</h2>
+            <DisplayTitle>Work</DisplayTitle>
+            <SectionHeading>Featured sites.</SectionHeading>
             <p className="section-intro">
               A sample of recent launches. Full completed list below.
             </p>
           </Reveal>
           <div className="websites-cases">
             {CASE_STUDIES.map((site, i) => (
-              <Reveal key={site.url} delay={i * 0.04}>
-                <a
-                  href={site.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="websites-case"
-                >
-                  <div>
-                    <p className="websites-case-sector">{site.sector}</p>
-                    <h3>{site.name}</h3>
-                    <p className="websites-case-url">
-                      {site.url.replace(/^https?:\/\/(www\.)?/, '')}
-                    </p>
-                  </div>
-                  <ExternalLink size={16} />
-                </a>
-              </Reveal>
+              <a
+                key={site.url}
+                href={site.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="websites-case"
+              >
+                <MediaReveal className="websites-case-frame">
+                  {site.image ? (
+                    <img
+                      src={site.image}
+                      alt=""
+                      width={1400}
+                      height={875}
+                      loading={i < 2 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                  ) : (
+                    <span className="websites-case-mark" aria-hidden="true">shift.</span>
+                  )}
+                </MediaReveal>
+                <span className="websites-case-meta">
+                  <span className="websites-case-kicker">
+                    <span className="websites-case-index">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="websites-case-sector">{site.sector}</span>
+                  </span>
+                  <h3>{site.name}</h3>
+                  <span className="websites-case-url">
+                    {site.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                    <ExternalLink size={14} aria-hidden="true" />
+                  </span>
+                </span>
+              </a>
             ))}
           </div>
         </Container>
@@ -208,7 +218,7 @@ export default function WebsitesPage() {
             </p>
           </Reveal>
           <div className="websites-completed">
-            {COMPLETED_SITES.map((site) => (
+            {COMPLETED_SITES.map((site, i) => (
               <a
                 key={`${site.name}-${site.url}`}
                 href={site.url}
@@ -216,8 +226,11 @@ export default function WebsitesPage() {
                 rel="noopener noreferrer"
                 className="websites-completed-item"
               >
+                <span className="websites-completed-index">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="websites-completed-name">{site.name}</h3>
                 <span className="websites-completed-sector">{site.sector}</span>
-                <span className="websites-completed-name">{site.name}</span>
                 <span className="websites-completed-url">
                   {site.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
                 </span>
@@ -227,25 +240,29 @@ export default function WebsitesPage() {
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section method">
         <Container>
-          <Reveal>
-            <SectionLabel>Method</SectionLabel>
-            <h2 className="ui-section-heading">Brief to live.</h2>
-          </Reveal>
-          <div className="websites-process">
-            {[
-              ['01', 'Brief', 'Tell us about the business and the goal.'],
-              ['02', 'Design', 'We mock up before we build.'],
-              ['03', 'Build', 'Clean, fast, mobile-first.'],
-              ['04', 'Launch', 'Live with hosting and support included.'],
-            ].map(([n, title, desc], i) => (
-              <Reveal key={n} className="websites-process-item" delay={i * 0.04}>
-                <span className="websites-process-num">{n}</span>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </Reveal>
-            ))}
+          <div className="method-layout">
+            <div className="method-rail">
+              <p className="ui-display-title">Method</p>
+              <h2 className="ui-section-heading">Brief to live.</h2>
+            </div>
+            <ol className="method-steps">
+              {[
+                ['01', 'Brief', 'Tell us about the business and the goal.'],
+                ['02', 'Design', 'We mock up before we build.'],
+                ['03', 'Build', 'Clean, fast, mobile-first.'],
+                ['04', 'Launch', 'Live with hosting and support included.'],
+              ].map(([n, title, desc], i) => (
+                <Reveal key={n} as="li" className="method-step" delay={i * 0.04}>
+                  <span className="method-num" aria-hidden="true">{n}</span>
+                  <div className="method-copy">
+                    <h3 className="method-title">{title}</h3>
+                    <p className="method-desc">{desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </Container>
       </section>
@@ -263,7 +280,7 @@ export default function WebsitesPage() {
               </div>
               <button
                 type="button"
-                className="ui-btn ui-btn--secondary"
+                className="ui-btn ui-btn--primary"
                 onClick={() => navigator.clipboard?.writeText(shareUrl)}
               >
                 Copy link
@@ -273,26 +290,49 @@ export default function WebsitesPage() {
         </section>
       )}
 
-      <section className="section section--contact" id="get-started">
+      <section className="section" id="website-faq">
         <Container>
           <Reveal>
-            <h2 className="ui-section-heading">Ready for your site?</h2>
+            <DisplayTitle>FAQ</DisplayTitle>
+            <SectionHeading>Package questions.</SectionHeading>
+          </Reveal>
+          <div className="faq-list">
+            {WEBSITE_FAQS.map((item, i) => (
+              <Reveal key={item.q} className="faq-item" delay={i * 0.04}>
+                <h3 className="faq-q">{item.q}</h3>
+                <p className="faq-a">{item.a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section section--contact" id="get-started">
+        <Container>
+          <p className="hero-kicker">Start</p>
+          <LineReveal
+            as="h2"
+            when="view"
+            className="contact-title"
+            lines={[
+              { text: 'Ready for' },
+              { text: 'your site.', mark: true },
+            ]}
+          />
+          <Reveal>
             <p className="section-intro">
               Brochure package from {PACKAGE_PRICE.gbp.label}. eCommerce and AI
               modules via free consultation. We usually reply within a day.
             </p>
           </Reveal>
           <div className="contact-grid">
-            <Reveal className="contact-info">
-              <div className="contact-item">
-                <Mail size={18} />
-                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-              </div>
+            <Reveal className="contact-info contact-people">
+              <a className="contact-person" href={`mailto:${CONTACT_EMAIL}`}>
+                <span className="contact-person-role">Websites</span>
+                <span className="contact-person-name">partnerships@<wbr />shiftaitech.com</span>
+              </a>
               {referral && (
-                <div className="contact-item">
-                  <Link2 size={18} />
-                  <span>Referral {referral.code}</span>
-                </div>
+                <p className="contact-response">Referral {referral.code}</p>
               )}
               <button type="button" className="hero-story-link websites-print-cta" onClick={openFlyerPdf}>
                 Export PDF flyer <ArrowRight size={15} />

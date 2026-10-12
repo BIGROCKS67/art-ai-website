@@ -21,13 +21,37 @@ export const PACKAGE_NOTE =
 export const CONSULTATION_NOTE =
   'eCommerce builds and AI business modules: free consultation. Scoped and priced after we understand the brief.'
 
+/** Visible copy and FAQ schema must stay identical, character for character. */
+export const WEBSITE_FAQS = [
+  {
+    q: 'How much is a brochure website?',
+    a: 'A brochure website with design, build, launch, and hosting is £500, AED 2,500, or $650.',
+  },
+  {
+    q: 'What does the brochure package include?',
+    a: 'Bespoke design, a mobile-first layout, copywriting, SEO foundations, hosting with SSL and security updates, and launch support.',
+  },
+  {
+    q: 'What does extra development cost?',
+    a: 'Extra development is £50/hr, AED 250/hr, or $65/hr.',
+  },
+  {
+    q: 'Do you build online stores and AI modules?',
+    a: 'Yes. eCommerce and AI modules start with a free consultation, then scoped pricing.',
+  },
+  {
+    q: 'How do I start a website project?',
+    a: 'Use the form on this page, or email partnerships@shiftaitech.com. We usually reply within a day.',
+  },
+]
+
 export const INCLUDED = [
   {
-    title: 'Bespoke Design',
+    title: 'Bespoke design',
     desc: 'Built from scratch around your brand. No templates.',
   },
   {
-    title: 'Mobile-First',
+    title: 'Mobile first',
     desc: 'Designed for phones first, where most of your traffic lands.',
   },
   {
@@ -35,15 +59,15 @@ export const INCLUDED = [
     desc: 'Clear, persuasive content that speaks to your customers.',
   },
   {
-    title: 'SEO Foundations',
+    title: 'SEO foundations',
     desc: 'Google Business Profile, meta tags, and fast indexing.',
   },
   {
-    title: 'Hosting Included',
+    title: 'Hosting included',
     desc: 'Live hosting, SSL, and security updates in the package price.',
   },
   {
-    title: 'Launch Support',
+    title: 'Launch support',
     desc: 'We get you live and stay available when you need help.',
   },
 ]
@@ -67,16 +91,19 @@ export const CASE_STUDIES = [
     name: 'The Red Cow',
     url: 'https://theredcowchesterton.co.uk',
     sector: 'Hospitality',
+    image: '/websites/red-cow.jpg',
   },
   {
     name: 'Eagle AI Labs',
     url: 'https://www.eagleailabs.com',
     sector: 'Technology',
+    image: '/websites/eagle-ai.jpg',
   },
   {
     name: 'Scalpx Capital',
     url: 'https://www.scalpxcapital.com',
     sector: 'Finance',
+    image: '/websites/scalpx.jpg',
   },
   {
     name: 'Shift AI Tech',
@@ -87,11 +114,13 @@ export const CASE_STUDIES = [
     name: 'Ready4Refurb',
     url: 'https://ready4refurb.com',
     sector: 'Property',
+    image: '/websites/ready4refurb.jpg',
   },
   {
     name: 'Mixa Restaurant',
     url: 'https://www.mixarestaurant.com',
     sector: 'Hospitality',
+    image: '/websites/mixa.jpg',
   },
 ]
 

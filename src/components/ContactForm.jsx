@@ -100,8 +100,8 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
         transition={{ duration: 0.4 }}
       >
         <CheckCircle2 size={40} />
-        <h3>Message received</h3>
-        <p>We&apos;ll respond within 24 hours.</p>
+        <h3>Message received.</h3>
+        <p>We&apos;ll reply within a day.</p>
         {activeReferral && (
           <p style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>
             Logged against referral <strong>{activeReferral}</strong>
@@ -132,6 +132,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
             value={formData.name}
             onChange={handleChange}
             required
+            autoComplete="name"
             placeholder="Your name"
           />
         </div>
@@ -144,6 +145,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
             value={formData.email}
             onChange={handleChange}
             required
+            autoComplete="email"
             placeholder="you@company.com"
           />
         </div>
@@ -156,6 +158,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
           name="company"
           value={formData.company}
           onChange={handleChange}
+          autoComplete="organization"
           placeholder="Your company"
         />
       </div>
@@ -184,7 +187,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
         />
       </div>
       <button type="submit" className="contact-form-submit" disabled={loading}>
-        {loading ? 'Sending\u2026' : <><span>Send Message</span> <ArrowRight size={16} /></>}
+        {loading ? 'Sending\u2026' : <><span>Send message</span> <ArrowRight size={16} /></>}
       </button>
       {error && (
         <p className="contact-form-error">

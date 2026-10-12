@@ -1,6 +1,6 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import TeamPage from './TeamPage.jsx'
@@ -10,6 +10,7 @@ import PartnersPage from './PartnersPage.jsx'
 import ResearchPaperPage from './ResearchPaperPage.jsx'
 import OnboardingPage from './OnboardingPage.jsx'
 import WebsitesPage from './WebsitesPage.jsx'
+import NotFoundPage from './NotFoundPage.jsx'
 import Navigation from './components/Navigation.jsx'
 import Footer from './components/Footer.jsx'
 import SiteFX from './components/SiteFX.jsx'
@@ -18,12 +19,28 @@ import { captureReferralFromSearch } from './lib/referral'
 
 captureReferralFromSearch()
 
+function PageFade({ children }) {
+  const { pathname } = useLocation()
+  const seen = useRef(false)
+  const animate = seen.current
+  useEffect(() => {
+    seen.current = true
+  }, [pathname])
+  return (
+    <div key={pathname} className={animate ? 'page-fade' : undefined}>
+      {children}
+    </div>
+  )
+}
+
 function AppShell() {
   return (
     <>
       <Seo />
       <SiteFX />
       <Navigation />
+      <main id="content">
+      <PageFade>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/websites" element={<WebsitesPage />} />
@@ -33,8 +50,10 @@ function AppShell() {
         <Route path="/our-story" element={<OurStoryPage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
         <Route path="/research/:paperId" element={<ResearchPaperPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </PageFade>
+      </main>
       <Footer />
     </>
   )

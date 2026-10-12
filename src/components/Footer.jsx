@@ -5,40 +5,36 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
+        <Link to="/" className="footer-mark" aria-label="Shift AI Tech">
+          shift.
+        </Link>
+        <p className="footer-tagline">
+          Shift AI Tech. AI products that ship, for businesses that need an edge.
+        </p>
         <div className="footer-top">
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo-link">
-              <img
-                src={`${import.meta.env.BASE_URL}shift-logo-new.png`}
-                alt="Shift AI Tech"
-                className="footer-logo-img"
-              />
-            </Link>
-            <p className="footer-tagline">
-              Shift AI Tech. AI products that ship, for businesses that need an edge.
-            </p>
-          </div>
-
           <div className="footer-nav-group">
             <p className="footer-nav-label">Company</p>
             <Link to="/our-story" className="footer-nav-link">Our Story</Link>
             <Link to="/partners" className="footer-nav-link">Partners</Link>
             <Link to="/team" className="footer-nav-link">Team</Link>
+            <Link to="/research/research-paper-3" className="footer-nav-link">Research</Link>
           </div>
 
           <div className="footer-nav-group">
             <p className="footer-nav-label">Services</p>
-            <a href="/#solutions" className="footer-nav-link">Custom AI</a>
-            <a href="/#solutions" className="footer-nav-link">Product builds</a>
-            <a href="/#solutions" className="footer-nav-link">Automation</a>
-            <a href="/#solutions" className="footer-nav-link">Strategy</a>
+            <Link to="/#custom-ai" className="footer-nav-link">Custom AI</Link>
+            <Link to="/#product-builds" className="footer-nav-link">Product builds</Link>
+            <Link to="/#automation" className="footer-nav-link">Automation</Link>
+            <Link to="/#strategy" className="footer-nav-link">Strategy</Link>
+            <Link to="/websites" className="footer-nav-link">Websites</Link>
           </div>
 
           <div className="footer-nav-group">
             <p className="footer-nav-label">Get Started</p>
             <a href="/#contact" className="footer-nav-link footer-nav-link--cta">
-              Start a Partnership <ArrowRight size={14} />
+              Start a project <ArrowRight size={14} />
             </a>
+            <Link to="/onboarding" className="footer-nav-link">Onboarding</Link>
             <a href="mailto:partnerships@shiftaitech.com" className="footer-nav-link">
               partnerships@shiftaitech.com
             </a>

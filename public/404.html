@@ -1,16 +1,160 @@
 <!doctype html>
-<html>
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
-    <title>Shift AI Tech</title>
-    <script>
-      (function () {
-        var l = window.location
-        var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          '/?p=' + encodeURIComponent(l.pathname + l.search) + l.hash
-        l.replace(redirect)
-      })()
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Page not found · Shift AI Tech</title>
+    <meta name="description" content="That page is not on shiftaitech.com." />
+    <link rel="icon" type="image/png" href="/shift-logo-new.png" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: #09090b; color: #f4f4f6; }
+      body { font-family: Inter, system-ui, sans-serif; }
+      a { color: inherit; text-decoration: none; }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        background: rgba(9, 9, 11, 0.86);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+      }
+      .nav img { height: 34px; width: auto; display: block; }
+      .nav-links { display: flex; align-items: center; gap: 0.15rem; }
+      .nav-links a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+        color: rgba(244, 244, 246, 0.72);
+      }
+      .nav-cta {
+        margin-left: 0.75rem;
+        padding: 0.7rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        font-size: 0.8125rem;
+        color: #f4f4f6;
+      }
+      .hero {
+        position: relative;
+        min-height: calc(100vh - 72px);
+        display: flex;
+        align-items: center;
+        padding: 4rem 2rem 5rem;
+        overflow: hidden;
+      }
+      .glow {
+        position: absolute;
+        right: -6vw;
+        top: 8vh;
+        width: min(52vw, 640px);
+        height: 70vh;
+        background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.5), transparent 68%);
+        filter: blur(8px);
+        pointer-events: none;
+      }
+      .inner { position: relative; z-index: 1; max-width: 920px; }
+      .kicker {
+        margin: 0 0 1rem;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(244, 244, 246, 0.46);
+      }
+      h1 {
+        margin: 0 0 1.35rem;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(3.2rem, 7vw, 6.6rem);
+        line-height: 0.92;
+        letter-spacing: -0.03em;
+      }
+      h1 span { display: block; font-style: italic; }
+      .sub {
+        max-width: 42ch;
+        margin: 0 0 1.75rem;
+        font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+        line-height: 1.6;
+        color: rgba(240, 240, 243, 0.72);
+      }
+      .brand { white-space: nowrap; }
+      .ways {
+        display: none;
+        margin: 2.25rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .ways a {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-style: italic;
+        font-size: 1.45rem;
+        color: rgba(244, 244, 246, 0.82);
+      }
+      .ways a:hover,
+      .ways a:focus-visible { color: #c084fc; }
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.5rem; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.75rem;
+        background: #7c3aed;
+        color: #fff;
+        font-weight: 500;
+        font-size: 0.9375rem;
+      }
+      .btn:hover { background: #6d28d9; }
+      .text-link { color: rgba(244, 244, 246, 0.82); font-size: 0.95rem; }
+      .text-link:hover { color: #c084fc; }
+      @media (max-width: 880px) {
+        .nav { padding: 0 1.25rem; }
+        .nav-links { display: none; }
+        .hero { padding: 3rem 1.25rem 4rem; align-items: flex-start; }
+        .ways { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header class="nav">
+      <a href="/" aria-label="Shift AI Tech home">
+        <img src="/shift-logo-new.png" alt="Shift AI Tech" />
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/#projects">Work</a>
+        <a href="/#solutions">Services</a>
+        <a href="/#work-with-us">Process</a>
+        <a href="/websites">Websites</a>
+        <a href="/partners">Partners</a>
+        <a href="/team">Team</a>
+        <a href="/our-story">Story</a>
+        <a class="nav-cta" href="/#contact">Start a project</a>
+      </nav>
+    </header>
+    <main class="hero">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="inner">
+        <p class="kicker">404</p>
+        <h1>This page <span>isn't here.</span></h1>
+        <p class="sub">That address is not a page on <span class="brand">Shift AI Tech</span>.</p>
+        <div class="actions">
+          <a class="btn" href="/">Back to Shift →</a>
+          <a class="text-link" href="/our-story">Our story →</a>
+        </div>
+        <nav class="ways" aria-label="Pages">
+          <a href="/#projects">Work</a>
+          <a href="/#solutions">Services</a>
+          <a href="/websites">Websites</a>
+          <a href="/partners">Partners</a>
+          <a href="/team">Team</a>
+          <a href="/our-story">Story</a>
+        </nav>
+      </div>
+    </main>
+  </body>
 </html>

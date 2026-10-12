@@ -187,15 +187,17 @@ export default function BreathingField({ className = '', interactive = true }) {
     let mouse = { x: 0.75, y: 0.45 }
     let target = { x: 0.75, y: 0.45 }
     let visible = !document.hidden
+    let onScreen = true
     let ready = false
 
     const resize = () => {
       const parent = canvas.parentElement
       const w = parent?.clientWidth || window.innerWidth
       const h = parent?.clientHeight || window.innerHeight
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
-      canvas.width = Math.floor(w * dpr)
-      canvas.height = Math.floor(h * dpr)
+      // The canvas is CSS-blurred, so a retina buffer only multiplies the shader cost.
+      const dpr = 1
+      canvas.width = Math.max(1, Math.floor(w * dpr))
+      canvas.height = Math.max(1, Math.floor(h * dpr))
       canvas.style.width = `${w}px`
       canvas.style.height = `${h}px`
       gl.viewport(0, 0, canvas.width, canvas.height)
@@ -211,11 +213,17 @@ export default function BreathingField({ className = '', interactive = true }) {
 
     const onVis = () => {
       visible = !document.hidden
+      ensure()
     }
 
+    const shouldRun = () => visible && onScreen
+
     const tick = (now) => {
+      if (!shouldRun()) {
+        raf = 0
+        return
+      }
       raf = requestAnimationFrame(tick)
-      if (!visible) return
 
       mouse.x += (target.x - mouse.x) * 0.05
       mouse.y += (target.y - mouse.y) * 0.05
@@ -235,14 +243,25 @@ export default function BreathingField({ className = '', interactive = true }) {
       }
     }
 
+    const ensure = () => {
+      if (shouldRun() && !raf) raf = requestAnimationFrame(tick)
+    }
+
+    const io = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting
+      ensure()
+    }, { rootMargin: '120px 0px' })
+
     resize()
+    io.observe(canvas)
     window.addEventListener('resize', resize)
     if (interactive) window.addEventListener('pointermove', onMove, { passive: true })
     document.addEventListener('visibilitychange', onVis)
-    raf = requestAnimationFrame(tick)
+    ensure()
 
     return () => {
       cancelAnimationFrame(raf)
+      io.disconnect()
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', onMove)
       document.removeEventListener('visibilitychange', onVis)

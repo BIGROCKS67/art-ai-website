@@ -24,6 +24,22 @@ export default function Navigation() {
     setMobileOpen(false)
   }, [location])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    if (!mobileOpen) return undefined
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileOpen])
+
   const navLinks = [
     { label: 'Work', href: '/#projects', type: 'hash' },
     { label: 'Services', href: '/#solutions', type: 'hash' },
@@ -44,6 +60,7 @@ export default function Navigation() {
           key={link.label}
           to={link.href}
           className={`nav-link${isActive ? ' nav-link--active' : ''}`}
+          aria-current={isActive ? 'page' : undefined}
           data-cursor="GO"
         >
           {link.label}
@@ -70,6 +87,7 @@ export default function Navigation() {
 
   return (
     <nav className={`nav${scrolled || !isHome ? ' nav--scrolled' : ''}${mobileOpen ? ' nav--open' : ''}${inHero ? ' nav--hero' : ''}`}>
+      <a className="skip-link" href="#content">Skip to content</a>
       <div className="nav-container">
         <Link to="/" className="nav-logo" aria-label="Shift AI Tech home">
           <img
@@ -86,14 +104,15 @@ export default function Navigation() {
         <div className="nav-right">
           <Magnetic>
             <a href={isHome ? '#contact' : '/#contact'} className="nav-cta" data-cursor="GO">
-              <span>Get in Touch</span>
+              <span>Start a project</span>
               <ArrowRight size={15} />
             </a>
           </Magnetic>
           <button
             className="nav-mobile-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -102,9 +121,20 @@ export default function Navigation() {
 
       {mobileOpen && (
         <div className="nav-mobile">
-          {navLinks.map(renderLink)}
-          <a href={isHome ? '#contact' : '/#contact'} className="nav-mobile-cta">
-            Get in Touch <ArrowRight size={15} />
+          {navLinks.map((link, i) => (
+            <div className="nav-mobile-row" key={link.label} onClick={() => setMobileOpen(false)}>
+              <span className="nav-mobile-num" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              {renderLink(link)}
+            </div>
+          ))}
+          <a
+            href={isHome ? '#contact' : '/#contact'}
+            className="nav-mobile-cta"
+            onClick={() => setMobileOpen(false)}
+          >
+            Start a project <ArrowRight size={15} />
           </a>
         </div>
       )}

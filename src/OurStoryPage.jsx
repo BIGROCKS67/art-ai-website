@@ -1,28 +1,36 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import { Container, SectionLabel, Button } from './components/ui'
-import { Reveal } from './components/motion'
+import { Reveal, LineReveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import './OurStoryPage.css'
 
 const beats = [
   {
     n: '01',
+    figure: '$650k',
+    note: 'Funded in 2024',
     title: 'The commission',
     body: 'In 2024 we funded advanced neural models to predict Bitcoin price moves. Over $650,000 across build, training, and infrastructure.',
   },
   {
     n: '02',
+    figure: '$100–300m',
+    note: 'Targeted AUM',
     title: 'The proof',
     body: 'Those models helped create Infinite Point Capital, a U.S. regulated Bitcoin fund. Targeted AUM of $100 to $300 million. The systems had to perform. They did.',
   },
   {
     n: '03',
+    figure: '82%',
+    note: 'Cut from the rebuild',
     title: 'The rebuild',
     body: 'By 2026 the same systems were rebuilt with AI-assisted tooling. An 82% cut in development cost. Same standard. Far less waste.',
   },
   {
     n: '04',
+    figure: 'shift.',
+    note: 'For clients',
     title: 'The studio',
     body: 'That is the shift. Serious AI products, built faster and leaner. We lived it before the industry wrote the white papers. Now we build that way for clients.',
   },
@@ -46,7 +54,7 @@ const researchPapers = [
   {
     id: 'research-paper-3',
     title: 'Shift AI: The AI Value Shift',
-    summary: 'Cost, productivity, and growth from real deployments.',
+    summary: 'Compiled from BCG, McKinsey, Deloitte, and PwC. Not Shift client results.',
   },
 ]
 
@@ -59,11 +67,15 @@ export default function OurStoryPage() {
         </div>
         <Container>
           <div className="story-hero-inner">
+            <p className="hero-kicker">Our story</p>
+            <LineReveal
+              className="story-hero-title"
+              lines={[
+                { text: 'We built it' },
+                { text: 'the expensive way first.', mark: true },
+              ]}
+            />
             <Reveal>
-              <p className="hero-kicker">Our story</p>
-              <h1 className="story-hero-title">
-                We built it the expensive way first.
-              </h1>
               <p className="story-hero-sub">
                 Then AI tools cut the same build by 82%. That lesson is Shift.
               </p>
@@ -77,8 +89,12 @@ export default function OurStoryPage() {
           <div className="story-beats">
             {beats.map((b, i) => (
               <Reveal key={b.n} className="story-beat" delay={i * 0.05}>
-                <span className="story-beat-num">{b.n}</span>
+                <div className="story-figure-wrap">
+                  <p className="story-figure">{b.figure}</p>
+                  <p className="story-figure-note">{b.note}</p>
+                </div>
                 <div className="story-beat-body">
+                  <p className="story-beat-kicker">{b.n}</p>
                   <h2 className="story-beat-title">{b.title}</h2>
                   <p className="story-beat-text">{b.body}</p>
                 </div>
@@ -98,10 +114,8 @@ export default function OurStoryPage() {
             {researchPapers.map((paper, i) => {
               const inner = (
                 <>
-                  <div className="research-row-body">
-                    <h3 className="research-row-title">{paper.title}</h3>
-                    <p className="research-row-summary">{paper.summary}</p>
-                  </div>
+                  <h3 className="research-row-title">{paper.title}</h3>
+                  <p className="research-row-summary">{paper.summary}</p>
                   <span className="research-row-action">
                     {paper.external ? 'Read report' : 'Read article'}
                     {paper.external ? <ArrowUpRight size={15} /> : <ArrowRight size={15} />}

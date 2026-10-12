@@ -1,5 +1,6 @@
-import { Container, SectionLabel, Button } from './components/ui'
-import { Reveal } from './components/motion'
+import { Container, Button } from './components/ui'
+import { Reveal, LineReveal, MediaReveal } from './components/motion'
+import BreathingField from './components/BreathingField'
 import './TeamPage.css'
 
 const teamProfiles = [
@@ -9,7 +10,7 @@ const teamProfiles = [
     focus: 'Technology',
     location: 'Southminster, Essex',
     bio: 'Co-founder of Shift AI Technology Ltd. Developer responsible for Shift’s technology — products, systems, and technical delivery.',
-    photo: '/jack-rockell.png',
+    photo: '/jack-rockell.webp',
     email: 'jack@shiftaitech.com',
     linkedin: 'https://www.linkedin.com/in/jack-rockell-841482267/',
   },
@@ -19,7 +20,7 @@ const teamProfiles = [
     focus: 'Business & partnerships',
     location: 'United Kingdom',
     bio: 'Co-founder of Shift AI Technology Ltd. Leads business, commercial relationships, and partnerships.',
-    photo: '/darren-bishop.png',
+    photo: '/darren-bishop.webp',
     email: 'darren@shiftaitech.com',
     linkedin: 'https://www.linkedin.com/in/dwbishop/',
   },
@@ -28,63 +29,77 @@ const teamProfiles = [
 export default function TeamPage() {
   return (
     <div className="subpage team-page">
-      <section className="subpage-hero">
+      <section className="team-hero">
+        <div className="team-hero-art" aria-hidden="true">
+          <BreathingField />
+        </div>
         <Container>
-          <Reveal>
-            <SectionLabel>Team</SectionLabel>
-            <h1 className="subpage-title">Meet the people behind Shift</h1>
-            <p className="subpage-sub">
-              Co-founders Jack Rockell and Darren Bishop. Jack leads technology; Darren leads business and partnerships.
-            </p>
-          </Reveal>
+          <div className="team-hero-inner">
+            <p className="team-kicker">Team</p>
+            <LineReveal
+              className="team-hero-title"
+              lines={[
+                { text: 'The people' },
+                { text: 'behind Shift.', mark: true },
+              ]}
+            />
+            <Reveal>
+              <p className="team-hero-sub">
+                Co-founders Jack Rockell and Darren Bishop. Jack leads technology. Darren leads business and partnerships.
+              </p>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
-      <section className="section">
+      <section className="section team-list">
         <Container>
           <div className="team-grid">
             {teamProfiles.map((member, i) => (
-              <Reveal key={member.email} as="article" className="team-card" delay={i * 0.07}>
-                <div className="team-card-header">
+              <article key={member.email} className="team-profile">
+                <MediaReveal className="team-figure">
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="team-avatar team-avatar--photo"
-                    width={52}
-                    height={52}
-                    loading="lazy"
+                    className="team-portrait"
+                    width={380}
+                    height={304}
+                    loading={i === 0 ? 'eager' : 'lazy'}
                   />
-                  <div>
-                    <h2 className="team-name">{member.name}</h2>
-                    <p className="team-role">
-                      {member.role}
-                      {member.focus ? ` · ${member.focus}` : ''}
-                    </p>
-                    <p className="team-location">{member.location}</p>
-                  </div>
-                </div>
-                <p className="team-bio">{member.bio}</p>
-                <div className="team-links">
-                  <a href={`mailto:${member.email}`} className="team-link">
-                    Email
-                  </a>
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="team-link"
-                    >
-                      LinkedIn
+                </MediaReveal>
+                <Reveal className="team-copy" delay={0.08}>
+                  <p className="team-role">{member.focus}</p>
+                  <h2 className="team-name">{member.name}</h2>
+                  <p className="team-meta">
+                    {member.role}
+                    <span aria-hidden="true"> · </span>
+                    {member.location}
+                  </p>
+                  <p className="team-bio">{member.bio}</p>
+                  <div className="team-links">
+                    <a href={`mailto:${member.email}`} className="team-link">
+                      {member.email}
                     </a>
-                  )}
-                </div>
-              </Reveal>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="team-link"
+                      >
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </Reveal>
+              </article>
             ))}
           </div>
 
           <div className="team-cta">
-            <Button href="/#contact">Start a Project</Button>
+            <h2 className="team-cta-title">You work with the people who build the product.</h2>
+            <p>Jack leads technology. Darren leads business and partnerships.</p>
+            <Button href="/#contact">Start a project</Button>
           </div>
         </Container>
       </section>

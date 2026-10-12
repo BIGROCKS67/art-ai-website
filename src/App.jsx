@@ -1,18 +1,16 @@
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Mail,
-  MapPin,
-  Zap,
-} from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Container, SectionHeading, DisplayTitle, Button } from './components/ui'
 import ContactForm from './components/ContactForm'
-import { Reveal, MediaReveal } from './components/motion'
+import { Reveal, MediaReveal, LineReveal } from './components/motion'
 import BreathingField from './components/BreathingField'
 import { portfolio as portfolioData } from './data/projects'
 import './App.css'
 
-const featuredProjects = portfolioData.filter((p) => p.featured)
+const featuredOrder = ['lnd', 'biosense', 'aml']
+const featuredProjects = featuredOrder
+  .map((id) => portfolioData.find((project) => project.id === id && project.featured))
+  .filter(Boolean)
 
 const pillars = [
   {
@@ -35,23 +33,38 @@ const pillars = [
 const services = [
   {
     number: '01',
+    id: 'custom-ai',
     title: 'Custom AI',
     description: 'Models, agents, and RAG pipelines trained on your data.',
+    href: '#contact',
   },
   {
     number: '02',
+    id: 'product-builds',
     title: 'Product builds',
     description: 'Full-stack products from concept to live deployment.',
+    href: '#contact',
   },
   {
     number: '03',
+    id: 'automation',
     title: 'Automation',
     description: 'Workflows that replace slow, manual work.',
+    href: '#contact',
   },
   {
     number: '04',
+    id: 'strategy',
     title: 'Strategy',
     description: 'Where AI pays off. Scoped, priced, and clear before you commit.',
+    href: '#contact',
+  },
+  {
+    number: '05',
+    id: 'service-websites',
+    title: 'Websites',
+    description: 'Bespoke design, build, host, and SEO foundations.',
+    href: '/websites',
   },
 ]
 
@@ -63,19 +76,55 @@ const processSteps = [
 ]
 
 const stats = [
-  { value: 'Weeks', label: 'Brief to working prototype.' },
-  { value: 'Day 1', label: 'Useful output from the start.' },
-  { value: 'UK', label: 'Founder-led. Direct access.' },
+  { value: '$650k', label: 'Funded into the first models, in 2024.', href: '/our-story' },
+  { value: '82%', label: 'Cut from the rebuild of those same systems.', href: '/our-story' },
+  { value: 'UK', label: 'Founder-led. Southminster, Essex.', href: '/team' },
+]
+
+const proof = [
+  { label: 'AWS Activate', href: '/partners' },
+  { label: 'NVIDIA Inception', href: '/partners' },
+  { label: 'BioSense', href: '/#case-study-biosense' },
+  { label: 'Braid', href: '/#case-study-aml' },
+  { label: 'Deep Space', href: '/#case-study-lnd' },
+  { label: 'RAMDVG', href: '/partners' },
+  { label: 'AP Creative Co', href: '/partners' },
+  { label: '$650k into the first models', href: '/our-story' },
+  { label: '82% off the rebuild', href: '/our-story' },
 ]
 
 const faqs = [
   {
     q: 'What does Shift AI Tech do?',
-    a: 'Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and websites for businesses that need a commercial edge.',
+    a: (
+      <>
+        Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and <Link to="/websites">websites</Link> for businesses that need a commercial edge.
+      </>
+    ),
+  },
+  {
+    q: 'Who founded Shift AI Tech?',
+    a: (
+      <>
+        <Link to="/team">Jack Rockell</Link> and <Link to="/team">Darren Bishop</Link>. Jack leads technology. Darren leads business and partnerships. The company is Shift AI Technology Ltd, number <a href="https://find-and-update.company-information.service.gov.uk/company/17159725" target="_blank" rel="noopener noreferrer">17159725</a>.
+      </>
+    ),
   },
   {
     q: 'Are you the same as Shift Technology or other Shift AI brands?',
     a: 'No. We are Shift AI Tech at shiftaitech.com, an independent UK studio. Not Shift Technology (insurance AI) and not Shift AI at shiftai.co.uk.',
+  },
+  {
+    q: 'Where is Shift based?',
+    a: 'Southminster, Essex, United Kingdom. Founder-led. You work with the people who build the product.',
+  },
+  {
+    q: 'Which programmes is Shift in?',
+    a: (
+      <>
+        <Link to="/partners">AWS Activate</Link>, and the <Link to="/partners">NVIDIA Inception programme</Link>.
+      </>
+    ),
   },
   {
     q: 'How fast can you ship?',
@@ -83,11 +132,17 @@ const faqs = [
   },
   {
     q: 'Do you build websites as well as AI?',
-    a: 'Yes. Bespoke design, build, host, and SEO foundations. Fixed-price packages on our Websites page.',
+    a: (
+      <>
+        Yes. Bespoke design, build, host, and SEO foundations. Fixed-price packages on our <Link to="/websites">Websites page</Link>.
+      </>
+    ),
   },
 ]
 
 function App() {
+  const { hash } = useLocation()
+
   return (
     <div className="page">
 
@@ -97,15 +152,20 @@ function App() {
         </div>
         <Container>
           <div className="hero-inner">
-            <p className="hero-kicker">Shift AI Tech · AI studio · United Kingdom</p>
-            <h1 className="hero-title">
-              We build AI products that give businesses their edge.
-            </h1>
-            <Reveal className="hero-sub" delay={0.12}>
+            <p className="hero-kicker">Shift AI Tech · United Kingdom</p>
+            <LineReveal
+              className="hero-title"
+              lines={[
+                { text: 'We build AI' },
+                { text: 'that gives' },
+                { text: 'businesses their edge.', mark: true },
+              ]}
+            />
+            <Reveal className="hero-sub" delay={0.12} viewport={{ once: true, margin: '0px' }}>
               Shift AI Tech builds custom models, automation, and full product builds.
               From brief to live in weeks.
             </Reveal>
-            <Reveal className="hero-actions" delay={0.2}>
+            <Reveal className="hero-actions" delay={0.2} viewport={{ once: true, margin: '0px' }}>
               <Button href="#contact">Start a project</Button>
               <a href="#projects" className="hero-story-link" data-cursor="WORK">
                 See the work <ArrowRight size={15} />
@@ -118,12 +178,25 @@ function App() {
         </div>
       </section>
 
+      <div className="proof" aria-label="Programmes and products">
+        <div className="proof-track">
+          <div className="proof-set">
+            {proof.map((item) => (
+              <Link key={item.label} to={item.href} className="proof-item">
+                {item.label}
+                <span className="proof-dot" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <section className="approach">
         <Container>
           <Reveal>
-            <p className="approach-statement">
+            <h2 className="approach-statement">
               Shaping how businesses use AI. Seen, trusted, and paid for.
-            </p>
+            </h2>
           </Reveal>
           <div className="approach-grid">
             {pillars.map((p, i) => (
@@ -145,12 +218,18 @@ function App() {
           </Reveal>
           <div className="service-rows">
             {services.map((s, i) => (
-              <Reveal key={s.title} className="service-row" delay={i * 0.05} data-cursor="BUILD">
+              <Reveal
+                key={s.title}
+                as="a"
+                href={s.href}
+                id={s.id}
+                className={`service-row${hash === `#${s.id}` ? ' service-row--here' : ''}`}
+                delay={i * 0.05}
+                data-cursor="BUILD"
+              >
                 <span className="service-row-num">{s.number}</span>
-                <div className="service-row-body">
-                  <h3 className="service-row-title">{s.title}</h3>
-                  <p className="service-row-desc">{s.description}</p>
-                </div>
+                <h3 className="service-row-title">{s.title}</h3>
+                <p className="service-row-desc">{s.description}</p>
               </Reveal>
             ))}
           </div>
@@ -172,15 +251,38 @@ function App() {
               <div
                 key={p.id}
                 id={`case-study-${p.id}`}
-                className={`showcase-item${i % 2 === 1 ? ' showcase-item--flip' : ''}`}
+                className={`showcase-item${i % 2 === 1 ? ' showcase-item--flip' : ''}${p.id === 'aml' ? ' showcase-item--panel' : ''}`}
               >
                 <MediaReveal className="showcase-media" data-cursor="VIEW">
-                  <div className="showcase-media-main">
-                    <img src={p.images[0]} alt={`${p.partner} screenshot`} loading="lazy" />
-                  </div>
+                  {p.link ? (
+                    <a
+                      className="showcase-media-main"
+                      href={p.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor="VIEW"
+                    >
+                      <img
+                        src={p.images[0]}
+                        alt={`${p.partner} screenshot`}
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                      />
+                    </a>
+                  ) : (
+                    <div className="showcase-media-main">
+                      <img
+                        src={p.images[0]}
+                        alt={`${p.partner} screenshot`}
+                        loading={i === 0 ? 'eager' : 'lazy'}
+                      />
+                    </div>
+                  )}
                 </MediaReveal>
                 <Reveal className="showcase-content" delay={0.12}>
-                  <span className="showcase-sector">{p.sector}</span>
+                  <p className="showcase-kicker">
+                    <span className="showcase-index">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="showcase-sector">{p.sector}</span>
+                  </p>
                   <h3 className="showcase-name">{p.partner}</h3>
                   <p className="showcase-desc">{p.short || p.description}</p>
                   {p.link && (
@@ -207,29 +309,35 @@ function App() {
         <Container>
           <div className="stats-grid stats-grid--tight">
             {stats.map((s, i) => (
-              <Reveal key={s.value} className="stat-cell" delay={i * 0.04}>
-                <p className="stat-value">{s.value}</p>
-                <p className="stat-label">{s.label}</p>
+              <Reveal key={s.value} delay={i * 0.04}>
+                <Link to={s.href} className="stat-cell">
+                  <p className="stat-value">{s.value}</p>
+                  <p className="stat-label">{s.label}</p>
+                </Link>
               </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      <section id="work-with-us" className="section">
+      <section id="work-with-us" className="section method">
         <Container>
-          <Reveal>
-            <DisplayTitle>Method</DisplayTitle>
-            <SectionHeading>From idea to live.</SectionHeading>
-          </Reveal>
-          <div className="process-grid">
-            {processSteps.map((p, i) => (
-              <Reveal key={p.title} className="process-card" delay={i * 0.05}>
-                <span className="process-card-num">{p.n}</span>
-                <h3 className="process-card-title">{p.title}</h3>
-                <p className="process-card-desc">{p.desc}</p>
-              </Reveal>
-            ))}
+          <div className="method-layout">
+            <div className="method-rail">
+              <DisplayTitle>Method</DisplayTitle>
+              <SectionHeading>From idea to live.</SectionHeading>
+            </div>
+            <ol className="method-steps">
+              {processSteps.map((p, i) => (
+                <Reveal key={p.title} as="li" className="method-step" delay={i * 0.05}>
+                  <span className="method-num" aria-hidden="true">{p.n}</span>
+                  <div className="method-copy">
+                    <h3 className="method-title">{p.title}</h3>
+                    <p className="method-desc">{p.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </Container>
       </section>
@@ -256,32 +364,41 @@ function App() {
 
       <section id="contact" className="section section--contact">
         <div className="contact-bg" aria-hidden="true">
-          <img
-            src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80"
-            alt=""
-            loading="lazy"
-          />
-          <div className="contact-bg-overlay" />
+          <div className="contact-bg-glow" />
         </div>
         <Container>
-          <Reveal>
-            <SectionHeading>Tell us what you need.</SectionHeading>
-            <p className="section-intro">We usually reply within a day.</p>
-          </Reveal>
+          <p className="hero-kicker">Contact</p>
+          <LineReveal
+            as="h2"
+            when="view"
+            className="contact-title"
+            lines={[
+              { text: 'Tell us' },
+              { text: 'what you need.', mark: true },
+            ]}
+          />
           <div className="contact-grid">
-            <Reveal className="contact-info">
-              <div className="contact-item">
-                <Mail size={18} />
-                <a href="mailto:jack@shiftaitech.com">jack@shiftaitech.com</a>
-              </div>
-              <div className="contact-item">
-                <MapPin size={18} />
-                <span>United Kingdom</span>
-              </div>
-              <div className="contact-response">
-                <Zap size={14} />
-                Reply within 24 hours
-              </div>
+            <Reveal className="contact-info contact-people">
+              <a className="contact-person" href="mailto:jack@shiftaitech.com">
+                <span className="contact-person-role">Technology</span>
+                <span className="contact-person-name">Jack Rockell</span>
+                <span className="contact-person-email">jack@shiftaitech.com</span>
+              </a>
+              <a className="contact-person" href="mailto:darren@shiftaitech.com">
+                <span className="contact-person-role">Business &amp; partnerships</span>
+                <span className="contact-person-name">Darren Bishop</span>
+                <span className="contact-person-email">darren@shiftaitech.com</span>
+              </a>
+              <a className="contact-person" href="mailto:partnerships@shiftaitech.com">
+                <span className="contact-person-role">Partnerships</span>
+                <span className="contact-person-name">partnerships@<wbr />shiftaitech.com</span>
+              </a>
+              <address className="contact-address">
+                Unit 14, The Maltings, Hall Road
+                <br />
+                Southminster, Essex CM0 7EQ
+              </address>
+              <p className="contact-response">Reply within a day</p>
             </Reveal>
             <Reveal className="contact-form-wrap" delay={0.1}>
               <ContactForm />

@@ -28,7 +28,8 @@ export const portfolio = [
     quote:
       'What used to take our compliance team three days now takes under two hours. The accuracy and audit trail are exceptional.',
     reference: 'Compliance Director, Mid-Sized Accountancy Practice',
-    images: ['/case-studies/braid-aml.jpg'],
+    images: ['/case-studies/braid-panel.jpg'],
+    link: { href: 'https://usebraid.ai', label: 'usebraid.ai' },
     featured: true,
   },
   {
@@ -36,7 +37,7 @@ export const portfolio = [
     iconKey: 'GraduationCap',
     sector: 'Learning & Development',
     category: 'AI Learning & Development Training Videos',
-    partner: 'AI Course Delivery Platform',
+    partner: 'Deep Space',
     short: 'Training courses scripted, narrated, and delivered by AI.',
     description:
       'End-to-end AI-powered content delivery for professional training providers. Courses scripted, narrated, and delivered by AI avatar instructors, scaling L&D without studio costs or scheduling constraints.',
