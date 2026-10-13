@@ -1,413 +1,288 @@
-import { Link, useLocation } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import { Container, SectionHeading, DisplayTitle, Button } from './components/ui'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+import { Container, Button } from './components/ui'
 import ContactForm from './components/ContactForm'
-import { Reveal, MediaReveal, LineReveal } from './components/motion'
-import BreathingField from './components/BreathingField'
-import { portfolio as portfolioData } from './data/projects'
 import './App.css'
-
-const featuredOrder = ['lnd', 'biosense', 'aml']
-const featuredProjects = featuredOrder
-  .map((id) => portfolioData.find((project) => project.id === id && project.featured))
-  .filter(Boolean)
-
-const pillars = [
-  {
-    number: '01',
-    title: 'Clear decisions',
-    desc: 'We help you pick the right AI, not a pile of tools.',
-  },
-  {
-    number: '02',
-    title: 'Sharp products',
-    desc: 'Systems that look considered and actually ship.',
-  },
-  {
-    number: '03',
-    title: 'Commercial pace',
-    desc: 'Built to grow. Paid for, not just launched.',
-  },
-]
+import './HomePage.css'
 
 const services = [
   {
-    number: '01',
-    id: 'custom-ai',
-    title: 'Custom AI',
-    description: 'Models, agents, and RAG pipelines trained on your data.',
-    href: '#contact',
+    title: 'AI Strategy & Consultancy',
+    body: "Know what you want to achieve, but not quite how to get there? We'll help identify the opportunities, assess what's possible and work out a practical route forward.",
   },
   {
-    number: '02',
-    id: 'product-builds',
-    title: 'Product builds',
-    description: 'Full-stack products from concept to live deployment.',
-    href: '#contact',
+    title: 'Custom AI Models',
+    body: "When off-the-shelf technology doesn't quite cut it, we develop AI solutions around the challenge at hand. Built for your requirements, rather than someone else's.",
   },
   {
-    number: '03',
-    id: 'automation',
-    title: 'Automation',
-    description: 'Workflows that replace slow, manual work.',
-    href: '#contact',
+    title: 'Intelligent Automation',
+    body: 'Less time spent on repetitive tasks. More time for the things that move your business forward. We build smarter workflows that help your people work more efficiently.',
   },
   {
-    number: '04',
-    id: 'strategy',
-    title: 'Strategy',
-    description: 'Where AI pays off. Scoped, priced, and clear before you commit.',
-    href: '#contact',
+    title: 'AI Agents',
+    body: 'Give your customers and teams better ways to get things done. From intelligent assistants to task-based agents, we build practical tools that support everyday work.',
   },
   {
-    number: '05',
-    id: 'service-websites',
-    title: 'Websites',
-    description: 'Bespoke design, build, host, and SEO foundations.',
-    href: '/websites',
+    title: 'Digital Product Development',
+    body: 'From the first prototype to a working product, we help turn ambitious ideas into applications, platforms and digital experiences that people can actually use.',
+  },
+  {
+    title: 'Software Integration',
+    body: 'We connect systems, develop new functionality and help your existing tools work harder in parallel.',
   },
 ]
 
-const processSteps = [
-  { n: '01', title: 'Brief', desc: 'Goals, constraints, and where AI actually fits.' },
-  { n: '02', title: 'Design', desc: 'Architecture, scope, and cost, agreed upfront.' },
-  { n: '03', title: 'Build', desc: 'Fast delivery. No bloat, no waste.' },
-  { n: '04', title: 'Ship', desc: 'Live, monitored, and ready to iterate.' },
-]
-
-const stats = [
-  { value: '$650k', label: 'Funded into the first models, in 2024.', href: '/our-story' },
-  { value: '82%', label: 'Cut from the rebuild of those same systems.', href: '/our-story' },
-  { value: 'UK', label: 'Founder-led. Southminster, Essex.', href: '/team' },
-]
-
-const proof = [
-  { label: 'AWS Activate', href: '/partners' },
-  { label: 'NVIDIA Inception', href: '/partners' },
-  { label: 'BioSense', href: '/#case-study-biosense' },
-  { label: 'Braid', href: '/#case-study-aml' },
-  { label: 'Deep Space', href: '/#case-study-lnd' },
-  { label: 'RAMDVG', href: '/partners' },
-  { label: 'AP Creative Co', href: '/partners' },
-  { label: '$650k into the first models', href: '/our-story' },
-  { label: '82% off the rebuild', href: '/our-story' },
-]
-
-const faqs = [
+const products = [
   {
-    q: 'What does Shift AI Tech do?',
-    a: (
-      <>
-        Shift AI Tech is a UK AI studio that builds custom AI models, agents, automation, full product builds, and <Link to="/websites">websites</Link> for businesses that need a commercial edge.
-      </>
-    ),
+    name: 'Braid',
+    kicker: 'Compliance',
+    lead: 'Meet Braid. Smart client risk-assessments built for compliance.',
+    body: 'Braid is a cutting-edge AI-powered client risk assessment platform designed to make AML compliance faster, simpler, and more affordable. Bringing together Companies House records, sanctions screening and Politically Exposed Person (PEP) data, Braid produces structured, 13-section risk assessment reports tailored to your firm’s own policies and procedures. Built with robust safeguards, traceable sources and UK-based data hosting, Braid is currently being resold through FibreCRM, extending its reach to compliance professionals and businesses seeking a more efficient approach to client risk assessments.',
+    href: 'https://usebraid.ai',
+    label: 'usebraid.ai',
+    image: '/case-studies/braid-panel.jpg',
+    portrait: true,
   },
   {
-    q: 'Who founded Shift AI Tech?',
-    a: (
-      <>
-        <Link to="/team">Jack Rockell</Link> and <Link to="/team">Darren Bishop</Link>. Jack leads technology. Darren leads business and partnerships. The company is Shift AI Technology Ltd, number <a href="https://find-and-update.company-information.service.gov.uk/company/17159725" target="_blank" rel="noopener noreferrer">17159725</a>.
-      </>
-    ),
+    name: 'Deep Space',
+    kicker: 'Education',
+    lead: 'Exploring the future of Space Education, powered by Shift AI.',
+    body: 'Deep Space is an AI-powered learning platform designed to make complex, specialist subjects more accessible through engaging, interactive education. Developed for Deep Space Commodities alongside Dr Tom James, Shift AI has built a platform that combines 73 different video lessons with an intelligent AI Tutor that answers questions in real time. With contextual AI assistance, structured assessments and personalised learning support, Deep Space demonstrates how intelligent technology can transform traditional education into a more engaging, responsive and interactive experience.',
+    image: '/case-studies/deep-space-1.jpg',
   },
   {
-    q: 'Are you the same as Shift Technology or other Shift AI brands?',
-    a: 'No. We are Shift AI Tech at shiftaitech.com, an independent UK studio. Not Shift Technology (insurance AI) and not Shift AI at shiftai.co.uk.',
-  },
-  {
-    q: 'Where is Shift based?',
-    a: 'Southminster, Essex, United Kingdom. Founder-led. You work with the people who build the product.',
-  },
-  {
-    q: 'Which programmes is Shift in?',
-    a: (
-      <>
-        <Link to="/partners">AWS Activate</Link>, and the <Link to="/partners">NVIDIA Inception programme</Link>.
-      </>
-    ),
-  },
-  {
-    q: 'How fast can you ship?',
-    a: 'From brief to a working prototype in weeks, with useful output from day one.',
-  },
-  {
-    q: 'Do you build websites as well as AI?',
-    a: (
-      <>
-        Yes. Bespoke design, build, host, and SEO foundations. Fixed-price packages on our <Link to="/websites">Websites page</Link>.
-      </>
-    ),
+    name: 'BioSense',
+    kicker: 'Health',
+    lead: 'Health intelligence, built for BioSenseAI.',
+    body: 'Developed for our client, BioSenseAI, BioSense is an AI-powered health intelligence platform designed to help individuals better understand their bodies, gain meaningful insights into their health and take greater control of their wellbeing. Bringing together data from wearable devices, blood test results, nutrition and lifestyle habits, BioSense uses artificial intelligence to uncover patterns, track changes and deliver personalised health insights.',
+    href: 'https://bio-sense.ai',
+    label: 'bio-sense.ai',
+    image: '/case-studies/biosense.jpg',
   },
 ]
 
-function App() {
-  const { hash } = useLocation()
+const partners = [
+  { name: 'AWS Activate', src: '/partners/aws.svg', href: 'https://aws.amazon.com/startups/credits' },
+  { name: 'NVIDIA Inception', src: '/partners/nvidia.svg', href: 'https://www.nvidia.com/en-us/startups/' },
+  { name: 'AP Creative Co', src: '/partners/ap-lockup.webp', href: 'https://apcreativeco.co.uk' },
+  { name: 'RAMDVG', word: 'RAMDVG', href: 'https://ramdvg.com/' },
+]
+
+const team = [
+  {
+    name: 'Jack Rockell',
+    role: 'CTO',
+    photo: '/jack-rockell.webp',
+    email: 'jack@shiftaitech.com',
+    linkedin: 'https://www.linkedin.com/in/jack-rockell-841482267/',
+    bio: 'Jack is the technical driving force behind Shift AI, with extensive hands-on experience in AI engineering, software development and building complex digital products from the ground up. His track record spans AI-powered trading infrastructure, predictive modelling, intelligent automation and production-ready platforms. With expertise across machine learning, AI agents, cloud infrastructure and full-stack development, Jack combines deep technical knowledge with an entrepreneurial approach to problem-solving. At Shift AI, he leads product engineering and development, turning ambitious ideas into scalable, commercially viable technology, with a particular talent for taking projects from concept to deployment at speed.',
+  },
+  {
+    name: 'Darren ‘the Rev Share’ Bishop',
+    role: 'Head of Operations',
+    photo: '/darren-bishop.webp',
+    email: 'darren@shiftaitech.com',
+    linkedin: 'https://www.linkedin.com/in/dwbishop/',
+    bio: 'Darren’s career spans global financial institutions, emerging FinTech businesses and AI ventures, including projects with London Stock Exchange Group. With extensive expertise across financial markets, data analytics, AI and Web3, Darren combines sharp commercial instincts with an established international network of industry leaders, investors and technology partners. At Shift AI, he leads business development and strategic partnerships, identifying new opportunities, opening doors and turning ambitious ideas into commercially viable ventures.',
+  },
+  {
+    name: 'Dan Kent',
+    role: 'Developer',
+    bio: 'Dan brings over 10 years of software engineering experience to Shift AI, with a background spanning full-stack development, data analytics, API integrations and AI. Alongside his coding expertise, Dan is a highly skilled UX/UI designer, combining technical knowledge with a keen eye for design and user experience. At Shift AI, Dan brings both the engineering expertise and creative thinking needed to build software that looks great, works well and delivers exactly what it’s supposed to.',
+  },
+]
+
+function HeroFilm() {
+  const [play, setPlay] = useState(false)
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const save = navigator.connection && navigator.connection.saveData
+    if (!reduce && !save) setPlay(true)
+  }, [])
 
   return (
-    <div className="page">
+    <div className="shape-hero-media" aria-hidden="true">
+      <img src="/hero-poster.jpg" alt="" className="shape-hero-poster" />
+      {play && (
+        <video
+          className="shape-hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero-poster.jpg"
+        >
+          <source src="/hero-loop.mp4" type="video/mp4" />
+        </video>
+      )}
+    </div>
+  )
+}
 
-      <section className="hero">
-        <div className="hero-art" aria-hidden="true">
-          <BreathingField />
-        </div>
+export default function App() {
+  return (
+    <div className="shape-page">
+      <section className="shape-hero">
+        <HeroFilm />
         <Container>
-          <div className="hero-inner">
-            <p className="hero-kicker">Shift AI Tech · United Kingdom</p>
-            <LineReveal
-              className="hero-title"
-              lines={[
-                { text: 'We build AI' },
-                { text: 'that gives' },
-                { text: 'businesses their edge.', mark: true },
-              ]}
-            />
-            <Reveal className="hero-sub" delay={0.12} viewport={{ once: true, margin: '0px' }}>
-              Shift AI Tech builds custom models, automation, and full product builds.
-              From brief to live in weeks.
-            </Reveal>
-            <Reveal className="hero-actions" delay={0.2} viewport={{ once: true, margin: '0px' }}>
-              <Button href="#contact">Start a project</Button>
-              <a href="#projects" className="hero-story-link" data-cursor="WORK">
-                See the work <ArrowRight size={15} />
-              </a>
-            </Reveal>
-          </div>
-        </Container>
-        <div className="hero-scroll-cue" aria-hidden="true">
-          <span className="hero-scroll-cue-line" />
-        </div>
-      </section>
-
-      <div className="proof" aria-label="Programmes and products">
-        <div className="proof-track">
-          <div className="proof-set">
-            {proof.map((item) => (
-              <Link key={item.label} to={item.href} className="proof-item">
-                {item.label}
-                <span className="proof-dot" aria-hidden="true" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <section className="approach">
-        <Container>
-          <Reveal>
-            <h2 className="approach-statement">
-              Shaping how businesses use AI. Seen, trusted, and paid for.
-            </h2>
-          </Reveal>
-          <div className="approach-grid">
-            {pillars.map((p, i) => (
-              <Reveal key={p.title} className="approach-item" delay={i * 0.06}>
-                <span className="approach-num">{p.number}</span>
-                <h3 className="approach-title">{p.title}</h3>
-                <p className="approach-desc">{p.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="solutions" className="section section--capability">
-        <Container>
-          <Reveal className="capability-header-copy">
-            <DisplayTitle>Capability</DisplayTitle>
-            <SectionHeading>What we build.</SectionHeading>
-          </Reveal>
-          <div className="service-rows">
-            {services.map((s, i) => (
-              <Reveal
-                key={s.title}
-                as="a"
-                href={s.href}
-                id={s.id}
-                className={`service-row${hash === `#${s.id}` ? ' service-row--here' : ''}`}
-                delay={i * 0.05}
-                data-cursor="BUILD"
-              >
-                <span className="service-row-num">{s.number}</span>
-                <h3 className="service-row-title">{s.title}</h3>
-                <p className="service-row-desc">{s.description}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="projects" className="section section--dark">
-        <Container>
-          <Reveal>
-            <DisplayTitle>Work</DisplayTitle>
-            <SectionHeading>Selected projects.</SectionHeading>
-            <p className="section-intro">
-              Real products across compliance, health, training, and finance.
+          <div className="shape-hero-copy">
+            <p className="shape-kicker">Shift AI</p>
+            <h1 className="shape-hero-title">The AI Shape-Shifters</h1>
+            <p className="shape-hero-lead">
+              We’re Shift AI, a technology studio focused on solving real business challenges. From intelligent automation and bespoke AI models to fully developed digital products, we combine creative thinking, technical expertise and rapid development to turn ambitious ideas into working solutions, without wasting time.
             </p>
-          </Reveal>
+            <Button href="#studio">Get to know us</Button>
+          </div>
+        </Container>
+      </section>
 
-          <div className="showcase">
-            {featuredProjects.map((p, i) => (
-              <div
-                key={p.id}
-                id={`case-study-${p.id}`}
-                className={`showcase-item${i % 2 === 1 ? ' showcase-item--flip' : ''}${p.id === 'aml' ? ' showcase-item--panel' : ''}`}
-              >
-                <MediaReveal className="showcase-media" data-cursor="VIEW">
-                  {p.link ? (
-                    <a
-                      className="showcase-media-main"
-                      href={p.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-cursor="VIEW"
-                    >
-                      <img
-                        src={p.images[0]}
-                        alt={`${p.partner} screenshot`}
-                        loading={i === 0 ? 'eager' : 'lazy'}
-                      />
+      <section className="shape-band" id="studio">
+        <Container>
+          <h2 className="shape-statement">Good ideas don’t come in one shape, and neither do we.</h2>
+          <div className="shape-prose">
+            <p>Every single business has its own challenges and ways of working. We believe that technology should fit the business, not the other way round.</p>
+            <p>At Shift AI, we take time to understand what our clients are looking to achieve before deciding how to get there. That could mean developing a completely new AI product, automating the work that slows your team down or finding a smarter way to use the systems you already have.</p>
+            <p className="shape-prose-strong">We’re not here to sell you AI for the sake of it. We’re here to build something worth having.</p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="shape-section">
+        <Container>
+          <p className="shape-kicker">From our studio</p>
+          <h2 className="shape-heading">Whatever the brief, we bring the creativity and technical know-how to move your projects forward.</h2>
+          <ol className="shape-services">
+            {services.map((item, i) => (
+              <li key={item.title} className="shape-service">
+                <span className="shape-index">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ol>
+          <Button href="#products">View some of our products</Button>
+        </Container>
+      </section>
+
+      <section className="shape-section shape-section--alt" id="products">
+        <Container>
+          <p className="shape-kicker">Our own technology</p>
+          <h2 className="shape-heading">We also build our own technology too.</h2>
+          <p className="shape-intro">
+            Here at Shift AI, we don’t just explore what AI can do for our customers. We’re actively developing our own products, building new technologies, and bringing them to the market. Our work spans different industries and applications, each bringing its own challenges and opportunities.
+          </p>
+          <div className="shape-products">
+            {products.map((product) => (
+              <article key={product.name} className={`shape-product${product.portrait ? ' shape-product--portrait' : ''}`}>
+                <div className="shape-product-media">
+                  <img src={product.image} alt={`${product.name} screenshot`} />
+                </div>
+                <div className="shape-product-copy">
+                  <p className="shape-kicker">{product.kicker}</p>
+                  <h3>{product.name}</h3>
+                  <p className="shape-product-lead">{product.lead}</p>
+                  <p>{product.body}</p>
+                  {product.href && (
+                    <a className="shape-out" href={product.href} target="_blank" rel="noopener noreferrer">
+                      {product.label} <ArrowUpRight size={15} aria-hidden="true" />
                     </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="shape-more">
+            <Link to="/portfolio">See the websites we’ve shipped</Link>
+          </p>
+        </Container>
+      </section>
+
+      <section className="shape-band">
+        <Container>
+          <h2 className="shape-statement">We know what it takes to build.</h2>
+          <p className="shape-statement-note">Because we’ve done the hard yards ourselves.</p>
+          <div className="shape-prose">
+            <p>Building technology takes more than a good idea. It requires experimentation, investment, difficult decisions, and a willingness to rethink your approach when things aren’t working.</p>
+            <p>Shift AI built its first AI models in 2024, and has invested over $650,000 in technology R&amp;D. By 2026, advances in AI development methods meant those same systems could be built at 82% less cost.</p>
+            <p>That experience continues to shape how we work today. We’re always looking for smarter, faster and more cost-effective ways to develop and deliver technology, without compromising on quality or adding unnecessary complexity.</p>
+            <p className="shape-prose-strong">Because great technology doesn’t have to come with a hefty price tag.</p>
+          </div>
+        </Container>
+      </section>
+
+      <section className="shape-section" id="partners">
+        <Container>
+          <p className="shape-kicker">Our partners</p>
+          <h2 className="shape-heading">The programmes and specialists we build with.</h2>
+          <ul className="shape-logos">
+            {partners.map((partner) => (
+              <li key={partner.name}>
+                <a href={partner.href} target="_blank" rel="noopener noreferrer">
+                  {partner.src ? (
+                    <img src={partner.src} alt={partner.name} />
                   ) : (
-                    <div className="showcase-media-main">
-                      <img
-                        src={p.images[0]}
-                        alt={`${p.partner} screenshot`}
-                        loading={i === 0 ? 'eager' : 'lazy'}
-                      />
-                    </div>
+                    <span className="shape-wordmark">{partner.word}</span>
                   )}
-                </MediaReveal>
-                <Reveal className="showcase-content" delay={0.12}>
-                  <p className="showcase-kicker">
-                    <span className="showcase-index">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="showcase-sector">{p.sector}</span>
-                  </p>
-                  <h3 className="showcase-name">{p.partner}</h3>
-                  <p className="showcase-desc">{p.short || p.description}</p>
-                  {p.link && (
-                    <div className="showcase-foot">
-                      <a
-                        href={p.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="showcase-link"
-                        data-cursor="VIEW"
-                      >
-                        {p.link.label} <ArrowUpRight size={14} />
-                      </a>
-                    </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="shape-section shape-section--alt" id="team">
+        <Container>
+          <p className="shape-kicker">Our team</p>
+          <h2 className="shape-heading">The people who do the work.</h2>
+          <div className="shape-team">
+            {team.map((member) => (
+              <article key={member.name} className="shape-person">
+                <div className="shape-person-photo">
+                  {member.photo ? (
+                    <img src={member.photo} alt={member.name} />
+                  ) : (
+                    <span className="shape-monogram" aria-hidden="true">DK</span>
                   )}
-                </Reveal>
-              </div>
+                </div>
+                <div>
+                  <p className="shape-kicker">{member.role}</p>
+                  <h3>{member.name}</h3>
+                  <p>{member.bio}</p>
+                  {(member.email || member.linkedin) && (
+                    <p className="shape-person-links">
+                      {member.email && <a href={`mailto:${member.email}`}>{member.email}</a>}
+                      {member.linkedin && (
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                      )}
+                    </p>
+                  )}
+                </div>
+              </article>
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="section section--dark results">
+      <section className="shape-close" id="contact">
         <Container>
-          <div className="stats-grid stats-grid--tight">
-            {stats.map((s, i) => (
-              <Reveal key={s.value} delay={i * 0.04}>
-                <Link to={s.href} className="stat-cell">
-                  <p className="stat-value">{s.value}</p>
-                  <p className="stat-label">{s.label}</p>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="work-with-us" className="section method">
-        <Container>
-          <div className="method-layout">
-            <div className="method-rail">
-              <DisplayTitle>Method</DisplayTitle>
-              <SectionHeading>From idea to live.</SectionHeading>
+          <div className="shape-close-grid">
+            <div>
+              <p className="shape-kicker">Let’s Talk</p>
+              <h2>Big ideas come in all shapes and sizes.</h2>
+              <p className="shape-close-mark">Good thing we’re shape-shifters.</p>
+              <p>From bold new ventures to the business challenges nobody’s quite cracked yet, we love a brief that gets us thinking.</p>
+              <p>Got something in mind? Whether it’s a fully formed concept or the beginnings of something brilliant, let’s see what shape we can give it.</p>
+              <p className="shape-close-mail">
+                <a href="mailto:partnerships@shiftaitech.com">partnerships@shiftaitech.com</a>
+                <span>Southminster, Essex</span>
+              </p>
             </div>
-            <ol className="method-steps">
-              {processSteps.map((p, i) => (
-                <Reveal key={p.title} as="li" className="method-step" delay={i * 0.05}>
-                  <span className="method-num" aria-hidden="true">{p.n}</span>
-                  <div className="method-copy">
-                    <h3 className="method-title">{p.title}</h3>
-                    <p className="method-desc">{p.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </Container>
-      </section>
-
-      <section id="faq" className="section">
-        <Container>
-          <Reveal>
-            <DisplayTitle>FAQ</DisplayTitle>
-            <SectionHeading>Straight answers.</SectionHeading>
-            <p className="section-intro">
-              Clear answers about who we are and what we build.
-            </p>
-          </Reveal>
-          <div className="faq-list">
-            {faqs.map((item, i) => (
-              <Reveal key={item.q} className="faq-item" delay={i * 0.04}>
-                <h3 className="faq-q">{item.q}</h3>
-                <p className="faq-a">{item.a}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="contact" className="section section--contact">
-        <div className="contact-bg" aria-hidden="true">
-          <div className="contact-bg-glow" />
-        </div>
-        <Container>
-          <p className="hero-kicker">Contact</p>
-          <LineReveal
-            as="h2"
-            when="view"
-            className="contact-title"
-            lines={[
-              { text: 'Tell us' },
-              { text: 'what you need.', mark: true },
-            ]}
-          />
-          <div className="contact-grid">
-            <Reveal className="contact-info contact-people">
-              <a className="contact-person" href="mailto:jack@shiftaitech.com">
-                <span className="contact-person-role">Technology</span>
-                <span className="contact-person-name">Jack Rockell</span>
-                <span className="contact-person-email">jack@shiftaitech.com</span>
-              </a>
-              <a className="contact-person" href="mailto:darren@shiftaitech.com">
-                <span className="contact-person-role">Business &amp; partnerships</span>
-                <span className="contact-person-name">Darren Bishop</span>
-                <span className="contact-person-email">darren@shiftaitech.com</span>
-              </a>
-              <a className="contact-person" href="mailto:partnerships@shiftaitech.com">
-                <span className="contact-person-role">Partnerships</span>
-                <span className="contact-person-name">partnerships@<wbr />shiftaitech.com</span>
-              </a>
-              <address className="contact-address">
-                Unit 14, The Maltings, Hall Road
-                <br />
-                Southminster, Essex CM0 7EQ
-              </address>
-              <p className="contact-response">Reply within a day</p>
-            </Reveal>
-            <Reveal className="contact-form-wrap" delay={0.1}>
-              <ContactForm />
-            </Reveal>
+            <ContactForm source="homepage" />
           </div>
         </Container>
       </section>
     </div>
   )
 }
-
-export default App

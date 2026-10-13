@@ -10,12 +10,13 @@ Emails: jack@shiftaitech.com, darren@shiftaitech.com, partnerships@shiftaitech.c
 
 ## One-line answer
 
-Shift AI Tech is a founder-led UK AI studio that builds custom AI products, automation, and websites so businesses get a commercial edge, from brief to live in weeks.
+Shift AI Tech is a UK technology studio. We build bespoke AI models, automation, agents, and digital products around the business in front of us. The first models, in 2024, were funded with over $650,000. By 2026 those same systems could be built at 82% less cost.
 
 ## People
 
-- Jack Rockell, co-founder and director. Leads technology: products, systems, and technical delivery. https://www.linkedin.com/in/jack-rockell-841482267/
-- Darren Bishop, co-founder and director. Leads business and partnerships. https://www.linkedin.com/in/dwbishop/
+- Jack Rockell, CTO. Leads product engineering and development. https://www.linkedin.com/in/jack-rockell-841482267/
+- Darren Bishop, Head of Operations. Leads business development and partnerships. https://www.linkedin.com/in/dwbishop/
+- Dan Kent, Developer. Software engineering and UX/UI.
 
 ## Disambiguation
 

@@ -9,8 +9,13 @@ const DEFAULT_DESC =
 
 const ROUTES = {
   '/': {
-    title: 'Shift AI Tech · We Build AI That Works',
-    description: DEFAULT_DESC,
+    title: 'Shift AI · The AI Shape-Shifters',
+    description:
+      'Shift AI is a technology studio that turns ambitious briefs into working AI products, automation, and digital products. United Kingdom.',
+  },
+  '/portfolio': {
+    title: 'Portfolio · Shift AI Tech',
+    description: 'Websites and products Shift AI has designed, built, and shipped.',
   },
   '/websites': {
     title: 'AI Websites That Rank & Convert | Shift AI Tech',
@@ -92,14 +97,14 @@ const ORGANIZATION = {
     {
       '@type': 'Person',
       name: 'Jack Rockell',
-      jobTitle: 'Co-founder, Technology',
+      jobTitle: 'CTO',
       email: 'jack@shiftaitech.com',
       sameAs: 'https://www.linkedin.com/in/jack-rockell-841482267/',
     },
     {
       '@type': 'Person',
       name: 'Darren Bishop',
-      jobTitle: 'Co-founder, Business and partnerships',
+      jobTitle: 'Head of Operations',
       email: 'darren@shiftaitech.com',
       sameAs: 'https://www.linkedin.com/in/dwbishop/',
     },
@@ -340,6 +345,7 @@ const WORK = {
 }
 
 const CRUMBS = {
+  '/portfolio': 'Portfolio',
   '/websites': 'Websites',
   '/our-story': 'Our Story',
   '/partners': 'Partners',

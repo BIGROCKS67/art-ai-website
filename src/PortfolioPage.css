@@ -1,0 +1,135 @@
+.folio-page {
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  padding-top: calc(var(--nav-height) + 3rem);
+}
+
+.folio-hero h1,
+.folio-list h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+  color: var(--text-primary);
+}
+
+.folio-hero h1 {
+  max-width: 10ch;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.folio-hero p:last-child {
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.folio-shots,
+.folio-list {
+  padding: 1rem 0 5rem;
+}
+
+.folio-shot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.folio-shot {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background: #09090b;
+  border: 1px solid var(--border);
+}
+
+.folio-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.folio-shot span {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.folio-shot strong,
+.folio-list strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.folio-shot em,
+.folio-list em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.folio-list h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.folio-list ol {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.folio-list a {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1.4fr) minmax(8rem, 0.6fr) minmax(9rem, 0.7fr);
+  gap: 0.75rem 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+  text-decoration: none;
+}
+
+.folio-list a:hover strong,
+.folio-shot:hover strong {
+  color: var(--purple-light);
+}
+
+.folio-num,
+.folio-host {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+
+.folio-host {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  .folio-shot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .folio-list a {
+    grid-template-columns: 2.4rem 1fr;
+  }
+
+  .folio-list em,
+  .folio-host {
+    grid-column: 2;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}

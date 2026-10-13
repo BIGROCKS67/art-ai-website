@@ -125,6 +125,14 @@
   background: #09090b;
 }
 
+.team-figure .shape-monogram {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .team-figure > div,
 .team-portrait {
   position: absolute;

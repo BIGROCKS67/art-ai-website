@@ -13,6 +13,18 @@ const indexPath = join(dist, 'index.html')
 const SITE = 'https://shiftaitech.com'
 
 const routes = {
+  portfolio: {
+    title: 'Portfolio · Shift AI Tech',
+    description: 'Websites and products Shift AI has designed, built, and shipped.',
+    article: `
+      <h1>Websites we’ve built.</h1>
+      <p>Design, build, and launch. Live sites shipped by Shift AI.</p>
+      <ul>
+        ${COMPLETED_SITES.map((site) => `<li><a href="${site.url}">${site.name}</a> — ${site.sector}</li>`).join('\n        ')}
+      </ul>
+      <p><a href="${SITE}/portfolio">https://shiftaitech.com/portfolio</a></p>
+    `,
+  },
   websites: {
     title: 'AI Websites That Rank &amp; Convert | Shift AI Tech',
     description:
@@ -113,6 +125,7 @@ if (!existsSync(indexPath)) {
 const shell = readFileSync(indexPath, 'utf8')
 
 const CRUMBS = {
+  portfolio: 'Portfolio',
   websites: 'Websites',
   'our-story': 'Our Story',
   partners: 'Partners',

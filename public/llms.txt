@@ -1,18 +1,19 @@
 # Shift AI Tech
 
-> UK AI studio that builds custom AI products, automation, and websites that get found and convert.
+> Shift AI is a technology studio. We turn ambitious briefs into working AI products, automation, and digital products.
 
-Shift AI Tech (legal: Shift AI Technology Ltd, Companies House 17159725) is a founder-led AI product studio based in Southminster, Essex, United Kingdom. We build custom AI models, agents, RAG pipelines, full-stack products, and marketing websites for businesses that need a commercial edge.
+Shift AI Tech (legal: Shift AI Technology Ltd, Companies House 17159725) is a technology studio based in Southminster, Essex, United Kingdom. We build bespoke AI models, agents, automation, and digital products around the business in front of us.
 
 Disambiguation: not Shift Technology (insurance AI at shift-technology.com), not Shift AI at shiftai.co.uk (automotive dealer tools), not SHIFT AI LTD (Newcastle, 17222733), and not other unrelated "Shift AI" brands. Our domain is exclusively https://shiftaitech.com.
 
 ## Primary pages
 
-- [Home](https://shiftaitech.com/): Overview of Shift AI Tech: custom AI, product builds, automation, strategy
+- [Home](https://shiftaitech.com/): The AI Shape-Shifters. Studio, products, team, and how to start a brief.
+- [Portfolio](https://shiftaitech.com/portfolio): Websites Shift AI has designed, built, and shipped.
 - [Websites](https://shiftaitech.com/websites): Brochure websites from £500, AED 2,500, or $650. Design, build, host, and SEO foundations. Extra development from £50/hr, AED 250/hr, or $65/hr. eCommerce and AI modules start with a free consultation, then scoped pricing. Start at partnerships@shiftaitech.com.
 - [Our Story](https://shiftaitech.com/our-story): How we funded neural models for Bitcoin prediction and cut rebuild cost 82% with AI tooling
 - [Partners](https://shiftaitech.com/partners): Specialist partners (RAMDVG, AP Creative Co) and infrastructure programmes (AWS Activate, NVIDIA Inception)
-- [Team](https://shiftaitech.com/team): Jack Rockell (technology) and Darren Bishop (business and partnerships)
+- [Team](https://shiftaitech.com/team): Jack Rockell (CTO), Darren Bishop (Head of Operations), Dan Kent (Developer).
 - [Onboarding](https://shiftaitech.com/onboarding): Start a project with Shift AI Tech
 - [The AI Value Shift](https://shiftaitech.com/research/research-paper-3): Research note on measurable AI business impact, drawn from BCG, McKinsey, Deloitte, and PwC
 

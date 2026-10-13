@@ -10,6 +10,7 @@ import PartnersPage from './PartnersPage.jsx'
 import ResearchPaperPage from './ResearchPaperPage.jsx'
 import OnboardingPage from './OnboardingPage.jsx'
 import WebsitesPage from './WebsitesPage.jsx'
+import PortfolioPage from './PortfolioPage.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 import Navigation from './components/Navigation.jsx'
 import Footer from './components/Footer.jsx'
@@ -44,6 +45,7 @@ function AppShell() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/websites" element={<WebsitesPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/blog" element={<BlogPage />} />

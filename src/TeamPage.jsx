@@ -6,23 +6,32 @@ import './TeamPage.css'
 const teamProfiles = [
   {
     name: 'Jack Rockell',
-    role: 'Co-founder & Director',
+    role: 'CTO',
     focus: 'Technology',
     location: 'Southminster, Essex',
-    bio: 'Co-founder of Shift AI Technology Ltd. Developer responsible for Shift’s technology — products, systems, and technical delivery.',
+    bio: 'Jack leads product engineering and development at Shift AI, taking projects from concept to deployment.',
     photo: '/jack-rockell.webp',
     email: 'jack@shiftaitech.com',
     linkedin: 'https://www.linkedin.com/in/jack-rockell-841482267/',
   },
   {
     name: 'Darren Bishop',
-    role: 'Co-founder & Director',
+    role: 'Head of Operations',
     focus: 'Business & partnerships',
     location: 'United Kingdom',
-    bio: 'Co-founder of Shift AI Technology Ltd. Leads business, commercial relationships, and partnerships.',
+    bio: 'Darren leads business development and strategic partnerships at Shift AI.',
     photo: '/darren-bishop.webp',
     email: 'darren@shiftaitech.com',
     linkedin: 'https://www.linkedin.com/in/dwbishop/',
+  },
+  {
+    name: 'Dan Kent',
+    role: 'Developer',
+    focus: 'Engineering & design',
+    location: 'United Kingdom',
+    bio: 'Dan brings over 10 years of software engineering experience, plus UX/UI design, to the products Shift AI ships.',
+    email: '',
+    linkedin: '',
   },
 ]
 
@@ -45,7 +54,7 @@ export default function TeamPage() {
             />
             <Reveal>
               <p className="team-hero-sub">
-                Co-founders Jack Rockell and Darren Bishop. Jack leads technology. Darren leads business and partnerships.
+                Jack Rockell, CTO. Darren Bishop, Head of Operations. Dan Kent, Developer.
               </p>
             </Reveal>
           </div>
@@ -56,16 +65,20 @@ export default function TeamPage() {
         <Container>
           <div className="team-grid">
             {teamProfiles.map((member, i) => (
-              <article key={member.email} className="team-profile">
+              <article key={member.name} className="team-profile">
                 <MediaReveal className="team-figure">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="team-portrait"
-                    width={380}
-                    height={304}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                  />
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="team-portrait"
+                      width={380}
+                      height={304}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                    />
+                  ) : (
+                    <span className="shape-monogram" aria-hidden="true">DK</span>
+                  )}
                 </MediaReveal>
                 <Reveal className="team-copy" delay={0.08}>
                   <p className="team-role">{member.focus}</p>
@@ -77,9 +90,11 @@ export default function TeamPage() {
                   </p>
                   <p className="team-bio">{member.bio}</p>
                   <div className="team-links">
-                    <a href={`mailto:${member.email}`} className="team-link">
-                      {member.email}
-                    </a>
+                    {member.email && (
+                      <a href={`mailto:${member.email}`} className="team-link">
+                        {member.email}
+                      </a>
+                    )}
                     {member.linkedin && (
                       <a
                         href={member.linkedin}

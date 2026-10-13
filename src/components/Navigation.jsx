@@ -41,13 +41,10 @@ export default function Navigation() {
   }, [mobileOpen])
 
   const navLinks = [
-    { label: 'Work', href: '/#projects', type: 'hash' },
-    { label: 'Services', href: '/#solutions', type: 'hash' },
-    { label: 'Process', href: '/#work-with-us', type: 'hash' },
-    { label: 'Websites', href: '/websites', type: 'route' },
-    { label: 'Partners', href: '/partners', type: 'route' },
-    { label: 'Team', href: '/team', type: 'route' },
-    { label: 'Story', href: '/our-story', type: 'route' },
+    { label: 'Studio', href: '/#studio', type: 'hash' },
+    { label: 'Products', href: '/#products', type: 'hash' },
+    { label: 'Team', href: '/#team', type: 'hash' },
+    { label: 'Portfolio', href: '/portfolio', type: 'route' },
   ]
 
   const renderLink = (link) => {
@@ -104,7 +101,7 @@ export default function Navigation() {
         <div className="nav-right">
           <Magnetic>
             <a href={isHome ? '#contact' : '/#contact'} className="nav-cta" data-cursor="GO">
-              <span>Start a project</span>
+              <span>Let&apos;s Talk</span>
               <ArrowRight size={15} />
             </a>
           </Magnetic>
@@ -134,7 +131,7 @@ export default function Navigation() {
             className="nav-mobile-cta"
             onClick={() => setMobileOpen(false)}
           >
-            Start a project <ArrowRight size={15} />
+            Let&apos;s Talk <ArrowRight size={15} />
           </a>
         </div>
       )}

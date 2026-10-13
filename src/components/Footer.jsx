@@ -9,32 +9,30 @@ export default function Footer() {
           shift.
         </Link>
         <p className="footer-tagline">
-          Shift AI Tech. AI products that ship, for businesses that need an edge.
+          Shift AI. A technology studio for the brief that doesn’t fit a template.
         </p>
         <div className="footer-top">
           <div className="footer-nav-group">
+            <p className="footer-nav-label">Studio</p>
+            <a href="/#studio" className="footer-nav-link">What we do</a>
+            <a href="/#products" className="footer-nav-link">Products</a>
+            <a href="/#team" className="footer-nav-link">Team</a>
+            <Link to="/portfolio" className="footer-nav-link">Portfolio</Link>
+          </div>
+
+          <div className="footer-nav-group">
             <p className="footer-nav-label">Company</p>
-            <Link to="/our-story" className="footer-nav-link">Our Story</Link>
             <Link to="/partners" className="footer-nav-link">Partners</Link>
-            <Link to="/team" className="footer-nav-link">Team</Link>
-            <Link to="/research/research-paper-3" className="footer-nav-link">Research</Link>
-          </div>
-
-          <div className="footer-nav-group">
-            <p className="footer-nav-label">Services</p>
-            <Link to="/#custom-ai" className="footer-nav-link">Custom AI</Link>
-            <Link to="/#product-builds" className="footer-nav-link">Product builds</Link>
-            <Link to="/#automation" className="footer-nav-link">Automation</Link>
-            <Link to="/#strategy" className="footer-nav-link">Strategy</Link>
+            <Link to="/our-story" className="footer-nav-link">Our Story</Link>
             <Link to="/websites" className="footer-nav-link">Websites</Link>
+            <Link to="/onboarding" className="footer-nav-link">Onboarding</Link>
           </div>
 
           <div className="footer-nav-group">
-            <p className="footer-nav-label">Get Started</p>
+            <p className="footer-nav-label">Talk</p>
             <a href="/#contact" className="footer-nav-link footer-nav-link--cta">
-              Start a project <ArrowRight size={14} />
+              Let&apos;s Talk <ArrowRight size={14} />
             </a>
-            <Link to="/onboarding" className="footer-nav-link">Onboarding</Link>
             <a href="mailto:partnerships@shiftaitech.com" className="footer-nav-link">
               partnerships@shiftaitech.com
             </a>
