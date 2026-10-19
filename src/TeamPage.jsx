@@ -30,6 +30,7 @@ const teamProfiles = [
     focus: 'Engineering & design',
     location: 'United Kingdom',
     bio: 'Dan brings over 10 years of software engineering experience, plus UX/UI design, to the products Shift AI ships.',
+    photo: '/dan-kent.webp',
     email: '',
     linkedin: '',
   },

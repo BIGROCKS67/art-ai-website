@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import { Container, Button } from './components/ui'
@@ -73,26 +73,22 @@ const partners = [
     name: 'AWS Activate',
     src: '/partners/aws.svg',
     href: 'https://aws.amazon.com/startups/credits',
-    note: 'Selected for AWS Activate.',
   },
   {
     name: 'NVIDIA Inception',
     src: '/partners/nvidia.svg',
     href: 'https://www.nvidia.com/en-us/startups/',
-    note: 'Accepted into NVIDIA Inception.',
     wide: true,
   },
   {
     name: 'AP Creative Co',
     src: '/partners/ap-lockup.webp',
     href: 'https://apcreativeco.co.uk',
-    note: 'Specialist partner for creative work.',
   },
   {
     name: 'RAMDVG',
     word: 'RAMDVG',
     href: 'https://ramdvg.com/',
-    note: 'Tokenisation asset exchange.',
   },
 ]
 
@@ -116,6 +112,7 @@ const team = [
   {
     name: 'Dan Kent',
     role: 'Developer',
+    photo: '/dan-kent.webp',
     bio: 'Dan brings over 10 years of software engineering experience to Shift AI, with a background spanning full-stack development, data analytics, API integrations and AI. Alongside his coding expertise, Dan is a highly skilled UX/UI designer, combining technical knowledge with a keen eye for design and user experience. At Shift AI, Dan brings both the engineering expertise and creative thinking needed to build software that looks great, works well and delivers exactly what it’s supposed to.',
   },
 ]
@@ -148,7 +145,46 @@ function HeroFilm() {
   )
 }
 
+function useProductStack() {
+  useLayoutEffect(() => {
+    const root = document.querySelector('.shape-ads')
+    if (!root) return undefined
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const cards = () => [...root.querySelectorAll('.shape-ad')]
+
+    const pin = () => {
+      const items = cards()
+      if (reduce.matches) {
+        items.forEach((el) => {
+          el.style.top = ''
+          el.style.zIndex = ''
+        })
+        return
+      }
+      const nav = 88
+      const vh = window.innerHeight
+      items.forEach((el, i) => {
+        el.style.zIndex = String(i + 2)
+        const top = Math.min(nav, vh - el.offsetHeight)
+        el.style.top = `${top}px`
+      })
+    }
+
+    pin()
+    const ro = new ResizeObserver(pin)
+    cards().forEach((el) => ro.observe(el))
+    window.addEventListener('resize', pin)
+    reduce.addEventListener('change', pin)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', pin)
+      reduce.removeEventListener('change', pin)
+    }
+  }, [])
+}
+
 export default function App() {
+  useProductStack()
   return (
     <div className="shape-page">
       <section className="shape-hero">
@@ -277,7 +313,6 @@ export default function App() {
                   ) : (
                     <span className="shape-wordmark">{partner.word}</span>
                   )}
-                  <span className="shape-logo-note">{partner.note}</span>
                 </a>
               </li>
             ))}

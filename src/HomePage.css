@@ -60,9 +60,9 @@
   margin: 0 0 1.35rem;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: clamp(2.15rem, 8.1vw, 6.15rem);
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+  font-size: clamp(1.9rem, 7.4vw, 5.75rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: #f7f7f8;
 }
 
@@ -71,7 +71,14 @@
 }
 
 .shape-hero-mark {
+  display: block;
+  width: max-content;
+  max-width: 100%;
   white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--purple-light);
 }
 
@@ -230,12 +237,13 @@
 .shape-ads {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 0;
   margin-top: 2rem;
 }
 
 .shape-ad {
-  position: relative;
+  position: sticky;
+  top: 5.5rem;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   min-height: 26rem;
@@ -243,6 +251,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
   overflow: hidden;
+  box-shadow: 0 -22px 44px rgba(0, 0, 0, 0.42);
 }
 
 .shape-ad::before {
@@ -438,17 +447,19 @@
 .shape-stat-figure {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: clamp(3rem, 4.6vw, 4.6rem);
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  letter-spacing: -0.05em;
+  line-height: 1.05;
   color: var(--purple-light);
 }
 
 .shape-stat-caption {
   max-width: 16rem;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.125rem;
   line-height: 1.45;
-  color: rgba(240, 240, 243, 0.72);
+  color: rgba(240, 240, 243, 0.86);
 }
 
 .shape-build-line {
@@ -478,9 +489,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
-  min-height: 9.5rem;
-  padding: 1.35rem 1rem 1.15rem;
+  min-height: 7.5rem;
+  padding: 1.35rem 1rem;
   border: 0;
   border-radius: 1rem;
   background: #141416;
@@ -512,13 +522,6 @@
   letter-spacing: 0.08em;
   line-height: 2.7rem;
   color: #f4f4f6;
-}
-
-.shape-logo-note {
-  max-width: 14rem;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  color: rgba(240, 240, 243, 0.62);
 }
 
 .shape-team {
@@ -668,7 +671,7 @@
 
   .shape-sheet {
     margin-top: -1.25rem;
-    border-radius: 1.1rem 1.1rem 0 0;
+    border-radius: 1.15rem 1.15rem 0 0;
   }
 
   .shape-hero {
@@ -706,6 +709,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .shape-ad {
+    position: relative;
+    top: auto;
+  }
+
   .shape-hero-video {
     display: none;
   }
