@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FORMS_ENDPOINT } from '../config/site'
 import { getActiveReferral } from '../lib/referral'
 
-export default function ContactForm({ referralCode, defaultMessage = '', source } = {}) {
+export default function ContactForm({ referralCode, defaultMessage = '', source, note, compact } = {}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,7 +41,12 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
   }, [defaultMessage])
 
   const handleChange = (e) => {
+    e.target.classList.remove('is-invalid')
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const markInvalid = (e) => {
+    e.target.classList.add('is-invalid')
   }
 
   const handleSubmit = async (e) => {
@@ -121,7 +126,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className={`contact-form${compact ? ' contact-form--compact' : ''}`} onSubmit={handleSubmit}>
       <div className="contact-form-row">
         <div className="contact-form-group">
           <label htmlFor="cf-name">Name</label>
@@ -134,6 +139,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
             required
             autoComplete="name"
             placeholder="Your name"
+            onInvalid={markInvalid}
           />
         </div>
         <div className="contact-form-group">
@@ -147,6 +153,7 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
             required
             autoComplete="email"
             placeholder="you@company.com"
+            onInvalid={markInvalid}
           />
         </div>
       </div>
@@ -182,13 +189,15 @@ export default function ContactForm({ referralCode, defaultMessage = '', source 
           value={formData.message}
           onChange={handleChange}
           required
-          rows="5"
+          rows={compact ? 3 : 5}
+          onInvalid={markInvalid}
           placeholder="Describe your project, goals, and timeline"
         />
       </div>
       <button type="submit" className="contact-form-submit" disabled={loading}>
         {loading ? 'Sending\u2026' : <><span>Send message</span> <ArrowRight size={16} /></>}
       </button>
+      {note && <p className="contact-form-note">{note}</p>}
       {error && (
         <p className="contact-form-error">
           {error}

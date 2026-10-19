@@ -35,7 +35,9 @@ const services = [
 
 const products = [
   {
+    id: 'braid',
     name: 'Braid',
+    mark: 'braid',
     kicker: 'Compliance',
     lead: 'Meet Braid. Smart client risk-assessments built for compliance.',
     body: 'Braid is a cutting-edge AI-powered client risk assessment platform designed to make AML compliance faster, simpler, and more affordable. Bringing together Companies House records, sanctions screening and Politically Exposed Person (PEP) data, Braid produces structured, 13-section risk assessment reports tailored to your firm’s own policies and procedures. Built with robust safeguards, traceable sources and UK-based data hosting, Braid is currently being resold through FibreCRM, extending its reach to compliance professionals and businesses seeking a more efficient approach to client risk assessments.',
@@ -45,14 +47,18 @@ const products = [
     portrait: true,
   },
   {
+    id: 'space',
     name: 'Deep Space',
+    mark: 'Deep Space Commodities',
     kicker: 'Education',
     lead: 'Exploring the future of Space Education, powered by Shift AI.',
     body: 'Deep Space is an AI-powered learning platform designed to make complex, specialist subjects more accessible through engaging, interactive education. Developed for Deep Space Commodities alongside Dr Tom James, Shift AI has built a platform that combines 73 different video lessons with an intelligent AI Tutor that answers questions in real time. With contextual AI assistance, structured assessments and personalised learning support, Deep Space demonstrates how intelligent technology can transform traditional education into a more engaging, responsive and interactive experience.',
     image: '/case-studies/deep-space-1.jpg',
   },
   {
+    id: 'bio',
     name: 'BioSense',
+    mark: 'BioSense',
     kicker: 'Health',
     lead: 'Health intelligence, built for BioSenseAI.',
     body: 'Developed for our client, BioSenseAI, BioSense is an AI-powered health intelligence platform designed to help individuals better understand their bodies, gain meaningful insights into their health and take greater control of their wellbeing. Bringing together data from wearable devices, blood test results, nutrition and lifestyle habits, BioSense uses artificial intelligence to uncover patterns, track changes and deliver personalised health insights.',
@@ -63,10 +69,31 @@ const products = [
 ]
 
 const partners = [
-  { name: 'AWS Activate', src: '/partners/aws.svg', href: 'https://aws.amazon.com/startups/credits' },
-  { name: 'NVIDIA Inception', src: '/partners/nvidia.svg', href: 'https://www.nvidia.com/en-us/startups/' },
-  { name: 'AP Creative Co', src: '/partners/ap-lockup.webp', href: 'https://apcreativeco.co.uk' },
-  { name: 'RAMDVG', word: 'RAMDVG', href: 'https://ramdvg.com/' },
+  {
+    name: 'AWS Activate',
+    src: '/partners/aws.svg',
+    href: 'https://aws.amazon.com/startups/credits',
+    note: 'Selected for AWS Activate.',
+  },
+  {
+    name: 'NVIDIA Inception',
+    src: '/partners/nvidia.svg',
+    href: 'https://www.nvidia.com/en-us/startups/',
+    note: 'Accepted into NVIDIA Inception.',
+    wide: true,
+  },
+  {
+    name: 'AP Creative Co',
+    src: '/partners/ap-lockup.webp',
+    href: 'https://apcreativeco.co.uk',
+    note: 'Specialist partner for creative work.',
+  },
+  {
+    name: 'RAMDVG',
+    word: 'RAMDVG',
+    href: 'https://ramdvg.com/',
+    note: 'Tokenisation asset exchange.',
+  },
 ]
 
 const team = [
@@ -128,19 +155,21 @@ export default function App() {
         <HeroFilm />
         <Container>
           <div className="shape-hero-copy">
-            <p className="shape-kicker">Shift AI</p>
-            <h1 className="shape-hero-title">The AI Shape-Shifters</h1>
+            <h1 className="shape-hero-title">
+              <span className="shape-hero-line">The AI</span>
+              <span className="shape-hero-line shape-hero-mark">Shape-Shifters</span>
+            </h1>
             <p className="shape-hero-lead">
               We’re Shift AI, a technology studio focused on solving real business challenges. From intelligent automation and bespoke AI models to fully developed digital products, we combine creative thinking, technical expertise and rapid development to turn ambitious ideas into working solutions, without wasting time.
             </p>
-            <Button href="#studio">Get to know us</Button>
+            <Button href="#studio">Let’s build something</Button>
           </div>
         </Container>
       </section>
 
-      <section className="shape-band" id="studio">
+      <section className="shape-band shape-sheet" id="studio">
         <Container>
-          <h2 className="shape-statement">Good ideas don’t come in one shape, and neither do we.</h2>
+          <h2 className="shape-statement">Good ideas don’t come in one <span className="shape-accent">shape</span>, and neither do we.</h2>
           <div className="shape-prose">
             <p>Every single business has its own challenges and ways of working. We believe that technology should fit the business, not the other way round.</p>
             <p>At Shift AI, we take time to understand what our clients are looking to achieve before deciding how to get there. That could mean developing a completely new AI product, automating the work that slows your team down or finding a smarter way to use the systems you already have.</p>
@@ -149,10 +178,10 @@ export default function App() {
         </Container>
       </section>
 
-      <section className="shape-section">
+      <section className="shape-section shape-sheet">
         <Container>
-          <p className="shape-kicker">From our studio</p>
-          <h2 className="shape-heading">Whatever the brief, we bring the creativity and technical know-how to move your projects forward.</h2>
+          <h2 className="shape-studio-title">From the Studio</h2>
+          <p className="shape-studio-sub">Whatever the brief, we bring the creativity and technical know-how to move your projects forward.</p>
           <ol className="shape-services">
             {services.map((item, i) => (
               <li key={item.title} className="shape-service">
@@ -162,26 +191,31 @@ export default function App() {
               </li>
             ))}
           </ol>
-          <Button href="#products">View some of our products</Button>
+          <Button href="#products">Made by Shift</Button>
         </Container>
       </section>
 
-      <section className="shape-section shape-section--alt" id="products">
+      <section className="shape-section shape-section--alt shape-sheet" id="products">
         <Container>
           <p className="shape-kicker">Our own technology</p>
           <h2 className="shape-heading">We also build our own technology too.</h2>
           <p className="shape-intro">
             Here at Shift AI, we don’t just explore what AI can do for our customers. We’re actively developing our own products, building new technologies, and bringing them to the market. Our work spans different industries and applications, each bringing its own challenges and opportunities.
           </p>
-          <div className="shape-products">
+          <div className="shape-ads">
             {products.map((product) => (
-              <article key={product.name} className={`shape-product${product.portrait ? ' shape-product--portrait' : ''}`}>
-                <div className="shape-product-media">
-                  <img src={product.image} alt={`${product.name} screenshot`} />
+              <article key={product.name} className={`shape-ad shape-ad--${product.id}${product.portrait ? ' shape-ad--portrait' : ''}`}>
+                <div className="shape-ad-stage">
+                  <div className="shape-ad-frame">
+                    <img src={product.image} alt={`${product.name} screenshot`} />
+                  </div>
                 </div>
-                <div className="shape-product-copy">
-                  <p className="shape-kicker">{product.kicker}</p>
+                <div className="shape-ad-copy">
+                  {product.mark.toLowerCase() !== product.name.toLowerCase() && (
+                    <p className={`shape-brand shape-brand--${product.id}`}>{product.mark}</p>
+                  )}
                   <h3>{product.name}</h3>
+                  <p className="shape-ad-sector">{product.kicker}</p>
                   <p className="shape-product-lead">{product.lead}</p>
                   <p>{product.body}</p>
                   {product.href && (
@@ -199,20 +233,34 @@ export default function App() {
         </Container>
       </section>
 
-      <section className="shape-band">
+      <section className="shape-build shape-sheet">
         <Container>
-          <h2 className="shape-statement">We know what it takes to build.</h2>
-          <p className="shape-statement-note">Because we’ve done the hard yards ourselves.</p>
-          <div className="shape-prose">
-            <p>Building technology takes more than a good idea. It requires experimentation, investment, difficult decisions, and a willingness to rethink your approach when things aren’t working.</p>
-            <p>Shift AI built its first AI models in 2024, and has invested over $650,000 in technology R&amp;D. By 2026, advances in AI development methods meant those same systems could be built at 82% less cost.</p>
-            <p>That experience continues to shape how we work today. We’re always looking for smarter, faster and more cost-effective ways to develop and deliver technology, without compromising on quality or adding unnecessary complexity.</p>
-            <p className="shape-prose-strong">Because great technology doesn’t have to come with a hefty price tag.</p>
+          <div className="shape-build-grid">
+            <div className="shape-build-copy">
+              <h2 className="shape-statement">We know what it takes to build.</h2>
+              <p className="shape-statement-note">Because we’ve done the hard yards ourselves.</p>
+              <div className="shape-prose">
+                <p>Building technology takes more than a good idea. It requires experimentation, investment, difficult decisions, and a willingness to rethink your approach when things aren’t working.</p>
+                <p>Shift AI built its first AI models in 2024, and has invested over $650,000 in technology R&amp;D. By 2026, advances in AI development methods meant those same systems could be built at 82% less cost.</p>
+                <p>That experience continues to shape how we work today. We’re always looking for smarter, faster and more cost-effective ways to develop and deliver technology, without compromising on quality or adding unnecessary complexity.</p>
+              </div>
+            </div>
+            <div className="shape-stats">
+              <p className="shape-stat">
+                <span className="shape-stat-figure">$650,000+</span>
+                <span className="shape-stat-caption">invested in technology R&amp;D</span>
+              </p>
+              <p className="shape-stat">
+                <span className="shape-stat-figure">82%</span>
+                <span className="shape-stat-caption">reduction in development costs for comparable systems</span>
+              </p>
+            </div>
           </div>
+          <p className="shape-build-line">Because great technology doesn’t have to come with a <span className="shape-accent">hefty price tag</span>.</p>
         </Container>
       </section>
 
-      <section className="shape-section" id="partners">
+      <section className="shape-section shape-sheet" id="partners">
         <Container>
           <p className="shape-kicker">Our partners</p>
           <h2 className="shape-heading">The programmes and specialists we build with.</h2>
@@ -221,10 +269,15 @@ export default function App() {
               <li key={partner.name}>
                 <a href={partner.href} target="_blank" rel="noopener noreferrer">
                   {partner.src ? (
-                    <img src={partner.src} alt={partner.name} />
+                    <img
+                      className={partner.wide ? 'shape-logo-img shape-logo-img--wide' : 'shape-logo-img'}
+                      src={partner.src}
+                      alt={partner.name}
+                    />
                   ) : (
                     <span className="shape-wordmark">{partner.word}</span>
                   )}
+                  <span className="shape-logo-note">{partner.note}</span>
                 </a>
               </li>
             ))}
@@ -232,9 +285,8 @@ export default function App() {
         </Container>
       </section>
 
-      <section className="shape-section shape-section--alt" id="team">
+      <section className="shape-section shape-section--alt shape-sheet" id="team">
         <Container>
-          <p className="shape-kicker">Our team</p>
           <h2 className="shape-heading">The people who do the work.</h2>
           <div className="shape-team">
             {team.map((member) => (
@@ -247,7 +299,7 @@ export default function App() {
                   )}
                 </div>
                 <div>
-                  <p className="shape-kicker">{member.role}</p>
+                  <p className="shape-role">{member.role}</p>
                   <h3>{member.name}</h3>
                   <p>{member.bio}</p>
                   {(member.email || member.linkedin) && (
@@ -265,21 +317,24 @@ export default function App() {
         </Container>
       </section>
 
-      <section className="shape-close" id="contact">
+      <section className="shape-close shape-sheet" id="contact">
         <Container>
           <div className="shape-close-grid">
             <div>
               <p className="shape-kicker">Let’s Talk</p>
-              <h2>Big ideas come in all shapes and sizes.</h2>
+              <h2>Big ideas come in all <span className="shape-accent">shapes and sizes</span>.</h2>
               <p className="shape-close-mark">Good thing we’re shape-shifters.</p>
               <p>From bold new ventures to the business challenges nobody’s quite cracked yet, we love a brief that gets us thinking.</p>
               <p>Got something in mind? Whether it’s a fully formed concept or the beginnings of something brilliant, let’s see what shape we can give it.</p>
               <p className="shape-close-mail">
                 <a href="mailto:partnerships@shiftaitech.com">partnerships@shiftaitech.com</a>
-                <span>Southminster, Essex</span>
               </p>
             </div>
-            <ContactForm source="homepage" />
+            <ContactForm
+              source="homepage"
+              compact
+              note="No pressure, no obligation. Just a conversation about your idea."
+            />
           </div>
         </Container>
       </section>
