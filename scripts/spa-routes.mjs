@@ -51,6 +51,16 @@ const routes = {
       <p><a href="${SITE}/our-story">https://shiftaitech.com/our-story</a></p>
     `,
   },
+  refer: {
+    title: 'Refer a Business to Shift and Earn 10% · Shift AI Tech',
+    description:
+      'Refer a business to Shift AI Tech and earn 10% of the project price, plus 10% of every monthly fee, paid within 7 days of the client paying.',
+    article: `
+      <h1>Refer a business to Shift and earn 10% of what they spend</h1>
+      <p>Pass on a business that needs a website, wants to come up first on Google, or needs a CRM or AI tool. Shift calls them, quotes and builds. You earn 10% of the project price, paid within 7 days of the business paying Shift, and 10% of every monthly fee for as long as they stay a client. No cap.</p>
+      <p>Send a business at <a href="${SITE}/refer">https://shiftaitech.com/refer</a> or email partnerships@shiftaitech.com.</p>
+    `,
+  },
   partners: {
     title: 'Specialist &amp; Infrastructure Partners · Shift AI Tech',
     description:
@@ -129,6 +139,7 @@ const CRUMBS = {
   websites: 'Websites',
   'our-story': 'Our Story',
   partners: 'Partners',
+  refer: 'Refer and Earn',
   team: 'Team',
   onboarding: 'Start a project',
   'research/research-paper-3': 'The AI Value Shift',

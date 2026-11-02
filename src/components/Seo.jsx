@@ -27,6 +27,11 @@ const ROUTES = {
     description:
       'How Shift AI Tech funded Bitcoin prediction models, then cut the same rebuild by 82% with AI tooling. UK AI product studio.',
   },
+  '/refer': {
+    title: 'Refer a Business to Shift and Earn 10% · Shift AI Tech',
+    description:
+      'Refer a business to Shift AI Tech and earn 10% of the project price, plus 10% of every monthly fee, paid within 7 days of the client paying.',
+  },
   '/partners': {
     title: 'Specialist & Infrastructure Partners · Shift AI Tech',
     description:
@@ -349,6 +354,7 @@ const CRUMBS = {
   '/websites': 'Websites',
   '/our-story': 'Our Story',
   '/partners': 'Partners',
+  '/refer': 'Refer and Earn',
   '/team': 'Team',
   '/onboarding': 'Start a project',
   '/research/research-paper-3': 'The AI Value Shift',

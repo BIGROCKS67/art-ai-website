@@ -13,6 +13,7 @@ Disambiguation: not Shift Technology (insurance AI at shift-technology.com), not
 - [Websites](https://shiftaitech.com/websites): Brochure websites from £500, AED 2,500, or $650. Design, build, host, and SEO foundations. Extra development from £50/hr, AED 250/hr, or $65/hr. eCommerce and AI modules start with a free consultation, then scoped pricing. Start at partnerships@shiftaitech.com.
 - [Our Story](https://shiftaitech.com/our-story): How we funded neural models for Bitcoin prediction and cut rebuild cost 82% with AI tooling
 - [Partners](https://shiftaitech.com/partners): Specialist partners (RAMDVG, AP Creative Co) and infrastructure programmes (AWS Activate, NVIDIA Inception)
+- [Refer and Earn](https://shiftaitech.com/refer): Refer a business to Shift and earn 10% of the project price plus 10% of every monthly fee, paid within 7 days of the client paying.
 - [Team](https://shiftaitech.com/team): Jack Rockell (CTO), Darren Bishop (Head of Operations), Dan Kent (Developer).
 - [Onboarding](https://shiftaitech.com/onboarding): Start a project with Shift AI Tech
 - [The AI Value Shift](https://shiftaitech.com/research/research-paper-3): Research note on measurable AI business impact, drawn from BCG, McKinsey, Deloitte, and PwC

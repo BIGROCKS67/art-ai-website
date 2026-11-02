@@ -45,6 +45,7 @@ export default function Navigation() {
     { label: 'Products', href: '/#products', type: 'hash' },
     { label: 'Team', href: '/#team', type: 'hash' },
     { label: 'Portfolio', href: '/portfolio', type: 'route' },
+    { label: 'Refer and Earn', href: '/refer', type: 'route' },
   ]
 
   const renderLink = (link) => {

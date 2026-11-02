@@ -1,0 +1,684 @@
+/* It feels like a rate card pinned on a wall because that is how Darren uses it:
+   point at the number, let them work out their own sum, take a name. */
+
+.refer {
+  --r-paper: var(--bg-primary);
+  --r-ink: #17151c; /* Shift flyer: near-black tinted to the Shift purple */
+  --r-ink-2: #4a4652; /* Shift flyer: secondary text */
+  --r-rule: #d9d6de; /* Shift flyer: hairlines */
+  --r-spot: #6d28d9; /* Shift brand purple, the one spot ink */
+  --r-on-spot: #fbfaff; /* paper white under the spot */
+  --r-tint: #f5f3f8; /* rule colour lifted towards paper, for the rate card */
+  --r-error: #b3261e; /* GOV.UK-style error red, darkened for AA on paper */
+
+  --r-sans: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --r-mono: 'Martian Mono', ui-monospace, monospace;
+
+  background: var(--r-paper);
+  color: var(--r-ink-2);
+  font-family: var(--r-sans);
+  font-optical-sizing: auto;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+[data-theme='dark'] .refer {
+  --r-ink: #eeecf2;
+  --r-ink-2: #b7b2c0;
+  --r-rule: #302c38;
+  --r-spot: #c9b6f8; /* brand purple lifted to pass on the dark base */
+  --r-on-spot: #17151c;
+  --r-tint: #131118;
+  --r-error: #ffb4ab;
+}
+
+.refer h1,
+.refer h2,
+.refer h3 {
+  font-family: var(--r-sans);
+  color: var(--r-ink);
+  letter-spacing: 0;
+}
+
+.refer p {
+  text-wrap: pretty;
+}
+
+.refer a:not(.refer-btn) {
+  color: var(--r-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.refer a:not(.refer-btn):hover {
+  color: var(--r-spot);
+}
+
+.refer :focus-visible {
+  outline: 2px solid var(--r-spot);
+  outline-offset: 3px;
+}
+
+.refer-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Top: claim, steps and the rate card ---------- */
+
+.refer-top {
+  padding: calc(var(--nav-height) + 2rem) 0 3rem;
+}
+
+.refer-top-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.refer-h1 {
+  font-size: clamp(2.1rem, 1.4rem + 3.2vw, 3.9rem);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 68;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  max-width: 16ch;
+}
+
+.refer-lede {
+  margin-top: 1.1rem;
+  max-width: 54ch;
+  font-size: 1.125rem;
+  color: var(--r-ink-2);
+}
+
+.refer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.refer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.4rem;
+  border: 2px solid var(--r-spot);
+  border-radius: 2px;
+  background: var(--r-spot);
+  color: var(--r-on-spot);
+  font-family: var(--r-sans);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 90;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out), transform 150ms var(--ease-out);
+}
+
+.refer-btn:hover {
+  background: var(--r-ink);
+  border-color: var(--r-ink);
+  color: var(--r-paper);
+}
+
+.refer-btn:active {
+  transform: scale(0.97);
+}
+
+.refer-btn:disabled {
+  cursor: progress;
+  background: var(--r-ink-2);
+  border-color: var(--r-ink-2);
+}
+
+.refer-link {
+  font-weight: 600;
+}
+
+.refer-steps {
+  list-style: none;
+  counter-reset: step;
+  margin-top: 2.25rem;
+  border-top: 1px solid var(--r-rule);
+  max-width: 54ch;
+}
+
+.refer-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0.85rem 0 0.85rem 2.25rem;
+  border-bottom: 1px solid var(--r-rule);
+}
+
+.refer-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  font-family: var(--r-mono);
+  font-size: 0.875rem;
+  color: var(--r-spot);
+  padding-top: 0.15em;
+}
+
+.refer-steps strong {
+  color: var(--r-ink);
+  font-weight: 700;
+}
+
+/* The rate card: terms first, then the same lines become the reader's own sum */
+
+.refer-card {
+  align-self: start;
+  border: 1.5px solid var(--r-ink);
+  background: var(--r-tint);
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.refer-card-title {
+  font-family: var(--r-mono) !important;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  border-bottom: 1.5px solid var(--r-ink);
+}
+
+.refer-rates {
+  margin: 0;
+}
+
+.refer-rate {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--r-rule);
+}
+
+.refer-rate-figure {
+  font-size: clamp(3.4rem, 2.6rem + 3vw, 4.75rem);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 62;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--r-spot);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.refer-rate dd {
+  margin: 0;
+  color: var(--r-ink);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.refer-rate-sum {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--r-mono);
+  font-size: 0.8125rem;
+  color: var(--r-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.refer-calc {
+  padding-top: 1.1rem;
+}
+
+.refer-calc-lead {
+  font-weight: 700;
+  color: var(--r-ink);
+}
+
+.refer-calc-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+.refer-field {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--r-ink-2);
+}
+
+.refer-money {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1.5px solid var(--r-ink-2);
+  border-radius: 2px;
+  background: var(--r-paper);
+  padding: 0 0.6rem;
+}
+
+.refer-money:focus-within {
+  border-color: var(--r-spot);
+  outline: 2px solid var(--r-spot);
+  outline-offset: 1px;
+}
+
+.refer-money span {
+  font-family: var(--r-mono);
+  color: var(--r-ink-2);
+}
+
+.refer-money input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--r-ink);
+  font-family: var(--r-mono);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.refer-money input:focus {
+  outline: none;
+}
+
+.refer-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.refer-preset {
+  min-height: 36px;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--r-ink-2);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--r-ink);
+  font-family: var(--r-sans);
+  font-size: 0.875rem;
+  transition: background-color 150ms var(--ease-out), color 150ms var(--ease-out);
+}
+
+.refer-preset:hover {
+  border-color: var(--r-ink);
+}
+
+.refer-preset[aria-pressed='true'] {
+  background: var(--r-ink);
+  border-color: var(--r-ink);
+  color: var(--r-paper);
+}
+
+.refer-total {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1.5px solid var(--r-ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  color: var(--r-ink);
+  font-weight: 600;
+}
+
+.refer-total strong {
+  font-family: var(--r-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--r-spot);
+}
+
+.refer-note {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+}
+
+/* ---------- What Shift builds: an index, read like the catalogue ---------- */
+
+.refer-builds {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--r-rule);
+}
+
+.refer-h2 {
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.6rem);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 70;
+  line-height: 1;
+}
+
+.refer-h2--small {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.8rem);
+}
+
+.refer-builds-head {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 60ch;
+}
+
+.refer-index {
+  list-style: none;
+  margin-top: 2rem;
+  border-top: 1.5px solid var(--r-ink);
+}
+
+.refer-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.4rem 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--r-rule);
+}
+
+.refer-code {
+  grid-row: span 2;
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 62;
+  line-height: 0.9;
+  color: var(--r-spot);
+}
+
+.refer-row-body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variation-settings: 'wdth' 85;
+  line-height: 1.2;
+}
+
+.refer-row-body p {
+  margin-top: 0.35rem;
+  max-width: 62ch;
+}
+
+.refer-heard {
+  color: var(--r-ink);
+  font-size: 1rem;
+}
+
+.refer-heard-label {
+  display: block;
+  font-family: var(--r-mono);
+  font-size: 0.75rem;
+  color: var(--r-ink-2);
+  margin-bottom: 0.15rem;
+}
+
+/* ---------- The form ---------- */
+
+.refer-send {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--r-rule);
+  scroll-margin-top: var(--nav-height);
+}
+
+.refer-send-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.refer-send-head {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  max-width: 40ch;
+}
+
+.refer-form {
+  display: grid;
+  gap: 1.75rem;
+  max-width: 38rem;
+}
+
+.refer-fieldset {
+  border: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.refer-fieldset legend {
+  font-family: var(--r-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--r-ink);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+  border-bottom: 1.5px solid var(--r-ink);
+}
+
+.refer-input {
+  display: grid;
+  gap: 0.35rem;
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
+.refer-input label {
+  color: var(--r-ink);
+  font-weight: 600;
+}
+
+.refer-input input[type='text'],
+.refer-input input[type='tel'],
+.refer-input textarea {
+  width: 100%;
+  max-width: 30rem;
+  min-height: 48px;
+  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--r-ink-2);
+  border-radius: 2px;
+  background: var(--r-paper);
+  color: var(--r-ink);
+  font-family: var(--r-sans);
+  font-size: 1rem;
+  scroll-margin-top: calc(var(--nav-height) + 3rem);
+}
+
+.refer-input .refer-input--phone {
+  max-width: 14rem;
+}
+
+.refer-input textarea {
+  field-sizing: content;
+  min-height: 5.5rem;
+  max-height: 14rem;
+  resize: vertical;
+}
+
+.refer-input input:focus,
+.refer-input textarea:focus {
+  border-color: var(--r-spot);
+  outline: 2px solid var(--r-spot);
+  outline-offset: 1px;
+}
+
+.refer-input [aria-invalid='true'] {
+  border-color: var(--r-error);
+  border-width: 2px;
+}
+
+.refer-hint {
+  font-size: 0.9375rem;
+}
+
+.refer-error {
+  color: var(--r-error);
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.refer-check {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.35rem 0.75rem;
+}
+
+.refer-check .refer-error {
+  grid-column: 1 / -1;
+}
+
+.refer-check input {
+  width: 24px;
+  height: 24px;
+  margin-top: 0.1rem;
+  accent-color: var(--r-spot);
+}
+
+.refer-check label {
+  font-weight: 400;
+}
+
+.refer-errors {
+  border: 3px solid var(--r-error);
+  padding: 1rem 1.25rem;
+}
+
+.refer-errors h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.refer-errors ul {
+  margin-top: 0.5rem;
+  padding-left: 1.1rem;
+}
+
+.refer-errors a {
+  color: var(--r-error) !important;
+  font-weight: 700;
+}
+
+.refer-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.refer-form > .refer-btn {
+  justify-self: start;
+}
+
+.refer-send-error {
+  color: var(--r-error);
+  font-weight: 600;
+}
+
+.refer-privacy {
+  font-size: 0.875rem;
+  max-width: 52ch;
+  margin-top: -0.75rem;
+}
+
+/* ---------- Terms ---------- */
+
+.refer-terms {
+  padding: 3rem 0 4.5rem;
+  border-top: 1px solid var(--r-rule);
+}
+
+.refer-terms-list {
+  margin-top: 1.25rem;
+  border-top: 1.5px solid var(--r-ink);
+}
+
+.refer-terms-list > div {
+  display: grid;
+  gap: 0.25rem 2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--r-rule);
+}
+
+.refer-terms-list dt {
+  font-family: var(--r-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--r-ink);
+  padding-top: 0.2em;
+}
+
+.refer-terms-list dd {
+  margin: 0;
+  max-width: 64ch;
+}
+
+.refer-sent {
+  min-height: 70svh;
+}
+
+/* ---------- Wider screens ---------- */
+
+@media (min-width: 720px) {
+  .refer-wrap {
+    padding: 0 2rem;
+  }
+
+  .refer-row {
+    grid-template-columns: 3rem minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 0 2rem;
+  }
+
+  .refer-code {
+    grid-row: auto;
+  }
+
+  .refer-heard {
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--r-rule);
+  }
+
+  .refer-terms-list > div {
+    grid-template-columns: 12rem 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .refer-top {
+    padding-top: calc(var(--nav-height) + 3.5rem);
+  }
+
+  .refer-top-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    grid-template-areas:
+      'intro card'
+      'steps card';
+    gap: 0 4rem;
+  }
+
+  .refer-intro {
+    grid-area: intro;
+  }
+
+  .refer-card {
+    grid-area: card;
+  }
+
+  .refer-top-grid > .refer-steps {
+    grid-area: steps;
+  }
+
+  .refer-card {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+
+  .refer-send-grid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 4rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .refer-btn,
+  .refer-preset,
+  .refer-card {
+    border: 2px solid ButtonText;
+  }
+}

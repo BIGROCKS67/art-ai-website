@@ -20,6 +20,7 @@ export default function Footer() {
             <Link to="/partners" className="footer-nav-link">Partners</Link>
             <Link to="/our-story" className="footer-nav-link">Our Story</Link>
             <Link to="/websites" className="footer-nav-link">Websites</Link>
+            <Link to="/refer" className="footer-nav-link">Refer and Earn</Link>
             <Link to="/onboarding" className="footer-nav-link">Onboarding</Link>
             <a href="/#contact" className="footer-nav-link">Let’s Talk</a>
           </nav>
