@@ -168,6 +168,7 @@ function RateCard() {
 const EMPTY_FORM = {
   name: '',
   phone: '',
+  partner: '',
   business: '',
   contact: '',
   needs: '',
@@ -192,7 +193,8 @@ function ReferForm() {
   const formId = useId()
   const summaryRef = useRef(null)
   const startedAt = useRef(Date.now())
-  const [form, setForm] = useState(EMPTY_FORM)
+  // A ?ref= link (e.g. /refer?ref=GYM) fills in the referral partner for them.
+  const [form, setForm] = useState(() => ({ ...EMPTY_FORM, partner: getActiveReferral()?.name || '' }))
   const [errors, setErrors] = useState({})
   const [showSummary, setShowSummary] = useState(false)
   const [sending, setSending] = useState(false)
@@ -246,6 +248,7 @@ function ReferForm() {
     const referral = getActiveReferral()
     const message = [
       `Referral from ${form.name.trim()} (${form.phone.trim()})`,
+      `Referral partner: ${form.partner.trim() || 'None given'}`,
       `Business: ${form.business.trim()}`,
       `Who to speak to: ${form.contact.trim()}`,
       form.needs.trim() ? `What they need: ${form.needs.trim()}` : null,
@@ -264,6 +267,7 @@ function ReferForm() {
             name: form.name.trim(),
             phone: form.phone.trim(),
             business: form.business.trim(),
+            referralPartner: form.partner.trim() || undefined,
             message,
             source: 'Refer a business (/refer)',
             referralCode: referral?.code,
@@ -335,7 +339,24 @@ function ReferForm() {
       </fieldset>
 
       <fieldset className="refer-fieldset">
-        <legend>About the business</legend>
+        <legend>Referral partner</legend>
+        <div className="refer-input">
+          <label htmlFor={id('partner')}>Referral partner name (optional)</label>
+          <p className="refer-hint" id={id('partner-hint')}>
+            Who sent you to this page? For example, the gym or your referral agent’s name.
+          </p>
+          <input
+            id={id('partner')}
+            type="text"
+            value={form.partner}
+            aria-describedby={describe('partner', true)}
+            onChange={(e) => update('partner', e.target.value)}
+          />
+        </div>
+      </fieldset>
+
+      <fieldset className="refer-fieldset">
+        <legend>About the business you are referring</legend>
         <div className="refer-input">
           <label htmlFor={id('business')}>Business name</label>
           {errors.business && <p className="refer-error" id={id('business-error')}>{errors.business}</p>}
