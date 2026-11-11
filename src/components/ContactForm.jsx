@@ -169,18 +169,18 @@ export default function ContactForm({ referralCode, defaultMessage = '', source,
           placeholder="Your company"
         />
       </div>
-      {activeReferral && (
-        <div className="contact-form-group">
-          <label htmlFor="cf-referral">Referral code</label>
-          <input
-            id="cf-referral"
-            type="text"
-            name="referralCode"
-            value={activeReferral}
-            readOnly
-          />
-        </div>
-      )}
+      <div className="contact-form-group">
+        <label htmlFor="cf-referral">Referral code <span className="contact-form-optional">(optional)</span></label>
+        <input
+          id="cf-referral"
+          type="text"
+          name="referralCode"
+          value={activeReferral}
+          onChange={(e) => setActiveReferral(e.target.value.toUpperCase().replace(/[^A-Z0-9_-]/g, ''))}
+          autoComplete="off"
+          placeholder="If someone sent you, add their code"
+        />
+      </div>
       <div className="contact-form-group">
         <label htmlFor="cf-message">Project details</label>
         <textarea

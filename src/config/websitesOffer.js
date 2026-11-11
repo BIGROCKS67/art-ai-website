@@ -129,15 +129,17 @@ export const CASE_STUDIES = [
  * Featured six appear again here so the bottom list reads as a full portfolio.
  */
 export const COMPLETED_SITES = [
+  { name: 'Stone Bathrooms', url: 'https://stonebathrooms.uk', sector: 'Trades' },
+  { name: 'Key Partnership Recruitment', url: 'https://ourkeypartnership.co.uk', sector: 'Recruitment' },
+  { name: 'DavisGT Engineering', url: 'https://davisgtengineering.co.uk', sector: 'Engineering' },
+  { name: 'Peters Agricultural & Groundworks', url: 'https://petersagri.co.uk', sector: 'Groundworks' },
+  { name: 'Sam’s Pet Services', url: 'https://samspetservices.com', sector: 'Pet care' },
   { name: 'The Red Cow', url: 'https://theredcowchesterton.co.uk', sector: 'Hospitality' },
   { name: 'Mixa Restaurant', url: 'https://www.mixarestaurant.com', sector: 'Hospitality' },
-  { name: 'The Greyhound Inn', url: 'https://www.thegreyhoundinnbrackley.co.uk', sector: 'Hospitality' },
   { name: 'Wilf’s Kitchen', url: 'https://wilfskitchen.co.uk', sector: 'Food & drink' },
   { name: 'Ready4Refurb', url: 'https://ready4refurb.com', sector: 'Property' },
   { name: 'A&D Roofing & Construction', url: 'https://aanddroofingsolutions.com', sector: 'Trades' },
-  { name: 'LJ Brown UK', url: 'https://ljbrownukltd.co.uk', sector: 'Groundworks' },
   { name: 'LJ Plumbing & Heating', url: 'https://ljplumbing.co.uk', sector: 'Trades' },
-  { name: 'SMH Gas', url: 'https://smh-gas.vercel.app', sector: 'Trades' },
   { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
   { name: 'AP Creative Co', url: 'https://apcreativeco.co.uk', sector: 'Creative' },
   { name: 'Eagle AI Labs', url: 'https://www.eagleailabs.com', sector: 'Technology' },

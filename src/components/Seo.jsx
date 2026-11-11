@@ -14,8 +14,8 @@ const ROUTES = {
       'Shift AI is a technology studio that turns ambitious briefs into working AI products, automation, and digital products. United Kingdom.',
   },
   '/portfolio': {
-    title: 'Portfolio · Shift AI Tech',
-    description: 'Websites and products Shift AI has designed, built, and shipped.',
+    title: 'Portfolio: websites, AI systems and search results | Shift AI',
+    description: 'Screen recordings of the business systems we have built, the websites live on client domains, and two local firms now first on Google and Google’s AI.',
   },
   '/websites': {
     title: 'AI Websites That Rank & Convert | Shift AI Tech',
