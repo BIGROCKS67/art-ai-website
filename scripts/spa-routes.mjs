@@ -14,8 +14,8 @@ const SITE = 'https://shiftaitech.com'
 
 const routes = {
   portfolio: {
-    title: 'Portfolio · Shift AI Tech',
-    description: 'Websites and products Shift AI has designed, built, and shipped.',
+    title: 'Portfolio: websites, AI systems and search results | Shift AI',
+    description: 'Screen recordings of the business systems we have built, the websites live on client domains, and two local firms now first on Google and Google’s AI.',
     article: `
       <h1>Websites we’ve built.</h1>
       <p>Design, build, and launch. Live sites shipped by Shift AI.</p>
