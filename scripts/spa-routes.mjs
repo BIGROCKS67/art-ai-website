@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { COMPLETED_SITES, WEBSITE_FAQS } from '../src/config/websitesOffer.js'
+import { results, systems, moreSystems } from '../src/data/portfolioWork.js'
 
 const dist = join(process.cwd(), 'dist')
 const indexPath = join(dist, 'index.html')
@@ -17,10 +18,21 @@ const routes = {
     title: 'Portfolio: websites, AI systems and search results | Shift AI',
     description: 'Screen recordings of the business systems we have built, the websites live on client domains, and two local firms now first on Google and Google’s AI.',
     article: `
-      <h1>Websites we’ve built.</h1>
-      <p>Design, build, and launch. Live sites shipped by Shift AI.</p>
+      <h1>Everything we’ve built, live or on screen.</h1>
+      <p>Websites live on client domains, business systems and AI apps, and the search results to show for it.</p>
+      <h2>Two clients now come first on Google and Google’s AI.</h2>
+      ${results.map((r) => `<h3>${r.name}, ${r.what}</h3>\n      <ul>${r.lines.map((l) => `<li>${l}</li>`).join('')}</ul>\n      <p>${r.date}</p>`).join('\n      ')}
+      <h2>Business systems, recorded on screen.</h2>
       <ul>
-        ${COMPLETED_SITES.map((site) => `<li><a href="${site.url}">${site.name}</a> — ${site.sector}</li>`).join('\n        ')}
+        ${systems.map((x) => `<li>${x.code} ${x.title}: ${x.body} ${x.status}.</li>`).join('\n        ')}
+      </ul>
+      <h2>More systems we’ve built.</h2>
+      <ul>
+        ${moreSystems.map((x) => `<li>${x.code} ${x.title}: ${x.line}</li>`).join('\n        ')}
+      </ul>
+      <h2>Every site and product we’ve shipped</h2>
+      <ul>
+        ${COMPLETED_SITES.map((site) => `<li><a href="${site.url}">${site.name}</a>, ${site.sector}</li>`).join('\n        ')}
       </ul>
       <p><a href="${SITE}/portfolio">https://shiftaitech.com/portfolio</a></p>
     `,
