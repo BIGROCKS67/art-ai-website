@@ -8,9 +8,8 @@ import { getActiveReferral } from './lib/referral'
 import './ReferPage.css'
 
 const RATE = 0.1
-const PDF_HREF = `${import.meta.env.BASE_URL}shift-what-we-build.pdf`
 
-/* Sections of the Shift sales catalogue, with the line an owner says that points to each. */
+/* What Shift builds, with the line an owner says that points to each. */
 const BUILDS = [
   {
     code: 'W',
@@ -446,9 +445,9 @@ export default function ReferPage() {
             </p>
             <div className="refer-actions">
               <a href="#refer-form" className="refer-btn">Pass on a business</a>
-              <a href={PDF_HREF} className="refer-link" target="_blank" rel="noopener">
-                See what we build (PDF, 2 MB)
-              </a>
+              <Link to="/portfolio" className="refer-link">
+                See what we’ve built
+              </Link>
             </div>
           </div>
           <RateCard />
@@ -473,12 +472,8 @@ export default function ReferPage() {
           <div className="refer-builds-head">
             <h2 id="refer-builds-title" className="refer-h2">What Shift builds</h2>
             <p>
-              If you hear a business owner say one of the lines in the right-hand column, they’re worth passing on. Our
-              catalogue has 25 real builds with screens, codes and the kind of business each one suits.
+              If you hear a business owner say one of the lines in the right-hand column, they’re worth passing on.
             </p>
-            <a href={PDF_HREF} className="refer-link" target="_blank" rel="noopener">
-              Download the catalogue (PDF, 22 pages)
-            </a>
           </div>
           <ul className="refer-index">
             {BUILDS.map((b) => (
@@ -570,7 +565,7 @@ export function ReferSentPage() {
           </p>
           <div className="refer-actions">
             <Link to="/refer#refer-form" className="refer-btn" reloadDocument>Pass on another business</Link>
-            <a href={PDF_HREF} className="refer-link" target="_blank" rel="noopener">See what we build (PDF)</a>
+            <Link to="/portfolio" className="refer-link">See what we’ve built</Link>
           </div>
         </div>
       </section>
