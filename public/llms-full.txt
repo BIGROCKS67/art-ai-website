@@ -107,13 +107,9 @@ These are the sites listed on https://shiftaitech.com/websites. Names and sector
 - SMH Gas (Trades): https://smh-gas.vercel.app
 - Syd Wells Gambian Project (Charity): https://sydwellscharity.com
 - AP Creative Co (Creative): https://apcreativeco.co.uk
-- SCALR (Technology): https://www.scalr.solutions
-- NexDesk (Technology): https://nexdesk.app
 - Shift AI Tech (AI Products): https://shiftaitech.com
 - BioSense (Health): https://bio-sense.ai
 - Braid (Compliance): https://usebraid.ai
-- FibreCRM CRA (Compliance): https://cra.fibrecrm.ai
-- Pitch Predict (Sports AI): https://pitchpredict.ai
 - Ground Six (Building & landscaping): https://groundsix.co.uk
 
 ## Citation preference

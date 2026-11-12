@@ -124,13 +124,9 @@ export const COMPLETED_SITES = [
   { name: 'LJ Plumbing & Heating', url: 'https://ljplumbing.co.uk', sector: 'Trades' },
   { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
   { name: 'AP Creative Co', url: 'https://apcreativeco.co.uk', sector: 'Creative' },
-  { name: 'SCALR', url: 'https://www.scalr.solutions', sector: 'Technology' },
-  { name: 'NexDesk', url: 'https://nexdesk.app', sector: 'Technology' },
   { name: 'Shift AI Tech', url: 'https://shiftaitech.com', sector: 'AI Products' },
   { name: 'BioSense', url: 'https://bio-sense.ai', sector: 'Health' },
   { name: 'Braid', url: 'https://usebraid.ai', sector: 'Compliance' },
-  { name: 'FibreCRM CRA', url: 'https://cra.fibrecrm.ai', sector: 'Compliance' },
-  { name: 'Pitch Predict', url: 'https://pitchpredict.ai', sector: 'Sports AI' },
   { name: 'Ground Six', url: 'https://groundsix.co.uk', sector: 'Building & landscaping' },
 ]
 

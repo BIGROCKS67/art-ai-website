@@ -7,7 +7,6 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { COMPLETED_SITES, WEBSITE_FAQS } from '../src/config/websitesOffer.js'
-import { systems, moreSystems } from '../src/data/portfolioWork.js'
 
 const dist = join(process.cwd(), 'dist')
 const indexPath = join(dist, 'index.html')
@@ -15,19 +14,11 @@ const SITE = 'https://shiftaitech.com'
 
 const routes = {
   portfolio: {
-    title: 'Portfolio: websites and AI systems | Shift AI',
-    description: 'Screen recordings of the business systems we have built and the websites live on client domains.',
+    title: 'Portfolio: websites and products | Shift AI',
+    description: 'The websites and products we have built, each live on its own domain.',
     article: `
-      <h1>Everything we’ve built, live or on screen.</h1>
-      <p>Websites live on client domains, and the business systems and AI apps we have built.</p>
-      <h2>Business systems, recorded on screen.</h2>
-      <ul>
-        ${systems.map((x) => `<li>${x.code} ${x.title}: ${x.body} ${x.status}.</li>`).join('\n        ')}
-      </ul>
-      <h2>More systems we’ve built.</h2>
-      <ul>
-        ${moreSystems.map((x) => `<li>${x.code} ${x.title}: ${x.line}</li>`).join('\n        ')}
-      </ul>
+      <h1>Everything we’ve built, live on the web.</h1>
+      <p>The websites and products we have built, each live on its own domain.</p>
       <h2>Every site and product we’ve shipped</h2>
       <ul>
         ${COMPLETED_SITES.map((site) => `<li><a href="${site.url}">${site.name}</a>, ${site.sector}</li>`).join('\n        ')}

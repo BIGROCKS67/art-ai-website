@@ -39,8 +39,8 @@ const BUILDS = [
   {
     code: 'A',
     title: 'AI tools for one slow job',
-    body: 'Software that takes a job that eats a day a week and does it in minutes: pricing tenders for contractors, anti-money-laundering checks for accountants, cash-flow plans for financial advisers.',
-    heard: 'Pricing a tender takes us a week.',
+    body: 'Software that takes a job that eats a day a week and does it in minutes, built around the way the business already works.',
+    heard: 'This job takes someone a day every week.',
   },
 ]
 
