@@ -14,8 +14,8 @@ const ROUTES = {
       'Shift AI is a technology studio that turns ambitious briefs into working AI products, automation, and digital products. United Kingdom.',
   },
   '/portfolio': {
-    title: 'Portfolio: websites, AI systems and search results | Shift AI',
-    description: 'Screen recordings of the business systems we have built, the websites live on client domains, and two local firms now first on Google and Google’s AI.',
+    title: 'Portfolio: websites and AI systems | Shift AI',
+    description: 'Screen recordings of the business systems we have built and the websites live on client domains.',
   },
   '/websites': {
     title: 'AI Websites That Rank & Convert | Shift AI Tech',
@@ -69,7 +69,7 @@ const ORGANIZATION = {
   logo: `${SITE}/shift-logo-new.png`,
   email: 'partnerships@shiftaitech.com',
   description:
-    'Shift AI Tech (Shift AI Technology Ltd, company 17159725) is a UK AI studio that builds custom AI models, agents, RAG pipelines, automation, full product builds, and websites for British businesses. Shipped work includes BioSense, the AML Intelligence Suite, and Deep Space. In 2024 the first models were funded with over $650,000. The same systems were later rebuilt with an 82% cut in development cost. Not Shift Technology (insurance AI), not Shift AI at shiftai.co.uk (automotive), not SHIFT AI LTD of Newcastle (17222733), and not other unrelated Shift AI brands.',
+    'Shift AI Tech (Shift AI Technology Ltd, company 17159725) is a UK AI studio that builds custom AI models, agents, RAG pipelines, automation, full product builds, and websites for British businesses. Shipped work includes BioSense and Deep Space. In 2024 the first models were funded with over $650,000. The same systems were later rebuilt with an 82% cut in development cost. Not Shift Technology (insurance AI), not Shift AI at shiftai.co.uk (automotive), not SHIFT AI LTD of Newcastle (17222733), and not other unrelated Shift AI brands.',
   foundingDate: '2024',
   identifier: {
     '@type': 'PropertyValue',
@@ -331,18 +331,6 @@ const WORK = {
         name: 'BioSense',
         url: 'https://bio-sense.ai/',
         description: 'Personal health intelligence from blood panels and wearables.',
-        creator: { '@id': `${SITE}/#organization` },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      item: {
-        '@type': 'SoftwareApplication',
-        name: 'AML Intelligence Suite',
-        url: 'https://usebraid.ai',
-        applicationCategory: 'BusinessApplication',
-        description: 'AML reporting that cuts compliance from days to hours.',
         creator: { '@id': `${SITE}/#organization` },
       },
     },

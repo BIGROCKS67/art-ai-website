@@ -1,39 +1,6 @@
 // Portfolio content. Codes match the printed Shift catalogue (shift-sales-brief),
 // so a buyer holding the PDF can find the same build here.
 
-export const results = [
-  {
-    name: 'Key Partnership Recruitment',
-    what: 'Recruitment agency, Stony Stratford',
-    url: 'https://ourkeypartnership.co.uk',
-    lines: [
-      'First in Google’s Businesses box for “recruitment stony stratford”, rated 5.0 from 47 reviews.',
-      'Ask Google’s AI for the best recruitment agency in Stony Stratford and it names them first.',
-      'Before our rebuild, search engines got an error from every page of their site.',
-    ],
-    shots: [
-      { src: '/proof/kp-places-top.jpg', w: 468, h: 278, label: 'Google: “recruitment stony stratford”', alt: 'Google Businesses box with Key Partnership Recruitment first, 5.0 from 47 reviews' },
-      { src: '/proof/kp-ai.jpg', w: 590, h: 230, label: 'Google’s AI: “best recruitment agency in Stony Stratford”', alt: 'Google AI Mode naming Key Partnership Recruitment as the highest-rated local agency' },
-    ],
-    date: 'Searched 4 November 2026',
-  },
-  {
-    name: 'Stone Bathrooms',
-    what: 'Bathroom installer, Milton Keynes',
-    url: 'https://stonebathrooms.uk',
-    lines: [
-      'First in Google’s map results when you search from Milton Keynes, rated 5.0.',
-      'Google’s AI describes the firm using the words from the site we built.',
-      'We set up their Google Business Profile from scratch alongside the site.',
-    ],
-    shots: [
-      { src: '/proof/g-places.jpg', w: 650, h: 165, label: 'Google Maps, searched from Milton Keynes', alt: 'Stone Bathrooms first in Google map results, 5.0 stars' },
-      { src: '/proof/g-ai.jpg', w: 1270, h: 230, label: 'Google’s AI Overview', alt: 'Google AI Overview describing Stone Bathrooms and the counties they cover' },
-    ],
-    date: 'Searched November 2026',
-  },
-]
-
 export const systems = [
   {
     code: 'A01',
@@ -93,15 +60,9 @@ export const moreSystems = [
 
 // Screenshots taken from the live sites. Newest first.
 export const siteShots = [
-  { name: 'Stone Bathrooms', sector: 'Bathroom installer, Milton Keynes', img: '/websites/stone-bathrooms.jpg', url: 'https://stonebathrooms.uk' },
-  { name: 'Key Partnership Recruitment', sector: 'Recruitment, Stony Stratford', img: '/websites/key-partnership.jpg', url: 'https://ourkeypartnership.co.uk' },
-  { name: 'DavisGT Engineering', sector: 'Battery safety consultancy', img: '/websites/davisgt.jpg', url: 'https://davisgtengineering.co.uk' },
-  { name: 'Sam’s Pet Services', sector: 'Pet care, Brackley', img: '/websites/sams-pet-services.jpg', url: 'https://samspetservices.com' },
-  { name: 'Peters Agricultural & Groundworks', sector: 'Groundworks, Silverstone', img: '/websites/peters-agri.jpg', url: 'https://petersagri.co.uk' },
   { name: 'A&D Roofing & Construction', sector: 'Roofing, Bicester', img: '/websites/ad-roofing.jpg', url: 'https://aanddroofingsolutions.com' },
   { name: 'Ground Six', sector: 'Building and landscaping', img: '/websites/ground-six.jpg', url: 'https://groundsix.co.uk' },
   { name: 'The Red Cow', sector: 'Village pub, Chesterton', img: '/websites/red-cow.jpg', url: 'https://theredcowchesterton.co.uk' },
   { name: 'Mixa Restaurant', sector: 'Restaurant', img: '/websites/mixa.jpg', url: 'https://www.mixarestaurant.com' },
   { name: 'Ready4Refurb', sector: 'Property', img: '/websites/ready4refurb.jpg', url: 'https://ready4refurb.com' },
-  { name: 'Scalpx Capital', sector: 'Finance', img: '/websites/scalpx.jpg', url: 'https://www.scalpxcapital.com' },
 ]

@@ -85,25 +85,13 @@ export const EXTRAS = [
   },
 ]
 
-/** Featured six — keep these as the primary showcase */
+/** Featured sites, the primary showcase */
 export const CASE_STUDIES = [
   {
     name: 'The Red Cow',
     url: 'https://theredcowchesterton.co.uk',
     sector: 'Hospitality',
     image: '/websites/red-cow.jpg',
-  },
-  {
-    name: 'Eagle AI Labs',
-    url: 'https://www.eagleailabs.com',
-    sector: 'Technology',
-    image: '/websites/eagle-ai.jpg',
-  },
-  {
-    name: 'Scalpx Capital',
-    url: 'https://www.scalpxcapital.com',
-    sector: 'Finance',
-    image: '/websites/scalpx.jpg',
   },
   {
     name: 'Shift AI Tech',
@@ -126,36 +114,23 @@ export const CASE_STUDIES = [
 
 /**
  * Full completed / shipped list for sales confidence.
- * Featured six appear again here so the bottom list reads as a full portfolio.
+ * Featured sites appear again here so the bottom list reads as a full portfolio.
  */
 export const COMPLETED_SITES = [
-  { name: 'Stone Bathrooms', url: 'https://stonebathrooms.uk', sector: 'Trades' },
-  { name: 'Key Partnership Recruitment', url: 'https://ourkeypartnership.co.uk', sector: 'Recruitment' },
-  { name: 'DavisGT Engineering', url: 'https://davisgtengineering.co.uk', sector: 'Engineering' },
-  { name: 'Peters Agricultural & Groundworks', url: 'https://petersagri.co.uk', sector: 'Groundworks' },
-  { name: 'Sam’s Pet Services', url: 'https://samspetservices.com', sector: 'Pet care' },
   { name: 'The Red Cow', url: 'https://theredcowchesterton.co.uk', sector: 'Hospitality' },
   { name: 'Mixa Restaurant', url: 'https://www.mixarestaurant.com', sector: 'Hospitality' },
-  { name: 'Wilf’s Kitchen', url: 'https://wilfskitchen.co.uk', sector: 'Food & drink' },
   { name: 'Ready4Refurb', url: 'https://ready4refurb.com', sector: 'Property' },
   { name: 'A&D Roofing & Construction', url: 'https://aanddroofingsolutions.com', sector: 'Trades' },
   { name: 'LJ Plumbing & Heating', url: 'https://ljplumbing.co.uk', sector: 'Trades' },
   { name: 'Syd Wells Gambian Project', url: 'https://sydwellscharity.com', sector: 'Charity' },
   { name: 'AP Creative Co', url: 'https://apcreativeco.co.uk', sector: 'Creative' },
-  { name: 'Eagle AI Labs', url: 'https://www.eagleailabs.com', sector: 'Technology' },
-  { name: 'Scalpx Capital', url: 'https://www.scalpxcapital.com', sector: 'Finance' },
   { name: 'SCALR', url: 'https://www.scalr.solutions', sector: 'Technology' },
   { name: 'NexDesk', url: 'https://nexdesk.app', sector: 'Technology' },
   { name: 'Shift AI Tech', url: 'https://shiftaitech.com', sector: 'AI Products' },
   { name: 'BioSense', url: 'https://bio-sense.ai', sector: 'Health' },
   { name: 'Braid', url: 'https://usebraid.ai', sector: 'Compliance' },
   { name: 'FibreCRM CRA', url: 'https://cra.fibrecrm.ai', sector: 'Compliance' },
-  { name: 'AML Intelligence', url: 'https://aml.shiftaitech.com', sector: 'Compliance' },
   { name: 'Pitch Predict', url: 'https://pitchpredict.ai', sector: 'Sports AI' },
-  { name: 'Zeus AI', url: 'https://zeusai.co.uk', sector: 'AI Products' },
-  { name: 'HyperFlowX', url: 'https://hyperflowx.com', sector: 'Trading' },
-  { name: 'FlowX Trade', url: 'https://flowx.trade', sector: 'Trading' },
-  { name: 'AlgoX', url: 'https://algox.ai', sector: 'Trading' },
   { name: 'Ground Six', url: 'https://groundsix.co.uk', sector: 'Building & landscaping' },
 ]
 

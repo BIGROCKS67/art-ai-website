@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { COMPLETED_SITES, WEBSITE_FAQS } from '../src/config/websitesOffer.js'
-import { results, systems, moreSystems } from '../src/data/portfolioWork.js'
+import { systems, moreSystems } from '../src/data/portfolioWork.js'
 
 const dist = join(process.cwd(), 'dist')
 const indexPath = join(dist, 'index.html')
@@ -15,13 +15,11 @@ const SITE = 'https://shiftaitech.com'
 
 const routes = {
   portfolio: {
-    title: 'Portfolio: websites, AI systems and search results | Shift AI',
-    description: 'Screen recordings of the business systems we have built, the websites live on client domains, and two local firms now first on Google and Google’s AI.',
+    title: 'Portfolio: websites and AI systems | Shift AI',
+    description: 'Screen recordings of the business systems we have built and the websites live on client domains.',
     article: `
       <h1>Everything we’ve built, live or on screen.</h1>
-      <p>Websites live on client domains, business systems and AI apps, and the search results to show for it.</p>
-      <h2>Two clients now come first on Google and Google’s AI.</h2>
-      ${results.map((r) => `<h3>${r.name}, ${r.what}</h3>\n      <ul>${r.lines.map((l) => `<li>${l}</li>`).join('')}</ul>\n      <p>${r.date}</p>`).join('\n      ')}
+      <p>Websites live on client domains, and the business systems and AI apps we have built.</p>
       <h2>Business systems, recorded on screen.</h2>
       <ul>
         ${systems.map((x) => `<li>${x.code} ${x.title}: ${x.body} ${x.status}.</li>`).join('\n        ')}

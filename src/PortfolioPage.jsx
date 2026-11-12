@@ -3,7 +3,7 @@ import '@fontsource/martian-mono/400.css'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { COMPLETED_SITES } from './config/websitesOffer'
-import { results, systems, moreSystems, siteShots } from './data/portfolioWork'
+import { systems, moreSystems, siteShots } from './data/portfolioWork'
 import './PortfolioPage.css'
 
 function host(url) {
@@ -72,46 +72,19 @@ export default function PortfolioPage() {
         <div className="folio-wrap">
           <h1>Everything we’ve built, live or on screen.</h1>
           <p className="folio-lede">
-            {COMPLETED_SITES.length} websites and products live on their own domains, {productCount} business systems and AI apps, and two local firms that now come first when their customers search.
+            {COMPLETED_SITES.length} websites and products live on their own domains and {productCount} business systems and AI apps.
           </p>
           <div className="folio-actions">
             <a className="folio-btn" href="/#contact">Start a project</a>
             <a className="folio-link" href="#systems">Watch the systems</a>
           </div>
           <nav className="folio-index" aria-label="On this page">
-            <a href="#results"><span>Search results</span><span>{results.length}</span></a>
             <a href="#systems"><span>Systems on video</span><span>{systems.length}</span></a>
             <a href="#more"><span>More systems</span><span>{moreSystems.length}</span></a>
             <a href="#websites"><span>Websites and products</span><span>{COMPLETED_SITES.length}</span></a>
           </nav>
         </div>
       </header>
-
-      <section id="results" className="folio-section">
-        <div className="folio-wrap">
-          <h2>Two clients now come first on Google and Google’s AI.</h2>
-          {results.map((r) => (
-            <article key={r.name} className="folio-result">
-              <div className="folio-result-text">
-                <h3><a href={r.url} target="_blank" rel="noopener noreferrer">{r.name}</a></h3>
-                <p className="folio-mono">{r.what}</p>
-                <ul>
-                  {r.lines.map((l) => <li key={l}>{l}</li>)}
-                </ul>
-                <p className="folio-mono">{r.date}</p>
-              </div>
-              <div className="folio-proof">
-                {r.shots.map((s) => (
-                  <figure key={s.src}>
-                    <figcaption className="folio-mono">{s.label}</figcaption>
-                    <img src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" />
-                  </figure>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
 
       <section id="systems" className="folio-section">
         <div className="folio-wrap">
